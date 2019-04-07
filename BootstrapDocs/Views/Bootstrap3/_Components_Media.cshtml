@@ -1,0 +1,184 @@
+﻿<div class="bs-docs-section">
+  <h1 id="media" class="page-header">媒體物件<!--Media object--></h1>
+
+    <p class="lead">
+        用以建置各種類型的元件（像是部落格留言、Twitter 訊息等）的抽象物件樣式，這些元件都有著在原文內容的左邊或右邊對齊的圖片。
+        <!--Abstract object styles for building various types of components (like blog comments, Tweets, etc) that feature a left- or right-aligned image alongside textual content.-->
+    </p>
+
+  <h3 id="media-default">預設媒體<!--Default media--></h3>
+    <p>
+        預設的媒體樣式允許在一個內容區塊的左邊或右邊浮動一個媒體物件（圖片、影片、音訊等）。
+        <!--The default media displays a media object (images, video, audio) to the left or right of a content block.-->
+    </p>
+  <div class="bs-example">
+    <div class="media">
+      <a class="media-left" href="#">
+        <img data-src="holder.js/64x64" alt="Generic placeholder image">
+      </a>
+      <div class="media-body">
+        <h4 class="media-heading">Media heading</h4>
+        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+      </div>
+    </div>
+    <div class="media">
+      <a class="media-left" href="#">
+        <img data-src="holder.js/64x64" alt="Generic placeholder image">
+      </a>
+      <div class="media-body">
+        <h4 class="media-heading">Media heading</h4>
+        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+        <div class="media">
+          <a class="media-left" href="#">
+            <img data-src="holder.js/64x64" alt="Generic placeholder image">
+          </a>
+          <div class="media-body">
+            <h4 class="media-heading">Nested media heading</h4>
+            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="media">
+      <div class="media-body">
+        <h4 class="media-heading">Media heading</h4>
+        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
+      </div>
+      <a class="media-right" href="#">
+        <img data-src="holder.js/64x64" alt="Generic placeholder image">
+      </a>
+    </div>
+    <div class="media">
+      <a class="media-left" href="#">
+        <img data-src="holder.js/64x64" alt="Generic placeholder image">
+      </a>
+      <div class="media-body">
+        <h4 class="media-heading">Media heading</h4>
+        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
+      </div>
+      <a class="media-right" href="#">
+        <img data-src="holder.js/64x64" alt="Generic placeholder image">
+      </a>
+    </div>
+  </div><!-- /.bs-example -->
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"media-left"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"..."</span> <span class="na">alt=</span><span class="s">"..."</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media-body"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;h4</span> <span class="na">class=</span><span class="s">"media-heading"</span><span class="nt">&gt;</span>Media heading<span class="nt">&lt;/h4&gt;</span>
+    ...
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></div>
+
+    <p>
+        <code>.pull-left</code> 和 <code>.pull-right</code> 類別還是存在並且還是媒體元件的一部分，但從 v3.3.0 開始不推薦使用。它們相當於 <code>.media-left</code> 和 <code>.media-right</code>，除了 <code>.media-right</code> 應該要放置於 HTML 的 <code>.media-body</code> 之後。
+        <!--The classes <code>.pull-left</code> and <code>.pull-right</code> also exist and were previously used as part of the media component, but are deprecated for that use as of v3.3.0. They are approximately equivalent to <code>.media-left</code> and <code>.media-right</code>, except that <code>.media-right</code> should be placed after the <code>.media-body</code> in the html.-->
+    </p>
+  <h3 id="media-alignment">媒體對齊<!--Media alignment--></h3>
+    <p>
+        圖片或其住媒體都能置頂對齊、置中對齊、置底對齊。預設是置頂對齊。
+        <!--The images or other media can be aligned top, middle, or bottom. The default is top aligned.-->
+    </p>
+  <div class="bs-example">
+    <div class="media">
+      <a class="media-left" href="#">
+        <img data-src="holder.js/64x64" alt="Generic placeholder image">
+      </a>
+      <div class="media-body">
+        <h4 class="media-heading">Top aligned media</h4>
+        <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+        <p>Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+      </div>
+    </div>
+    <div class="media">
+      <a class="media-left media-middle" href="#">
+        <img data-src="holder.js/64x64" alt="Generic placeholder image">
+      </a>
+      <div class="media-body">
+        <h4 class="media-heading">Middle aligned media</h4>
+        <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+        <p>Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+      </div>
+    </div>
+    <div class="media">
+      <a class="media-left media-bottom" href="#">
+        <img data-src="holder.js/64x64" alt="Generic placeholder image">
+      </a>
+      <div class="media-body">
+        <h4 class="media-heading">Bottom aligned media</h4>
+        <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+        <p>Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+      </div>
+    </div>
+  </div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"media-left media-middle"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;img</span> <span class="na">data-src=</span><span class="s">"..."</span> <span class="na">alt=</span><span class="s">"..."</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media-body"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;h4</span> <span class="na">class=</span><span class="s">"media-heading"</span><span class="nt">&gt;</span>Middle aligned media<span class="nt">&lt;/h4&gt;</span>
+    ...
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></div>
+
+  <h3 id="media-list">媒體清單<!--Media list--></h3>
+    <p>
+        僅需一些額外的標記，你就能在清單裡使用媒體物件（這在留言或文章清單非常有用）。
+        <!--With a bit of extra markup, you can use media inside list (useful for comment threads or articles lists).-->
+    </p>
+  <div class="bs-example">
+    <ul class="media-list">
+      <li class="media">
+        <a class="media-left" href="#">
+          <img data-src="holder.js/64x64" alt="Generic placeholder image">
+        </a>
+        <div class="media-body">
+          <h4 class="media-heading">Media heading</h4>
+          <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.</p>
+          <!-- Nested media object -->
+          <div class="media">
+            <a class="media-left" href="#">
+              <img data-src="holder.js/64x64" alt="Generic placeholder image">
+            </a>
+            <div class="media-body">
+              <h4 class="media-heading">Nested media heading</h4>
+              Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
+              <!-- Nested media object -->
+              <div class="media">
+                <a class="media-left" href="#">
+                  <img data-src="holder.js/64x64" alt="Generic placeholder image">
+                </a>
+                <div class="media-body">
+                  <h4 class="media-heading">Nested media heading</h4>
+                  Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Nested media object -->
+          <div class="media">
+            <a class="media-left" href="#">
+              <img data-src="holder.js/64x64" alt="Generic placeholder image">
+            </a>
+            <div class="media-body">
+              <h4 class="media-heading">Nested media heading</h4>
+              Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"media-list"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"media"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"media-left"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"..."</span> <span class="na">alt=</span><span class="s">"..."</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media-body"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;h4</span> <span class="na">class=</span><span class="s">"media-heading"</span><span class="nt">&gt;</span>Media heading<span class="nt">&lt;/h4&gt;</span>
+      ...
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span></code></pre></div>
+</div>

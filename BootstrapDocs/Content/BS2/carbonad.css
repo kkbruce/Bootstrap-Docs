@@ -1,0 +1,53 @@
+.carbonad{
+	background-color:#393939;
+	border:2px solid #E8E8E8;
+	height:118px;
+	line-height:1.2;
+	/*width:305px*/
+    width: 375px
+}
+
+.carbonad-img{
+	border:none;
+	display:inline;
+	float:left;
+	height:100px;
+	margin:9px;
+	/*width:130px*/
+    width:200px
+}
+
+.carbonad-text{
+	color:#8A8A8A;
+	display:inline-block;
+	font-family:Verdana;
+	font-size:11px;
+	font-weight:400;
+	height:60px;
+	margin-left:9px;
+	width:142px;
+	padding-top:13px
+}
+
+.carbonad-text a{
+	color:#FFF;
+	text-decoration:none;
+	text-transform:none;
+}
+
+.carbonad-tag{
+	color:#6A6A6A;
+	float:left;
+	font-family:Verdana;
+	font-size:11px;
+	font-weight:400;
+	margin-left:10px;
+	margin-top:13px;
+	text-align:center
+}
+
+.carbonad-tag a{
+	color:#6A6A6A;
+	text-decoration:none;
+	font-weight:700
+}

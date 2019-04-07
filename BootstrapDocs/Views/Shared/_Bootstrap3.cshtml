@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+
+<html lang="zh-Hant">
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="@ViewBag.Description">
+    <meta name="keywords" content="@ViewBag.Keywords">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="author" content="陳傳興">
+    <meta name="generator" content="Visual Studio" />
+    <title>@Html.Raw(ViewBag.Title) - KKBruce</title>
+
+    @* http://ogp.me/ *@
+    <meta property="og:url" content="@ViewBag.OgUrl" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="@Html.Raw(ViewBag.Title)" />
+    <meta property="og:image" content="@(ViewBag.Domain + Url.Content("~/Images/Books/ISBN_9789863472643_480x650.jpg"))" />
+    <meta property="og:description" content="@ViewBag.Description" />
+
+    @RenderSection("HeadMeta", required: false)
+
+    @* Bootstrap core CSS *@
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+    <link href="~/Content/AssetsBS3/BS3CSS.min.css?kkbruce=20151290847" rel="stylesheet" />
+    
+    <!--[if lt IE 9]>
+        <script src="~/Scripts/AssetsBS3/ie8-responsive-file-warning.min.js"></script>
+    <![endif]-->
+    <script src="~/Scripts/AssetsBS3/ie-emulation-modes-warning.min.js"></script>
+    
+    @* HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries *@
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    @* Favicons *@
+    <link rel="apple-touch-icon" href="~/Content/AssetsBS3/img/apple-touch-icon.png">
+    <link rel="icon" href="~/Content/AssetsBS3/img/favicon.ico">
+    <link href="//cdn.jsdelivr.net/sweetalert/0.1.2/sweet-alert.min.css" rel="stylesheet"/>
+
+    @RenderSection("HeadCSS", required: false)
+    @RenderSection("HeadJS", required: false)
+
+</head>
+<body data-twttr-rendered="true" class="bs-docs-home">
+    @* 巡覽列 *@
+    @RenderSection("navbar", required: true)
+
+    @RenderBody()
+
+    @* 留言版 *@
+    @*@Html.Partial("_DisqusPartial")*@
+
+    @* 尾頁 *@
+    @RenderSection("footer", required: true)
+
+    @* 載入 jQuery & Bootstrap 3 Core JavaScript *@
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <script src="//cdn.jsdelivr.net/jquery.lazyload/1.9.3/jquery.lazyload.min.js"></script>
+    <script src="//cdn.jsdelivr.net/sweetalert/0.1.2/sweet-alert.min.js"></script>
+<script src="~/Scripts/AssetsBS3/BS3JS.min.js?kkbruce=201501130444"></script>
+    
+    <script>
+        window.twttr = (function(d, s, id) {
+            var t, js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s);
+            js.id = id;
+            js.async = 1;
+            js.src = "https://platform.twitter.com/widgets.js";
+            fjs.parentNode.insertBefore(js, fjs);
+            return window.twttr || (t = { _e: [], ready: function(f) { t._e.push(f) } });
+        }(document, "script", "twitter-wjs"));
+    </script>
+
+<div data-original-title="Copy to clipboard" title="" style="position: absolute; left: 0px; top: -9999px; width: 15px; height: 15px; z-index: 999999999;" class="global-zeroclipboard-container" id="global-zeroclipboard-html-bridge">
+    <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" id="global-zeroclipboard-flash-bridge" height="100%" width="100%">
+        <param name="movie" value="~/Content/AssetsBS3/flash/ZeroClipboard.swf?noCache=1416817099159">
+        <param name="allowScriptAccess" value="sameDomain">
+        <param name="scale" value="exactfit">
+        <param name="loop" value="false">
+        <param name="menu" value="false">
+        <param name="quality" value="best">
+        <param name="bgcolor" value="#ffffff">
+        <param name="wmode" value="transparent">
+        <param name="flashvars" value="trustedOrigins=getbootstrap.com%2C%2F%2Fgetbootstrap.com%2Chttp%3A%2F%2Fgetbootstrap.com">
+        <embed src="~/Content/AssetsBS3/flash/ZeroClipboard.swf?noCache=1416817099159" loop="false" menu="false" quality="best" bgcolor="#ffffff" name="global-zeroclipboard-flash-bridge" allowscriptaccess="sameDomain" allowfullscreen="false" type="application/x-shockwave-flash" wmode="transparent" pluginspage="http://www.macromedia.com/go/getflashplayer" flashvars="trustedOrigins=getbootstrap.com%2C%2F%2Fgetbootstrap.com%2Chttp%3A%2F%2Fgetbootstrap.com" scale="exactfit" height="100%" width="100%">
+    </object>
+</div>
+
+    @RenderSection("scripts", required: false)
+
+    <script>
+      // Google Analytics
+    </script>
+</body>
+</html>

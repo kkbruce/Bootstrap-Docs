@@ -1,0 +1,20 @@
+﻿<div class="bs-docs-section">
+  <h1 id="transitions" class="page-header">轉場效果<!--Transitions--> <small>transition.js</small></h1>
+
+  <h3>關於轉場效果<!--About transitions--></h3>
+    <p>
+        簡單的轉場效果（transition），只要在參考其他 JavaScript 檔案時一同參考 <code>transition.js</code> 檔案即可。如果你參考的是已編譯（或最佳化）的 <code>bootstrap.js</code> 檔案就不需要再參考此檔案（<code>transition.js</code>），因為它已經包含在 <code>bootstrap.js</code> 檔案之中。
+        <!--For simple transition effects, include <code>transition.js</code> once alongside the other JS files. If you're using the compiled (or minified) <code>bootstrap.js</code>, there is no need to include this&mdash;it's already there.-->
+    </p>
+  <h3>含有什麼？<!--What's inside--></h3>
+    <p>
+        <code>transition.js</code> 是一個基本 <code>transitionEnd</code> 輔助程式以及 CSS 轉場效果模擬器。它是用來檢查其他外掛是否支援 CSS 轉場效果和擷取處理轉場效果。
+        <!--Transition.js is a basic helper for <code>transitionEnd</code> events as well as a CSS transition emulator. It's used by the other plugins to check for CSS transition support and to catch hanging transitions.-->
+    </p>
+</div>
+
+<div class="bs-callout bs-callout-warning">
+  <h4>譯者註</h4>
+    <p>這從文字比較不好理解什麼是轉場效果，可參考 CSS3 <a href="http://www.w3schools.com/css/css3_transitions.asp">transitions</a>。另外，從 <code>transition.js</code> 原始碼得知，此檔案只是做瀏覽器是否支援轉場效果的檢測（由 <a href="http://modernizr.com/">modernizr</a> 提供），主要是提供給 Bootstrap 其他有使用到轉場效果的外掛使用。</p>
+    <p>換句話說，只要你有獨立使用到 Bootstrap 任何 JavaScript 外掛，建議都將 <code>transition.js</code> 包含在內。</p>
+</div>  

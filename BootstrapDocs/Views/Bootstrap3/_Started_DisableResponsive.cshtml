@@ -1,0 +1,44 @@
+﻿<div class="bs-docs-section">
+    <h1 id="disable-responsive" class="page-header">取消自適應佈局<!--Disabling responsiveness--></h1>
+
+    <p class="lead">
+        Bootstrap 3 會自動調整頁面以適應不同尺寸的螢幕大小。
+        這裡討論如何取消自適應佈局的功能，類似 <a href="@Url.Action("Examples", "bs3", new { name = "non-responsive" })">非自適應 Bootstrap 3 範例</a>。
+        <!--Bootstrap automatically adapts your pages for various screen sizes.
+        Here's how to disable this feature so your page works like in <a href="examples/non-responsive/index.html">this non-responsive example</a>.-->
+    </p>
+
+    <h3>取消頁面自適應佈局步驟<!--Steps to disable page responsiveness--></h3>
+    <ol>
+        <li>
+            移除文件裡提及 viewport 的 <code>&lt;meta&gt;</code> @Html.ActionLink("CSS 籤標", "CSS", null, null, null, "overview-mobile", null, null)。
+            <!--Omit the viewport <code>&lt;meta&gt;</code> mentioned in <a href="css.html#overview-mobile">the CSS docs</a>-->
+        </li>
+        <li>
+            為 <code>.container</code> 類別設置一個 <code>width</code> 值以讓每層格線擁有單一寬度，例如： <code>width: 970px !important;</code>。請確保這些設置是放在預設 Bootstrap 3 CSS 設置之後。你可以在媒體查詢或某些選擇器中省略 <code>!important</code>。
+            <!--Override the <code>width</code> on the <code>.container</code> for each grid tier with a single width, for example <code>width: 970px !important;</code> Be sure that this comes after the default Bootstrap CSS. You can optionally avoid the <code>!important</code> with media queries or some selector-fu.-->
+        </li>
+        <li>
+            如果使用巡覽列，移除所有巡覽列折疊與展開的行為。
+            <!--If using navbars, remove all navbar collapsing and expanding behavior.-->
+        </li>
+        <li>
+            針對格線佈局，額外加入 <code>.col-xs-*</code> 類別（超小型設備）或是替換使用 <code>.col-md-*</code>（中型設備）或 <code>.col-lg-*</code>（大型設備） 類別。不用担心，對於超小型設備格線佈局能自動延展至所有解析度。
+            <!--For grid layouts, use <code>.col-xs-*</code> classes in addition to, or in place of, the medium/large ones. Don't worry, the extra-small device grid scales to all resolutions.-->
+        </li>
+    </ol>
+    <p>
+        對於 IE8 還是需要使用 Respond.js（因為我們還是使用了媒體查詢，因此還是需要處理）。這樣就取消了 Bootstrap 3 關於"行動網站"方面的支援。
+        <!--You'll still need Respond.js for IE8 (since our media queries are still there and need to be processed).This disables the "mobile site" aspects of Bootstrap.-->
+    </p>
+
+    <h3>取消自適應 Bootstrap 3 範本<!--Bootstrap template with responsiveness disabled--></h3>
+    <p>
+        我們按照上述步驟製作一份範本，詳細閱讀程式碼以瞭解明確異動的實作步驟。
+        <!--We've applied these steps to an example. Read its source code to see the specific changes implemented.-->
+    </p>
+    <p>
+        <a href="@Url.Action("Examples", "bs3", new { name = "non-responsive" })" class="btn btn-primary">瀏覽非自適應範例<!--View non-responsive example--></a>
+    </p>
+</div>
+

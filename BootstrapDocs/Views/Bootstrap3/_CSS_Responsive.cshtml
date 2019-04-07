@@ -1,0 +1,299 @@
+﻿<div class="bs-docs-section">
+  <h1 id="responsive-utilities" class="page-header">自適應工具類別<!--Responsive utilities--></h1>
+
+    <p class="lead">
+        為了快速進行行動友善的開發，使用以下的工具類別，能依照設備的可視區域與媒體查詢來顯示或隱藏內容。當列印時，工具類別也能輔助進行內容佈局（顯示或隱藏）。
+        <!--For faster mobile-friendly development, use these utility classes for showing and hiding content by device via media query. Also included are utility classes for toggling content when printed.-->
+    </p>
+    <p>
+        嘗試使用這些類別在有限的基礎上，並避免建立在同一網站上建立完全不同的版本。相反的，使用他們來輔助每一種設備的呈現。
+        <!--Try to use these on a limited basis and avoid creating entirely different versions of the same site. Instead, use them to complement each device's presentation.-->
+    </p>
+
+
+  <h2 id="responsive-utilities-classes">可用類別<!--Available classes--></h2>
+    <p>
+        透過單獨使用或組合這些可用類別，可以針對不同可視區域進行內容的顯示或隱藏切換。
+        <!--Use a single or combination of the available classes for toggling content across viewport breakpoints.-->
+    </p>
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped responsive-utilities">
+      <thead>
+        <tr>
+          <th></th>
+            <th>
+                超小螢幕設備
+                <small>手機（&lt;768px）</small>
+                <!--Extra small devices
+                <small>Phones (&lt;768px)</small>-->
+            </th>
+            <th>
+                小螢幕設備
+                <small>平板（&ge;768px）</small>
+                <!--Small devices
+                <small>Tablets (&ge;768px)</small>-->
+            </th>
+            <th>
+                中螢幕設備
+                <small>桌面（&ge;992px）</small>
+                <!--Medium devices
+                <small>Desktops (&ge;992px)</small>-->
+            </th>
+          <th>
+                大螢幕設備
+                <small>大桌面（&ge;1200px）</small>
+                <!--Large devices
+                <small>Desktops (&ge;1200px)</small>-->
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th><code>.visible-xs-*</code></th>
+          <td class="is-visible">顯示<!--Visible--></td>
+          <td class="is-hidden">隱藏<!--Hidden--></td>
+          <td class="is-hidden">隱藏<!--Hidden--></td>
+          <td class="is-hidden">隱藏<!--Hidden--></td>
+        </tr>
+        <tr>
+          <th><code>.visible-sm-*</code></th>
+          <td class="is-hidden">隱藏<!--Hidden--></td>
+          <td class="is-visible">顯示<!--Visible--></td>
+          <td class="is-hidden">隱藏<!--Hidden--></td>
+          <td class="is-hidden">隱藏<!--Hidden--></td>
+        </tr>
+        <tr>
+          <th><code>.visible-md-*</code></th>
+          <td class="is-hidden">隱藏<!--Hidden--></td>
+          <td class="is-hidden">隱藏<!--Hidden--></td>
+          <td class="is-visible">顯示<!--Visible--></td>
+          <td class="is-hidden">隱藏<!--Hidden--></td>
+        </tr>
+        <tr>
+          <th><code>.visible-lg-*</code></th>
+          <td class="is-hidden">隱藏<!--Hidden--></td>
+          <td class="is-hidden">隱藏<!--Hidden--></td>
+          <td class="is-hidden">隱藏<!--Hidden--></td>
+          <td class="is-visible">顯示<!--Visible--></td>
+        </tr>
+      </tbody>
+      <tbody>
+        <tr>
+          <th><code>.hidden-xs</code></th>
+          <td class="is-hidden">隱藏<!--Hidden--></td>
+          <td class="is-visible">顯示<!--Visible--></td>
+          <td class="is-visible">顯示<!--Visible--></td>
+          <td class="is-visible">顯示<!--Visible--></td>
+        </tr>
+        <tr>
+          <th><code>.hidden-sm</code></th>
+          <td class="is-visible">顯示<!--Visible--></td>
+          <td class="is-hidden">隱藏<!--Hidden--></td>
+          <td class="is-visible">顯示<!--Visible--></td>
+          <td class="is-visible">顯示<!--Visible--></td>
+        </tr>
+        <tr>
+          <th><code>.hidden-md</code></th>
+          <td class="is-visible">顯示<!--Visible--></td>
+          <td class="is-visible">顯示<!--Visible--></td>
+          <td class="is-hidden">隱藏<!--Hidden--></td>
+          <td class="is-visible">顯示<!--Visible--></td>
+        </tr>
+        <tr>
+          <th><code>.hidden-lg</code></th>
+          <td class="is-visible">顯示<!--Visible--></td>
+          <td class="is-visible">顯示<!--Visible--></td>
+          <td class="is-visible">顯示<!--Visible--></td>
+          <td class="is-hidden">隱藏<!--Hidden--></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+    <p>
+        從 v3.2.0 開始，<code>.visible-*-*</code> 的類別在每一個可視區域的判斷點上都有三種變化，每一種變化都是針對 CSS 的 <code>display</code> 屬性，列表如下：
+        <!--As of v3.2.0, the <code>.visible-*-*</code> classes for each breakpoint come in three variations, one for each CSS <code>display</code> property value listed below.-->
+    </p>
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>類別群組<!--Group of classes--></th>
+          <th>CSS <code>display</code> 值<!--CSS <code>display</code>--></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>.visible-*-block</code></td>
+          <td><code>display: block;</code></td>
+        </tr>
+        <tr>
+          <td><code>.visible-*-inline</code></td>
+          <td><code>display: inline;</code></td>
+        </tr>
+        <tr>
+          <td><code>.visible-*-inline-block</code></td>
+          <td><code>display: inline-block;</code></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+    <p>
+        以超小螢幕（<code>xs</code>）設備為例，可用的 <code>.visible-*-*</code> 類別有：<code>.visible-xs-block</code>、<code>.visible-xs-inline</code> 和 <code>.visible-xs-inline-block</code>。
+        <!--So, for extra small (<code>xs</code>) screens for example, the available <code>.visible-*-*</code> classes are: <code>.visible-xs-block</code>, <code>.visible-xs-inline</code>, and <code>.visible-xs-inline-block</code>.-->
+    </p>
+    <p>
+        <code>.visible-xs</code>、<code>.visible-sm</code>、<code>.visible-md</code> 和 <code>.visible-lg</code> 類別依然存在，但<strong>從 v3.2.0 開始不再推薦使用。</strong>除了切換 <code>&lt;table&gt;</code> 相關元素的特別情況下，它們大致上與 <code>.visible-*-block</code> 類別相同。
+        <!--The classes <code>.visible-xs</code>, <code>.visible-sm</code>, <code>.visible-md</code>, and <code>.visible-lg</code> also exist, but are <strong>deprecated as of v3.2.0</strong>. They are approximately equivalent to <code>.visible-*-block</code>, except with additional special cases for toggling <code>&lt;table&gt;</code>-related elements.-->
+    </p>
+
+  <h2 id="responsive-utilities-print">列印類別<!--Print classes--></h2>
+    <p>
+        與正規的自適應類別相似，使用以下類別在列印時進行內容的切換。
+        <!--Similar to the regular responsive classes, use these for toggling content for print.-->
+    </p>
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped responsive-utilities">
+      <thead>
+        <tr>
+          <th>類別<!--Classes--></th>
+          <th>瀏覽器<!--Browser--></th>
+          <th>列印<!--Print--></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>
+            <code>.visible-print-block</code><br>
+            <code>.visible-print-inline</code><br>
+            <code>.visible-print-inline-block</code>
+          </th>
+          <td class="is-hidden">隱藏<!--Hidden--></td>
+          <td class="is-visible">顯示<!--Visible--></td>
+        </tr>
+        <tr>
+          <th><code>.hidden-print</code></th>
+          <td class="is-visible">顯示<!--Visible--></td>
+          <td class="is-hidden">隱藏<!--Hidden--></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+    <p>
+        <code>.visible-print</code> 類別依然存在，但從 v3.2.0 開始<strong>不再推薦</strong>使用。除了切換 <code>&lt;table&gt;</code> 相關元素的特別情況下，它們大致上與 <code>.visible-print-block</code> 類別相同。
+        <!--The class <code>.visible-print</code> also exists but is <strong>deprecated</strong> as of v3.2.0. It is approximately equivalent to <code>.visible-print-block</code>, except with additional special cases for <code>&lt;table&gt;</code>-related elements.-->
+    </p>
+
+
+  <h2 id="responsive-utilities-tests">測試情境<!--Test cases--></h2>
+    <p>
+        調整你的瀏覽器大小或在不同設備載入頁面，以測試這些自適應工具類別。
+        <!--Resize your browser or load on different devices to test the responsive utility classes.-->
+    </p>
+
+  <h3>在...可見<!--Visible on...--></h3>
+    <p>
+        帶有綠色勾選標記的元素是指出你目前當下可視區域會被<strong>顯示</strong>的區域。
+        <!--Green checkmarks indicate the element <strong>is visible</strong> in your current viewport.-->
+    </p>
+  <div class="row responsive-utilities-test visible-on">
+    <div class="col-xs-6 col-sm-3">
+      <span class="hidden-xs">超小螢幕<!--Extra small--></span>
+      <span class="visible-xs-block">&#10004; 在超小螢幕顯示<!--Visible on x-small--></span>
+    </div>
+    <div class="col-xs-6 col-sm-3">
+      <span class="hidden-sm">小螢幕<!--Small--></span>
+      <span class="visible-sm-block">&#10004; 在小螢幕顯示<!--Visible on small--></span>
+    </div>
+    <div class="clearfix visible-xs-block"></div>
+    <div class="col-xs-6 col-sm-3">
+      <span class="hidden-md">中螢幕<!--Medium--></span>
+      <span class="visible-md-block">&#10004; 在中螢幕顯示<!--Visible on medium--></span>
+    </div>
+    <div class="col-xs-6 col-sm-3">
+      <span class="hidden-lg">大螢幕<!--Large--></span>
+      <span class="visible-lg-block">&#10004; 在大螢幕顯示<!--Visible on large--></span>
+    </div>
+  </div>
+  <div class="row responsive-utilities-test visible-on">
+    <div class="col-xs-6">
+      <span class="hidden-xs hidden-sm">超小螢幕和小螢幕<!--Extra small and small--></span>
+      <span class="visible-xs-block visible-sm-block">&#10004; 在超小螢幕和小螢幕顯示<!--Visible on x-small and small--></span>
+    </div>
+    <div class="col-xs-6">
+      <span class="hidden-md hidden-lg">中螢幕和大螢幕<!--Medium and large--></span>
+      <span class="visible-md-block visible-lg-block">&#10004; 在中螢幕和大螢幕顯示<!--Visible on medium and large--></span>
+    </div>
+    <div class="clearfix visible-xs-block"></div>
+    <div class="col-xs-6">
+      <span class="hidden-xs hidden-md">超小螢幕和中螢幕<!--Extra small and medium--></span>
+      <span class="visible-xs-block visible-md-block">&#10004; 在超小螢幕中螢幕顯示<!--Visible on x-small and medium--></span>
+    </div>
+    <div class="col-xs-6">
+      <span class="hidden-sm hidden-lg">小螢幕和大螢幕<!--Small and large--></span>
+      <span class="visible-sm-block visible-lg-block">&#10004; 在小螢幕和大螢幕顯示<!--Visible on small and large--></span>
+    </div>
+    <div class="clearfix visible-xs-block"></div>
+    <div class="col-xs-6">
+      <span class="hidden-xs hidden-lg">超小螢幕和大螢幕<!--Extra small and large--></span>
+      <span class="visible-xs-block visible-lg-block">&#10004; 在超小螢幕和大螢幕顯示<!--Visible on x-small and large--></span>
+    </div>
+    <div class="col-xs-6">
+      <span class="hidden-sm hidden-md">小螢幕和中螢幕<!--Small and medium--></span>
+      <span class="visible-sm-block visible-md-block">&#10004; 在小螢幕和中螢幕顯示<!--Visible on small and medium--></span>
+    </div>
+  </div>
+
+  <h3>在...隱藏<!--Hidden on...--></h3>
+    <p>
+        這裡，帶有綠色勾選標記的元素是指出你目前當下可視區域會被<strong>隱藏</strong>的區域。
+        <!--Here, green checkmarks also indicate the element <strong>is hidden</strong> in your current viewport.-->
+    </p>
+  <div class="row responsive-utilities-test hidden-on">
+    <div class="col-xs-6 col-sm-3">
+      <span class="hidden-xs">超小螢幕<!--Extra small--></span>
+      <span class="visible-xs-block">&#10004; 在超小螢幕隱藏<!--Hidden on x-small--></span>
+    </div>
+    <div class="col-xs-6 col-sm-3">
+      <span class="hidden-sm">小螢幕<!--Small--></span>
+      <span class="visible-sm-block">&#10004; 在小螢幕隱藏<!--Hidden on small--></span>
+    </div>
+    <div class="clearfix visible-xs-block"></div>
+    <div class="col-xs-6 col-sm-3">
+      <span class="hidden-md">中螢幕<!--Medium--></span>
+      <span class="visible-md-block">&#10004; 在中螢幕隱藏<!--Hidden on medium--></span>
+    </div>
+    <div class="col-xs-6 col-sm-3">
+      <span class="hidden-lg">大螢幕<!--Large--></span>
+      <span class="visible-lg-block">&#10004; 在大螢幕隱藏<!--Hidden on large--></span>
+    </div>
+  </div>
+  <div class="row responsive-utilities-test hidden-on">
+    <div class="col-xs-6">
+      <span class="hidden-xs hidden-sm">超小螢幕和小螢幕<!--Extra small and small--></span>
+      <span class="visible-xs-block visible-sm-block">&#10004; 在超小螢幕和小螢幕隱藏<!--Hidden on x-small and small--></span>
+    </div>
+    <div class="col-xs-6">
+      <span class="hidden-md hidden-lg">中螢幕和大螢幕<!--Medium and large--></span>
+      <span class="visible-md-block visible-lg-block">&#10004; 在中螢幕和大螢幕隱藏<!--Hidden on medium and large--></span>
+    </div>
+    <div class="clearfix visible-xs-block"></div>
+    <div class="col-xs-6">
+      <span class="hidden-xs hidden-md">超小螢幕和中螢幕<!--Extra small and medium--></span>
+      <span class="visible-xs-block visible-md-block">&#10004; 在超小螢幕和中螢幕隱藏<!--Hidden on x-small and medium--></span>
+    </div>
+    <div class="col-xs-6">
+      <span class="hidden-sm hidden-lg">小螢幕和大螢幕<!--Small and large--></span>
+      <span class="visible-sm-block visible-lg-block">&#10004; 在小螢幕和大螢幕隱藏<!--Hidden on small and large--></span>
+    </div>
+    <div class="clearfix visible-xs-block"></div>
+    <div class="col-xs-6">
+      <span class="hidden-xs hidden-lg">超小螢幕和大螢幕<!--Extra small and large--></span>
+      <span class="visible-xs-block visible-lg-block">&#10004; 在超小螢幕和大螢幕隱藏<!--Hidden on x-small and large--></span>
+    </div>
+    <div class="col-xs-6">
+      <span class="hidden-sm hidden-md">小螢幕和中螢幕<!--Small and medium--></span>
+      <span class="visible-sm-block visible-md-block">&#10004; 在小螢幕和中螢幕隱藏<!--Hidden on small and medium--></span>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,484 @@
+﻿<div class="bs-docs-section">
+  <h1 id="tables" class="page-header">表格<!--Tables--></h1>
+
+  <h2 id="tables-example">基本範例<!--Basic example--></h2>
+    <p>
+        為任何 <code>&lt;table&gt;</code> 增加基本類別 <code>.table</code>，會有少量的內距（padding）和水平分隔線等基本樣式。這看起來像是多餘的，但考慮到表格相當廣泛與其他外掛配合使用，例如，日曆和日期選擇器，我們偏向於獨立出我們自訂的表格樣式。
+        <!--For basic styling&mdash;light padding and only horizontal dividers&mdash;add the base class <code>.table</code> to any <code>&lt;table&gt;</code>. It may seem super redundant, but given the widespread use of tables for other plugins like calendars and date pickers, we've opted to isolate our custom table styles.-->
+    </p>
+  <div class="bs-example">
+    <table class="table">
+      <caption>Optional table caption.</caption>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Username</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Mark</td>
+          <td>Otto</td>
+          <td>@@mdo</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Jacob</td>
+          <td>Thornton</td>
+          <td>@@fat</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Larry</td>
+          <td>the Bird</td>
+          <td>@@twitter</td>
+        </tr>
+      </tbody>
+    </table>
+  </div><!-- /example -->
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;table</span> <span class="na">class=</span><span class="s">"table"</span><span class="nt">&gt;</span>
+  ...
+<span class="nt">&lt;/table&gt;</span></code></pre></div>
+
+
+  <h2 id="tables-striped">條紋式 row<!--Striped rows--></h2>
+    <p>
+        使用 <code>.table-striped</code> 類別，可以為表格的 <code>&lt;tbody&gt;</code> 加入像斑馬條紋的樣式。
+        <!--Use <code>.table-striped</code> to add zebra-striping to any table row within the <code>&lt;tbody&gt;</code>.-->
+    </p>
+  <div class="bs-callout bs-callout-danger">
+    <h4>跨瀏覽器相容性<!--Cross-browser compatibility--></h4>
+      <p>
+          條紋式表格是經由 <code>:nth-child</code> CSS 選擇器來實現，它不被 Internet Explorer 8 支援。
+          <!--Striped tables are styled via the <code>:nth-child</code> CSS selector, which is not available in Internet Explorer 8.-->
+      </p>
+  </div>
+  <div class="bs-example">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Username</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Mark</td>
+          <td>Otto</td>
+          <td>@@mdo</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Jacob</td>
+          <td>Thornton</td>
+          <td>@@fat</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Larry</td>
+          <td>the Bird</td>
+          <td>@@twitter</td>
+        </tr>
+      </tbody>
+    </table>
+  </div><!-- /example -->
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;table</span> <span class="na">class=</span><span class="s">"table table-striped"</span><span class="nt">&gt;</span>
+  ...
+<span class="nt">&lt;/table&gt;</span></code></pre></div>
+
+
+  <h2 id="tables-bordered">邊框表格<!--Bordered table--></h2>
+    <p>
+        加入 <code>.table-bordered</code> 類別，為表格和所有儲存格（cell）的四邊都加入邊框效果。
+        <!--Add <code>.table-bordered</code> for borders on all sides of the table and cells.-->
+    </p>
+  <div class="bs-example">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Username</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td rowspan="2">1</td>
+          <td>Mark</td>
+          <td>Otto</td>
+          <td>@@mdo</td>
+        </tr>
+        <tr>
+          <td>Mark</td>
+          <td>Otto</td>
+          <td>@@TwBootstrap</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Jacob</td>
+          <td>Thornton</td>
+          <td>@@fat</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td colspan="2">Larry the Bird</td>
+          <td>@@twitter</td>
+        </tr>
+      </tbody>
+    </table>
+  </div><!-- /example -->
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;table</span> <span class="na">class=</span><span class="s">"table table-bordered"</span><span class="nt">&gt;</span>
+  ...
+<span class="nt">&lt;/table&gt;</span></code></pre></div>
+
+
+  <h2 id="tables-hover-rows">移入 row<!--Hover rows--></h2>
+    <p>
+        加入 <code>.table-hover</code> 類別，可以為表格 <code>&lt;tbody&gt;</code> 裡的 row 加入對滑鼠移入（hover）移出作顏色反差的效果。
+        <!--Add <code>.table-hover</code> to enable a hover state on table rows within a <code>&lt;tbody&gt;</code>.-->
+    </p>
+  <div class="bs-example">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Username</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Mark</td>
+          <td>Otto</td>
+          <td>@@mdo</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Jacob</td>
+          <td>Thornton</td>
+          <td>@@fat</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td colspan="2">Larry the Bird</td>
+          <td>@@twitter</td>
+        </tr>
+      </tbody>
+    </table>
+  </div><!-- /example -->
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;table</span> <span class="na">class=</span><span class="s">"table table-hover"</span><span class="nt">&gt;</span>
+  ...
+<span class="nt">&lt;/table&gt;</span></code></pre></div>
+
+
+  <h2 id="tables-condensed">緊湊表格<!--Condensed table--></h2>
+    <p>
+        加入 <code>.table-condensed</code> 類別，將表格儲存格（cell）的內距（padding）減半，讓表格更加緊湊。
+        <!--Add <code>.table-condensed</code> to make tables more compact by cutting cell padding in half.-->
+    </p>
+  <div class="bs-example">
+    <table class="table table-condensed">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Username</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Mark</td>
+          <td>Otto</td>
+          <td>@@mdo</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Jacob</td>
+          <td>Thornton</td>
+          <td>@@fat</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td colspan="2">Larry the Bird</td>
+          <td>@@twitter</td>
+        </tr>
+      </tbody>
+    </table>
+  </div><!-- /example -->
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;table</span> <span class="na">class=</span><span class="s">"table table-condensed"</span><span class="nt">&gt;</span>
+  ...
+<span class="nt">&lt;/table&gt;</span></code></pre></div>
+
+
+  <h2 id="tables-contextual-classes">狀態類別<!--Contextual classes--></h2>
+    <p>
+        使用狀態類別可以為表格的 row 或單獨的儲存格（cell）設置顏色。
+        <!--Use contextual classes to color table rows or individual cells.-->
+    </p>
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped">
+      <colgroup>
+        <col class="col-xs-1">
+        <col class="col-xs-7">
+      </colgroup>
+      <thead>
+        <tr>
+          <th>類別<!--Class--></th>
+          <th>說明<!--Description--></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <code>.active</code>
+          </td>
+          <td>當滑鼠移入某個 row 或儲存格（cell）時設置顏色。<!--Applies the hover color to a particular row or cell--></td>
+        </tr>
+        <tr>
+          <td>
+            <code>.success</code>
+          </td>
+          <td>指出一個成功或積極的動作。<!--Indicates a successful or positive action--></td>
+        </tr>
+        <tr>
+          <td>
+            <code>.info</code>
+          </td>
+          <td><!--Indicates a neutral informative change or action--></td>
+        </tr>
+        <tr>
+          <td>
+            <code>.warning</code>
+          </td>
+          <td>指出一個需要注意的警告。<!--Indicates a warning that might need attention--></td>
+        </tr>
+        <tr>
+          <td>
+            <code>.danger</code>
+          </td>
+          <td>指出一個危險或潛在有害的行為。<!--Indicates a dangerous or potentially negative action--></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="bs-example">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Column heading</th>
+          <th>Column heading</th>
+          <th>Column heading</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="active">
+          <td>1</td>
+          <td>Column content</td>
+          <td>Column content</td>
+          <td>Column content</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Column content</td>
+          <td>Column content</td>
+          <td>Column content</td>
+        </tr>
+        <tr class="success">
+          <td>3</td>
+          <td>Column content</td>
+          <td>Column content</td>
+          <td>Column content</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Column content</td>
+          <td>Column content</td>
+          <td>Column content</td>
+        </tr>
+        <tr class="info">
+          <td>5</td>
+          <td>Column content</td>
+          <td>Column content</td>
+          <td>Column content</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>Column content</td>
+          <td>Column content</td>
+          <td>Column content</td>
+        </tr>
+        <tr class="warning">
+          <td>7</td>
+          <td>Column content</td>
+          <td>Column content</td>
+          <td>Column content</td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>Column content</td>
+          <td>Column content</td>
+          <td>Column content</td>
+        </tr>
+        <tr class="danger">
+          <td>9</td>
+          <td>Column content</td>
+          <td>Column content</td>
+          <td>Column content</td>
+        </tr>
+      </tbody>
+    </table>
+  </div><!-- /example -->
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- 在 row 設置<!--On rows--> --&gt;</span>
+<span class="nt">&lt;tr</span> <span class="na">class=</span><span class="s">"active"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/tr&gt;</span>
+<span class="nt">&lt;tr</span> <span class="na">class=</span><span class="s">"success"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/tr&gt;</span>
+<span class="nt">&lt;tr</span> <span class="na">class=</span><span class="s">"warning"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/tr&gt;</span>
+<span class="nt">&lt;tr</span> <span class="na">class=</span><span class="s">"danger"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/tr&gt;</span>
+<span class="nt">&lt;tr</span> <span class="na">class=</span><span class="s">"info"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/tr&gt;</span>
+
+<span class="c">&lt;!-- 在儲存格（`td` 或 `th`）設置<!--On cells (`td` or `th`)--> --&gt;</span>
+<span class="nt">&lt;tr&gt;</span>
+  <span class="nt">&lt;td</span> <span class="na">class=</span><span class="s">"active"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/td&gt;</span>
+  <span class="nt">&lt;td</span> <span class="na">class=</span><span class="s">"success"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/td&gt;</span>
+  <span class="nt">&lt;td</span> <span class="na">class=</span><span class="s">"warning"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/td&gt;</span>
+  <span class="nt">&lt;td</span> <span class="na">class=</span><span class="s">"danger"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/td&gt;</span>
+  <span class="nt">&lt;td</span> <span class="na">class=</span><span class="s">"info"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/td&gt;</span>
+<span class="nt">&lt;/tr&gt;</span></code></pre></div>
+  <div class="bs-callout bs-callout-warning">
+    <h4>傳達意義至輔助技術<!--Conveying meaning to assistive technologies--></h4>
+      <p>
+          使用顏色加入到表格的 row 或單獨的儲存格（cell）僅是提供視覺效果上的含義，這不會被傳達至輔助技術的使用者 - 例如：螢幕閱讀器。請確保顏色所表示的訊息從內容本身上是顯而易見的（在相關 row / cell 可見的文字），或是通過其他的方式來傳達，例如，額外 <code>.sr-only</code> 類別的隱藏文字。
+          <!--Using color to add meaning to a table row or individual cell only provides a visual indication, which will not be conveyed to users of assistive technologies – such as screen readers. Ensure that information denoted by the color is either obvious from the content itself (the visible text in the relevant table row/cell), or is included through alternative means, such as additional text hidden with the <code>.sr-only</code> class.-->
+      </p>
+  </div>
+
+  <h2 id="tables-responsive">自適應表格<!--Responsive tables--></h2>
+    <p>
+        將任何 <code>.table</code> 包裝在 <code>.table-responsive</code> 之內，以建立自適應表格，它能讓表格在小螢幕設備（小於 768px）進行水平式的滑動。當你在任何大於 768px 的螢幕寬度觀看時，並不會和平常有何不同。
+        <!--Create responsive tables by wrapping any <code>.table</code> in <code>.table-responsive</code> to make them scroll horizontally on small devices (under 768px). When viewing on anything larger than 768px wide, you will not see any difference in these tables.-->
+    </p>
+
+  <div class="bs-callout bs-callout-warning">
+    <h4>Firefox 和 fieldset 元素<!--Firefox and fieldsets--></h4>
+      <p>
+          Firefox 在 <code>fieldset</code> 樣式有些尷尬，它在涉及 <code>width</code> 的設置對自適應表格會造成干擾。這無法在非 Firefox 特定的 hack 被覆寫，因此，我們<strong>不在</strong> Bootstrap 3 裡提供。可以自行使用以下程式碼修正：
+          <!--Firefox has some awkward fieldset styling involving <code>width</code> that interferes with the responsive table. This cannot be overriden without a Firefox-specific hack that we <strong>don't</strong> provide in Bootstrap:-->
+      </p>
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="k">@@-moz-document</span> <span class="n">url-prefix</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nt">fieldset</span> <span class="p">{</span> <span class="nl">display</span><span class="p">:</span> <span class="nb">table-cell</span><span class="p">;</span> <span class="p">}</span>
+<span class="p">}</span></code></pre></div>
+      <p>
+          更多資訊，請參考 <a href="http://stackoverflow.com/questions/17408815/fieldset-resizes-wrong-appears-to-have-unremovable-min-width-min-content/17863685#17863685">這篇 Stack Overflow 回答</a>。
+          <!--For more information, read <a href="http://stackoverflow.com/questions/17408815/fieldset-resizes-wrong-appears-to-have-unremovable-min-width-min-content/17863685#17863685">this Stack Overflow answer</a>.-->
+      </p>
+  </div>
+
+  <div class="bs-example">
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Table heading</th>
+            <th>Table heading</th>
+            <th>Table heading</th>
+            <th>Table heading</th>
+            <th>Table heading</th>
+            <th>Table heading</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Table cell</td>
+            <td>Table cell</td>
+            <td>Table cell</td>
+            <td>Table cell</td>
+            <td>Table cell</td>
+            <td>Table cell</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Table cell</td>
+            <td>Table cell</td>
+            <td>Table cell</td>
+            <td>Table cell</td>
+            <td>Table cell</td>
+            <td>Table cell</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Table cell</td>
+            <td>Table cell</td>
+            <td>Table cell</td>
+            <td>Table cell</td>
+            <td>Table cell</td>
+            <td>Table cell</td>
+          </tr>
+        </tbody>
+      </table>
+    </div><!-- /.table-responsive -->
+
+    <div class="table-responsive">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Table heading</th>
+            <th>Table heading</th>
+            <th>Table heading</th>
+            <th>Table heading</th>
+            <th>Table heading</th>
+            <th>Table heading</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Table cell</td>
+            <td>Table cell</td>
+            <td>Table cell</td>
+            <td>Table cell</td>
+            <td>Table cell</td>
+            <td>Table cell</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Table cell</td>
+            <td>Table cell</td>
+            <td>Table cell</td>
+            <td>Table cell</td>
+            <td>Table cell</td>
+            <td>Table cell</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Table cell</td>
+            <td>Table cell</td>
+            <td>Table cell</td>
+            <td>Table cell</td>
+            <td>Table cell</td>
+            <td>Table cell</td>
+          </tr>
+        </tbody>
+      </table>
+    </div><!-- /.table-responsive -->
+  </div><!-- /example -->
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"table-responsive"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;table</span> <span class="na">class=</span><span class="s">"table"</span><span class="nt">&gt;</span>
+    ...
+  <span class="nt">&lt;/table&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></div>
+</div>
+

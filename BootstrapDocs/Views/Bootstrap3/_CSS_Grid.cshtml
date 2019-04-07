@@ -1,0 +1,632 @@
+﻿<div class="bs-docs-section">
+  <h1 id="grid" class="page-header">格線系統<!--Grid system--></h1>
+
+    <p class="lead">
+        Bootstrap 3 包含自適應功能，以行動優先的流動格線系統，並且隨著設備或可視區域大小縮放，格線系統會自動擴大最大至 12 個欄位。它包含易於佈局的<a href="#grid-example-basic">預定義類別</a>選項，以及用於產生更有語義佈局的強大 <a href="#grid-less">mixins</a>。
+        <!--Bootstrap includes a responsive, mobile first fluid grid system that appropriately scales up to 12 columns as the device or viewport size increases. It includes <a href="#grid-example-basic">predefined classes</a> for easy layout options, as well as powerful <a href="#grid-less">mixins for generating more semantic layouts</a>.-->
+    </p>
+
+  <h3 id="grid-intro">前言<!--Introduction--></h3>
+    <p>
+        格線系統使用一系列的行（row，橫向）和列（column，直向）來建立出網頁的佈局並容納你的內容。以下是 Bootstrap 3 的工作原理：
+        <!--Grid systems are used for creating page layouts through a series of rows and columns that house your content. Here's how the Bootstrap grid system works:-->
+    </p>
+    
+  <div class="bs-callout bs-callout-warning">
+    <h4>譯者註</h4>
+    <p>考慮 Bootstrap 3 中的 <code>.row</code> 與 <code>.col-*-*</code> 類別的使用，文件中的「行、列」並不強烈選擇翻譯，讀者應習慣使 row 與 column 來記憶。</p>
+    <p>下文中的"中縫（gutter）"是出版界用詞。原指書藉跨頁之間白邊。</p>
+  </div>
+
+    <ul>
+        <li>
+            row 必須放在 <code>.container</code> （固定寬度）或 <code>.container-fluid</code> （100% 寬度）容器中，以便適當的進行對齊和內距（<code>padding</code>） 調整。
+            <!--Rows must be placed within a <code>.container</code> (fixed-width) or <code>.container-fluid</code> (full-width) for proper alignment and padding.-->
+        </li>
+        <li>
+            使用 row 來建立水平群組的 column。
+            <!--Use rows to create horizontal groups of columns.-->
+        </li>
+        <li>
+            內容應該放置在 column 之內，並且僅只有 column 可能作為 row 的直接子元素。
+            <!--Content should be placed within columns, and only columns may be immediate children of rows.-->
+        </li>
+        <li>
+            預定義好的格線類別，像是 <code>.row</code> 和 <code>.col-xs-4</code> 等等，可以用來快速建立格線佈局。而 Less 的 mixin 也能用來建立更多語義化佈局。
+            <!--Predefined grid classes like <code>.row</code> and <code>.col-xs-4</code> are available for quickly making grid layouts. Less mixins can also be used for more semantic layouts.-->
+        </li>
+        <li>
+            column 經由 <code>padding</code> 建立中縫（gutter）（column 內容之間的間距）。透過為 <code>.row</code> 設定負的邊距（<code>margin</code>）值，以偏移 row 裡第一個 column 與最後一個 column 的內距（<code>padding</code>）值。
+            <!--Columns create gutters (gaps between column content) via <code>padding</code>. That padding is offset in rows for the first and last column via negative margin on <code>.row</code>s.-->
+        </li>
+        <li>
+            負的邊距（<code>margin</code>） 值也就是為什麼下面的範例會向外突出的原因。它就是這樣與非格線內容對齊格線中 column 的內容。
+            <!--The negative margin is why the examples below are outdented. It's so that content within grid columns is lined up with non-grid content.-->
+        </li>
+        <li>
+            格線 column 建立方法是透過指定你希望的 12 可用的 column 數字範圍。舉例來說，三個相等的 column 應使用三個 <code>.col-xs-4</code> 來設置。
+            <!--Grid columns are created by specifying the number of twelve available columns you wish to span. For example, three equal columns would use three <code>.col-xs-4</code>.-->
+        </li>
+        <li>
+            如果超過 12 個 column 放在單一個 row 中，每個群組額外的 column 將作為一個單元包裝到新的一行。
+            <!--If more than 12 columns are placed within a single row, each group of extra columns will, as one unit, wrap onto a new line.-->
+        </li>
+        <li>
+            格線類別的套用，會使用設備螢幕寬度大於或等於來當判斷點，而且針對較小螢幕設備進行了格線類別的重寫。因此，套用 <code>.col-md-</code> 到元素上時，不僅僅是影響中螢幕設備的樣式，也會影響大螢幕設備的樣式（如果未套用 <code>.col-lg-</code> 的話）。
+            <!--Grid classes apply to devices with screen widths greater than or equal to the breakpoint sizes, and override grid classes targeted at smaller devices. Therefore, applying any <code>.col-md-</code> class to an element will not only affect its styling on medium devices but also on large devices if a <code>.col-lg-</code> class is not present.-->
+        </li>
+  </ul>
+    <p>
+        看看以下這些範例，並且應用這些原則到你的程式碼中。
+        <!--Look to the examples for applying these principles to your code.-->
+    </p>
+
+  <h3 id="grid-media-queries">媒體查詢<!--Media queries--></h3>
+    <p>
+        我們在 Less 檔案中使用以下的媒體查詢建立格線系統的關鍵判斷點。
+        <!--We use the following media queries in our Less files to create the key breakpoints in our grid system.-->
+    </p>
+<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="cm">/* 超小螢幕設備（手機，小於 768px）<!--Extra small devices (phones, less than 768px)--> */</span>
+<span class="cm">/* 沒有媒體查詢，因為這在 Bootstrap 3 是預設的。<!--No media query since this is the default in Bootstrap--> */</span>
+
+<span class="cm">/* 小螢幕設備（平板，768px（含）以上）<!--Small devices (tablets, 768px and up)--> */</span>
+<span class="k">@@media</span> <span class="o">(</span><span class="nt">min-width</span><span class="nd">:</span> <span class="o">@@</span><span class="nt">screen-sm-min</span><span class="o">)</span> <span class="p">{</span> <span class="nc">...</span> <span class="p">}</span>
+
+<span class="cm">/* 中螢幕設備（一般桌面，992px（含）以上）<!--Medium devices (desktops, 992px and up)--> */</span>
+<span class="k">@@media</span> <span class="o">(</span><span class="nt">min-width</span><span class="nd">:</span> <span class="o">@@</span><span class="nt">screen-md-min</span><span class="o">)</span> <span class="p">{</span> <span class="nc">...</span> <span class="p">}</span>
+
+<span class="cm">/* 大螢幕設備（大型桌面，1200px（含）以上）<!--Large devices (large desktops, 1200px and up)--> */</span>
+<span class="k">@@media</span> <span class="o">(</span><span class="nt">min-width</span><span class="nd">:</span> <span class="o">@@</span><span class="nt">screen-lg-min</span><span class="o">)</span> <span class="p">{</span> <span class="nc">...</span> <span class="p">}</span></code></pre></div>
+    <p>
+        我們偶爾會在媒體查詢中包含 <code>max-width</code> 設置，將 CSS 的影響限制在更窄的設備之內。
+        <!--We occasionally expand on these media queries to include a <code>max-width</code> to limit CSS to a narrower set of devices.-->
+    </p>
+<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="k">@@media</span> <span class="o">(</span><span class="nt">max-width</span><span class="nd">:</span> <span class="o">@@</span><span class="nt">screen-xs-max</span><span class="o">)</span> <span class="p">{</span> <span class="nc">...</span> <span class="p">}</span>
+<span class="k">@@media</span> <span class="o">(</span><span class="nt">min-width</span><span class="nd">:</span> <span class="o">@@</span><span class="nt">screen-sm-min</span><span class="o">)</span> <span class="nt">and</span> <span class="o">(</span><span class="nt">max-width</span><span class="nd">:</span> <span class="o">@@</span><span class="nt">screen-sm-max</span><span class="o">)</span> <span class="p">{</span> <span class="nc">...</span> <span class="p">}</span>
+<span class="k">@@media</span> <span class="o">(</span><span class="nt">min-width</span><span class="nd">:</span> <span class="o">@@</span><span class="nt">screen-md-min</span><span class="o">)</span> <span class="nt">and</span> <span class="o">(</span><span class="nt">max-width</span><span class="nd">:</span> <span class="o">@@</span><span class="nt">screen-md-max</span><span class="o">)</span> <span class="p">{</span> <span class="nc">...</span> <span class="p">}</span>
+<span class="k">@@media</span> <span class="o">(</span><span class="nt">min-width</span><span class="nd">:</span> <span class="o">@@</span><span class="nt">screen-lg-min</span><span class="o">)</span> <span class="p">{</span> <span class="nc">...</span> <span class="p">}</span></code></pre></div>
+
+  <h3 id="grid-options">格線選項<!--Grid options--></h3>
+    <p>
+        請參考以下方便的表格，以瞭解 Bootstrap 3 的格線系統是如何橫跨多種設備運作。
+        <!--See how aspects of the Bootstrap grid system work across multiple devices with a handy table.-->
+    </p>
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th></th>
+          <th>
+            超小螢幕設備
+            <small>手機（&lt;768px）</small>  
+            <!--Extra small devices
+            <small>Phones (&lt;768px)</small>-->
+          </th>
+          <th>
+            小螢幕設備
+            <small>平板（&ge;768px）</small>  
+            <!--Small devices
+            <small>Tablets (&ge;768px)</small>-->
+          </th>
+          <th>
+            中螢幕設備
+            <small>桌面（&ge;992px）</small>
+            <!--Medium devices
+            <small>Desktops (&ge;992px)</small>-->
+          </th>
+          <th>
+            大螢幕設備
+            <small>大桌面（&ge;1200px）</small>
+            <!--Large devices
+            <small>Desktops (&ge;1200px)</small>-->
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th class="text-nowrap">格線行為<!--Grid behavior--></th>
+          <td>總是水平佈局<!--Horizontal at all times--></td>
+          <td colspan="3">開始是折疊的，當超過判斷點時回復水平佈局<!--Collapsed to start, horizontal above breakpoints--></td>
+        </tr>
+        <tr>
+          <th class="text-nowrap">容器寬度<!--Container width--></th>
+          <td>無（自動）<!--None (auto)--></td>
+          <td>750px</td>
+          <td>970px</td>
+          <td>1170px</td>
+        </tr>
+        <tr>
+          <th class="text-nowrap">類別前綴<!--Class prefix--></th>
+          <td><code>.col-xs-</code></td>
+          <td><code>.col-sm-</code></td>
+          <td><code>.col-md-</code></td>
+          <td><code>.col-lg-</code></td>
+        </tr>
+        <tr>
+          <th class="text-nowrap">column 數<!--# of columns--></th>
+          <td colspan="4">12</td>
+        </tr>
+        <tr>
+          <th class="text-nowrap">column 寬度<!--Column width--></th>
+          <td class="text-muted">自動<!--Auto--></td>
+          <td>~62px</td>
+          <td>~81px</td>
+          <td>~97px</td>
+        </tr>
+        <tr>
+          <th class="text-nowrap">中縫寬度<!--Gutter width--></th>
+          <td colspan="4">30px（column 左右邊各 15px）<!--30px (15px on each side of a column)--></td>
+        </tr>
+        <tr>
+          <th class="text-nowrap">可巢狀套用<!--Nestable--></th>
+          <td colspan="4">是<!--Yes--></td>
+        </tr>
+        <tr>
+          <th class="text-nowrap">位移（Offsets）</th>
+          <td colspan="4">是<!--Yes--></td>
+        </tr>
+        <tr>
+          <th class="text-nowrap">column 排序<!--Column ordering--></th>
+          <td colspan="4">是<!--Yes--></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 id="grid-example-basic">範例：由堆疊到水平排列<!--Example: Stacked-to-horizontal--></h3>
+    <p>
+        使用單一組 <code>.col-md-*</code> 格線類別，你就能建立一個基本的格線系統，在手機設備與平板設備（介於超小螢幕到小螢幕的範圍）上一開始是堆疊方式呈現，在桌面（中螢幕）設備會變成水平佈局。格線 column 必須放在任何 <code>.row</code> 之內。
+        <!--Using a single set of <code>.col-md-*</code> grid classes, you can create a basic grid system that starts out stacked on mobile devices and tablet devices (the extra small to small range) before becoming horizontal on desktop (medium) devices. Place grid columns in any <code>.row</code>.-->
+    </p>
+  <div class="bs-docs-grid">
+    <div class="row show-grid">
+      <div class="col-md-1">.col-md-1</div>
+      <div class="col-md-1">.col-md-1</div>
+      <div class="col-md-1">.col-md-1</div>
+      <div class="col-md-1">.col-md-1</div>
+      <div class="col-md-1">.col-md-1</div>
+      <div class="col-md-1">.col-md-1</div>
+      <div class="col-md-1">.col-md-1</div>
+      <div class="col-md-1">.col-md-1</div>
+      <div class="col-md-1">.col-md-1</div>
+      <div class="col-md-1">.col-md-1</div>
+      <div class="col-md-1">.col-md-1</div>
+      <div class="col-md-1">.col-md-1</div>
+    </div>
+    <div class="row show-grid">
+      <div class="col-md-8">.col-md-8</div>
+      <div class="col-md-4">.col-md-4</div>
+    </div>
+    <div class="row show-grid">
+      <div class="col-md-4">.col-md-4</div>
+      <div class="col-md-4">.col-md-4</div>
+      <div class="col-md-4">.col-md-4</div>
+    </div>
+    <div class="row show-grid">
+      <div class="col-md-6">.col-md-6</div>
+      <div class="col-md-6">.col-md-6</div>
+    </div>
+  </div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-1"</span><span class="nt">&gt;</span>.col-md-1<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-1"</span><span class="nt">&gt;</span>.col-md-1<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-1"</span><span class="nt">&gt;</span>.col-md-1<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-1"</span><span class="nt">&gt;</span>.col-md-1<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-1"</span><span class="nt">&gt;</span>.col-md-1<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-1"</span><span class="nt">&gt;</span>.col-md-1<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-1"</span><span class="nt">&gt;</span>.col-md-1<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-1"</span><span class="nt">&gt;</span>.col-md-1<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-1"</span><span class="nt">&gt;</span>.col-md-1<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-1"</span><span class="nt">&gt;</span>.col-md-1<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-1"</span><span class="nt">&gt;</span>.col-md-1<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-1"</span><span class="nt">&gt;</span>.col-md-1<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-8"</span><span class="nt">&gt;</span>.col-md-8<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-4"</span><span class="nt">&gt;</span>.col-md-4<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-4"</span><span class="nt">&gt;</span>.col-md-4<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-4"</span><span class="nt">&gt;</span>.col-md-4<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-4"</span><span class="nt">&gt;</span>.col-md-4<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-6"</span><span class="nt">&gt;</span>.col-md-6<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-6"</span><span class="nt">&gt;</span>.col-md-6<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></div>
+
+  <h3 id="grid-example-fluid">範例：流動容器<!--Example: Fluid container--></h3>
+    <p>
+        將最外層的 <code>.container</code> 修改為 <code>.container-fluid</code>，就可以將任何固定寬度格線佈局轉換為 100% 寬度格線佈局。
+        <!--Turn any fixed-width grid layout into a full-width layout by changing your outermost <code>.container</code> to <code>.container-fluid</code>.-->
+    </p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container-fluid"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+    ...
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></div>
+
+  <h3 id="grid-example-mixed">範例：行動與桌面<!--Example: Mobile and desktop--></h3>
+    <p>
+        不希望你的 column 在小螢幕設備只是堆疊在一起？那就在你的 column 加入超小螢幕和中螢幕設備的格線類別，即 <code>.col-xs-*</code> 和 <code>.col-md-*</code>。參考以下範例，以更瞭解它們是如何運作。
+        <!--Don't want your columns to simply stack in smaller devices? Use the extra small and medium device grid classes by adding <code>.col-xs-*</code> <code>.col-md-*</code> to your columns. See the example below for a better idea of how it all works.-->
+    </p>
+  <div class="bs-docs-grid">
+    <div class="row show-grid">
+      <div class="col-xs-12 col-md-8">.col-xs-12 .col-md-8</div>
+      <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+    </div>
+    <div class="row show-grid">
+      <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+      <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+      <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+    </div>
+    <div class="row show-grid">
+      <div class="col-xs-6">.col-xs-6</div>
+      <div class="col-xs-6">.col-xs-6</div>
+    </div>
+  </div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- 製作一個 100% 寬度和兩個 50% 寬度，在行動設備上堆疊的 column<!--Stack the columns on mobile by making one full-width and the other half-width--> --&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-xs-12 col-md-8"</span><span class="nt">&gt;</span>.col-xs-12 .col-md-8<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-xs-6 col-md-4"</span><span class="nt">&gt;</span>.col-xs-6 .col-md-4<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="c">&lt;!-- 一開始，在行動設備上 column 會是 50% 寬度，提升至桌面大小後，寬度會平均為 33.3%<!--Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop--> --&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-xs-6 col-md-4"</span><span class="nt">&gt;</span>.col-xs-6 .col-md-4<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-xs-6 col-md-4"</span><span class="nt">&gt;</span>.col-xs-6 .col-md-4<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-xs-6 col-md-4"</span><span class="nt">&gt;</span>.col-xs-6 .col-md-4<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="c">&lt;!-- 在行動或桌面設備，column 寬度總是 50% 寬度<!--Columns are always 50% wide, on mobile and desktop--> --&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-xs-6"</span><span class="nt">&gt;</span>.col-xs-6<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-xs-6"</span><span class="nt">&gt;</span>.col-xs-6<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></div>
+
+  <h3 id="grid-example-mixed-complete">範例：行動、平板、桌面<!--Example: Mobile, tablet, desktop--></h3>
+    <p>
+        基於上面範例，加入平板使用的 <code>.col-sm-*</code> 類別，建置更動態與強大佈局。
+        <!--Build on the previous example by creating even more dynamic and powerful layouts with tablet <code>.col-sm-*</code> classes.-->
+    </p>
+  <div class="bs-docs-grid">
+    <div class="row show-grid">
+      <div class="col-xs-12 col-sm-6 col-md-8">.col-xs-12 .col-sm-6 .col-md-8</div>
+      <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+    </div>
+    <div class="row show-grid">
+      <div class="col-xs-6 col-sm-4">.col-xs-6 .col-sm-4</div>
+      <div class="col-xs-6 col-sm-4">.col-xs-6 .col-sm-4</div>
+      <!-- Optional: clear the XS cols if their content doesn't match in height -->
+      <div class="clearfix visible-xs-block"></div>
+      <div class="col-xs-6 col-sm-4">.col-xs-6 .col-sm-4</div>
+    </div>
+  </div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-xs-12 col-sm-6 col-md-8"</span><span class="nt">&gt;</span>.col-xs-12 .col-sm-6 .col-md-8<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-xs-6 col-md-4"</span><span class="nt">&gt;</span>.col-xs-6 .col-md-4<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-xs-6 col-sm-4"</span><span class="nt">&gt;</span>.col-xs-6 .col-sm-4<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-xs-6 col-sm-4"</span><span class="nt">&gt;</span>.col-xs-6 .col-sm-4<span class="nt">&lt;/div&gt;</span>
+  <span class="c">&lt;!-- 選項：如果他們內容有不符合的高度，清除 XS column<!--Optional: clear the XS cols if their content doesn't match in height--> --&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"clearfix visible-xs-block"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-xs-6 col-sm-4"</span><span class="nt">&gt;</span>.col-xs-6 .col-sm-4<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></div>
+
+  <h3 id="grid-example-wrapping">範例：column 換行<!--Example: Column wrapping--></h3>
+    <p>
+        如果超過 12 個 column 放在單一個 row 中，每個群組額外的 column 將作為一個單元包裝到新的一行。
+        <!--If more than 12 columns are placed within a single row, each group of extra columns will, as one unit, wrap onto a new line.-->
+    </p>
+  <div class="bs-docs-grid">
+    <div class="row show-grid">
+      <div class="col-xs-9">.col-xs-9</div>
+      <div class="col-xs-4">.col-xs-4<br>因為 9 + 4 = 13 &gt; 12，此 4 column 寬度的 div 會被包裝到新的一行作為一個連續的單元。<!--Since 9 + 4 = 13 &gt; 12, this 4-column-wide div gets wrapped onto a new line as one contiguous unit.--></div>
+      <div class="col-xs-6">.col-xs-6<br>後續 column 會順著新行繼續<!--Subsequent columns continue along the new line.--></div>
+    </div>
+  </div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-xs-9"</span><span class="nt">&gt;</span>.col-xs-9<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-xs-4"</span><span class="nt">&gt;</span>.col-xs-4<span class="nt">&lt;br&gt;</span>因為 9 + 4 = 13 <span class="ni">&amp;gt;</span> 12，此 4 column 寬度的 div 會被包裝到新的一行作為一個連續的單元。<!--Since 9 + 4 = 13 <span class="ni">&amp;gt;</span> 12, this 4-column-wide div gets wrapped onto a new line as one contiguous unit.--><span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-xs-6"</span><span class="nt">&gt;</span>.col-xs-6<span class="nt">&lt;br&gt;</span>後續 column 會順著新行繼續<!--Subsequent columns continue along the new line.--><span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></div>
+
+  <h3 id="grid-responsive-resets">重設自適應 column<!--Responsive column resets--></h3>
+    <p>
+        隨著四層（tier）的格線可使用，你一定會碰到問題，其中，在一些明確的判斷點，當你其中一個 column 比其他還高時，你的 column 清除的不完全正確。要修正此問題，組合使用 <code>.clearfix</code> 和我們的<a href="#responsive-utilities">自適應工具類別</a>。
+        <!--With the four tiers of grids available you're bound to run into issues where, at certain breakpoints, your columns don't clear quite right as one is taller than the other. To fix that, use a combination of a <code>.clearfix</code> and our <a href="#responsive-utilities">responsive utility classes</a>.-->
+    </p>
+  <div class="bs-docs-grid">
+    <div class="row show-grid">
+      <div class="col-xs-6 col-sm-3">
+        .col-xs-6 .col-sm-3
+        <br>
+        重置你的可視區域大小，或是在你的手機瀏覽此範例。<!--Resize your viewport or check it out on your phone for an example.-->
+      </div>
+      <div class="col-xs-6 col-sm-3">.col-xs-6 .col-sm-3</div>
+
+      <!-- Add the extra clearfix for only the required viewport -->
+      <div class="clearfix visible-xs-block"></div>
+
+      <div class="col-xs-6 col-sm-3">.col-xs-6 .col-sm-3</div>
+      <div class="col-xs-6 col-sm-3">.col-xs-6 .col-sm-3</div>
+    </div>
+  </div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-xs-6 col-sm-3"</span><span class="nt">&gt;</span>.col-xs-6 .col-sm-3<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-xs-6 col-sm-3"</span><span class="nt">&gt;</span>.col-xs-6 .col-sm-3<span class="nt">&lt;/div&gt;</span>
+
+  <span class="c">&lt;!-- 僅在所需的可視區域加入額外的 clearfix<!--Add the extra clearfix for only the required viewport--> --&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"clearfix visible-xs-block"</span><span class="nt">&gt;&lt;/div&gt;</span>
+
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-xs-6 col-sm-3"</span><span class="nt">&gt;</span>.col-xs-6 .col-sm-3<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-xs-6 col-sm-3"</span><span class="nt">&gt;</span>.col-xs-6 .col-sm-3<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></div>
+    <p>
+        另外，在自適應判斷點進行 column 清除時，你也許需要<strong>重置位移（offsets）、push 或 pull</strong>。查看這此實作的<a href="@Url.Action("Examples", "bs3", new {name = "grid"})">格線範例</a>。
+        <!--In addition to column clearing at responsive breakpoints, you may need to <strong>reset offsets, pushes, or pulls</strong>. See this in action in <a href="examples/grid/index.html">the grid example</a>.-->
+    </p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-5 col-md-6"</span><span class="nt">&gt;</span>.col-sm-5 .col-md-6<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-5 col-sm-offset-2 col-md-6 col-md-offset-0"</span><span class="nt">&gt;</span>.col-sm-5 .col-sm-offset-2 .col-md-6 .col-md-offset-0<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-6 col-md-5 col-lg-6"</span><span class="nt">&gt;</span>.col-sm-6 .col-md-5 .col-lg-6<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-6 col-md-5 col-md-offset-2 col-lg-6 col-lg-offset-0"</span><span class="nt">&gt;</span>.col-sm-6 .col-md-5 .col-md-offset-2 .col-lg-6 .col-lg-offset-0<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></div>
+
+
+  <h3 id="grid-offsetting">column 位移<!--Offsetting columns--></h3>
+    <p>
+        使用 <code>.col-md-offset-*</code> 類別可以將 column 向右進行位移。這些類別是使用 <code>*</code> 選擇器為當下的 column 增加左邊距（<code>margin-left</code>）的值。舉例說明，<code>.col-md-offset-4</code> 類別將會把 <code>.col-md-4</code> 向右位移 4 個 column 的寬度。
+        <!--Move columns to the right using <code>.col-md-offset-*</code> classes. These classes increase the left margin of a column by <code>*</code> columns. For example, <code>.col-md-offset-4</code> moves <code>.col-md-4</code> over four columns.-->
+    </p>
+  <div class="bs-docs-grid">
+    <div class="row show-grid">
+      <div class="col-md-4">.col-md-4</div>
+      <div class="col-md-4 col-md-offset-4">.col-md-4 .col-md-offset-4</div>
+    </div>
+    <div class="row show-grid">
+      <div class="col-md-3 col-md-offset-3">.col-md-3 .col-md-offset-3</div>
+      <div class="col-md-3 col-md-offset-3">.col-md-3 .col-md-offset-3</div>
+    </div>
+    <div class="row show-grid">
+      <div class="col-md-6 col-md-offset-3">.col-md-6 .col-md-offset-3</div>
+    </div>
+  </div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-4"</span><span class="nt">&gt;</span>.col-md-4<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-4 col-md-offset-4"</span><span class="nt">&gt;</span>.col-md-4 .col-md-offset-4<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-3 col-md-offset-3"</span><span class="nt">&gt;</span>.col-md-3 .col-md-offset-3<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-3 col-md-offset-3"</span><span class="nt">&gt;</span>.col-md-3 .col-md-offset-3<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-6 col-md-offset-3"</span><span class="nt">&gt;</span>.col-md-6 .col-md-offset-3<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></div>
+
+
+  <h3 id="grid-nesting">巢狀 column<!--Nesting columns--></h3>
+    <p>
+        為了巢狀加入你的內容到預設的格線系統中，加入一行新的 <code>.row</code> 並設置 <code>.col-sm-*</code> 的 column 在已存在的 <code>.col-sm-*</code> column 內。巢狀的 row 該包含一組含 12 或更少的 column（它並不要求你使用所有可用的 12 個 column）。
+        <!--To nest your content with the default grid, add a new <code>.row</code> and set of <code>.col-sm-*</code> columns within an existing <code>.col-sm-*</code> column. Nested rows should include a set of columns that add up to 12 or less (it is not required that you use all 12 available columns).-->
+    </p>
+  <div class="row show-grid">
+    <div class="col-sm-9">
+      Level 1: .col-sm-9
+      <div class="row show-grid">
+        <div class="col-xs-8 col-sm-6">
+          Level 2: .col-xs-8 .col-sm-6
+        </div>
+        <div class="col-xs-4 col-sm-6">
+          Level 2: .col-xs-4 .col-sm-6
+        </div>
+      </div>
+    </div>
+  </div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-9"</span><span class="nt">&gt;</span>
+    Level 1: .col-sm-9
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-xs-8 col-sm-6"</span><span class="nt">&gt;</span>
+        Level 2: .col-xs-8 .col-sm-6
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-xs-4 col-sm-6"</span><span class="nt">&gt;</span>
+        Level 2: .col-xs-4 .col-sm-6
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></div>
+
+  <h3 id="grid-column-ordering">column 排序<!--Column ordering--></h3>
+    <p>
+        透過 <code>.col-md-push-*</code> 和 <code>.col-md-pull-*</code> 修飾類別，可以很輕鬆改變內建格線系統的 column 排序。
+        <!--Easily change the order of our built-in grid columns with <code>.col-md-push-*</code> and <code>.col-md-pull-*</code> modifier classes.-->
+    </p>
+  <div class="row show-grid">
+    <div class="col-md-9 col-md-push-3">.col-md-9 .col-md-push-3</div>
+    <div class="col-md-3 col-md-pull-9">.col-md-3 .col-md-pull-9</div>
+  </div>
+
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-9 col-md-push-3"</span><span class="nt">&gt;</span>.col-md-9 .col-md-push-3<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-3 col-md-pull-9"</span><span class="nt">&gt;</span>.col-md-3 .col-md-pull-9<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></div>
+
+  <h3 id="grid-less">Less mixin 和變數<!--Less mixins and variables--></h3>
+    <p>
+        除了使用在快速佈局的<a href="#grid-example-basic">預建置的格線類別</a>外，Bootstrap 3 也包含 Less 變數和 mixin 來幫助你快速產生簡單、語義化的佈局。
+        <!--In addition to <a href="#grid-example-basic">prebuilt grid classes</a> for fast layouts, Bootstrap includes Less variables and mixins for quickly generating your own simple, semantic layouts.-->
+    </p>
+
+  <h4>變數<!--Variables--></h4>
+    <p>
+        變數用來決定 column 的數量、中縫寬度和媒體查詢的判斷點（從此處開始浮動 column）。我們使用這些變數產生預定義好的格線類別文件（如前所示），以及自訂 mixin（如下列出）。
+        <!--Variables determine the number of columns, the gutter width, and the media query point at which to begin floating columns. We use these to generate the predefined grid classes documented above, as well as for the custom mixins listed below.-->
+    </p>
+<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="k">@@grid-columns</span><span class="nd">:</span>              <span class="nt">12</span><span class="p">;</span>
+<span class="k">@@grid-gutter-width</span><span class="nd">:</span>         <span class="nt">30px</span><span class="p">;</span>
+<span class="k">@@grid-float-breakpoint</span><span class="nd">:</span>     <span class="nt">768px</span><span class="p">;</span></code></pre></div>
+
+  <h4>Mixin<!--Mixins--></h4>
+    <p>
+        Mixin 與格線變數一起使用，用來為每種 column 產生語義的 CSS。
+        <!--Mixins are used in conjunction with the grid variables to generate semantic CSS for individual grid columns.-->
+    </p>
+<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="c1">// 建立一個用於一系列的 column 包裝容器<!--Creates a wrapper for a series of columns-->
+</span><span class="err">.</span><span class="na">make-row</span><span class="err">(@@</span><span class="na">gutter</span><span class="p">:</span> <span class="o">@@</span><span class="n">grid-gutter-width</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// 清除浮動的 column<!--Then clear the floated columns-->
+</span>  <span class="nc">.clearfix</span><span class="o">()</span><span class="p">;</span>
+
+  <span class="k">@@media</span> <span class="o">(</span><span class="nt">min-width</span><span class="nd">:</span> <span class="o">@@</span><span class="nt">screen-sm-min</span><span class="o">)</span> <span class="p">{</span>
+    <span class="nl">margin-left</span><span class="p">:</span>  <span class="p">(</span><span class="o">@@</span><span class="n">gutter</span> <span class="o">/</span> <span class="m">-2</span><span class="p">);</span>
+    <span class="nl">margin-right</span><span class="p">:</span> <span class="p">(</span><span class="o">@@</span><span class="n">gutter</span> <span class="o">/</span> <span class="m">-2</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// 負的邊距（margin）值套用至 row 以對齊 column 的內容<!--Negative margin nested rows out to align the content of columns-->
+</span>  <span class="nc">.row</span> <span class="p">{</span>
+    <span class="nl">margin-left</span><span class="p">:</span>  <span class="p">(</span><span class="o">@@</span><span class="n">gutter</span> <span class="o">/</span> <span class="m">-2</span><span class="p">);</span>
+    <span class="nl">margin-right</span><span class="p">:</span> <span class="p">(</span><span class="o">@@</span><span class="n">gutter</span> <span class="o">/</span> <span class="m">-2</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 產生超小螢幕 column<!--Generate the extra small columns-->
+</span><span class="nc">.make-xs-column</span><span class="o">(@@</span><span class="nt">columns</span><span class="p">;</span> <span class="k">@@gutter</span><span class="nd">:</span> <span class="o">@@</span><span class="nt">grid-gutter-width</span><span class="o">)</span> <span class="p">{</span>
+  <span class="nl">position</span><span class="p">:</span> <span class="nb">relative</span><span class="p">;</span>
+  <span class="c1">// 當 column 為空，預防折疊行為<!--Prevent columns from collapsing when empty-->
+</span>  <span class="nl">min-height</span><span class="p">:</span> <span class="m">1px</span><span class="p">;</span>
+  <span class="c1">// 經由 padding 填入中縫<!--Inner gutter via padding-->
+</span>  <span class="nl">padding-left</span><span class="p">:</span>  <span class="p">(</span><span class="o">@@</span><span class="n">gutter</span> <span class="o">/</span> <span class="m">2</span><span class="p">);</span>
+  <span class="nl">padding-right</span><span class="p">:</span> <span class="p">(</span><span class="o">@@</span><span class="n">gutter</span> <span class="o">/</span> <span class="m">2</span><span class="p">);</span>
+
+  <span class="c1">// 基於可用 column 的數量計算寬度<!--Calculate width based on number of columns available-->
+</span>  <span class="k">@@media</span> <span class="o">(</span><span class="nt">min-width</span><span class="nd">:</span> <span class="o">@@</span><span class="nt">grid-float-breakpoint</span><span class="o">)</span> <span class="p">{</span>
+    <span class="nl">float</span><span class="p">:</span> <span class="nb">left</span><span class="p">;</span>
+    <span class="nl">width</span><span class="p">:</span> <span class="nf">percentage</span><span class="p">((</span><span class="o">@@</span><span class="n">columns</span> <span class="o">/</span> <span class="o">@@</span><span class="n">grid-columns</span><span class="p">));</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 產生小螢幕 column<!--Generate the small columns-->
+</span><span class="nc">.make-sm-column</span><span class="o">(@@</span><span class="nt">columns</span><span class="p">;</span> <span class="k">@@gutter</span><span class="nd">:</span> <span class="o">@@</span><span class="nt">grid-gutter-width</span><span class="o">)</span> <span class="p">{</span>
+  <span class="nl">position</span><span class="p">:</span> <span class="nb">relative</span><span class="p">;</span>
+  <span class="c1">// 當 column 為空，預防折疊行為<!--Prevent columns from collapsing when empty-->
+</span>  <span class="nl">min-height</span><span class="p">:</span> <span class="m">1px</span><span class="p">;</span>
+  <span class="c1">// 經由 padding 填入中縫<!--Inner gutter via padding-->
+</span>  <span class="nl">padding-left</span><span class="p">:</span>  <span class="p">(</span><span class="o">@@</span><span class="n">gutter</span> <span class="o">/</span> <span class="m">2</span><span class="p">);</span>
+  <span class="nl">padding-right</span><span class="p">:</span> <span class="p">(</span><span class="o">@@</span><span class="n">gutter</span> <span class="o">/</span> <span class="m">2</span><span class="p">);</span>
+
+  <span class="c1">// 基於可用 column 的數量計算寬度<!--Calculate width based on number of columns available-->
+</span>  <span class="k">@@media</span> <span class="o">(</span><span class="nt">min-width</span><span class="nd">:</span> <span class="o">@@</span><span class="nt">screen-sm-min</span><span class="o">)</span> <span class="p">{</span>
+    <span class="nl">float</span><span class="p">:</span> <span class="nb">left</span><span class="p">;</span>
+    <span class="nl">width</span><span class="p">:</span> <span class="nf">percentage</span><span class="p">((</span><span class="o">@@</span><span class="n">columns</span> <span class="o">/</span> <span class="o">@@</span><span class="n">grid-columns</span><span class="p">));</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 產生小螢幕 column 位移<!--Generate the small column offsets-->
+</span><span class="nc">.make-sm-column-offset</span><span class="o">(@@</span><span class="nt">columns</span><span class="o">)</span> <span class="p">{</span>
+  <span class="k">@@media</span> <span class="o">(</span><span class="nt">min-width</span><span class="nd">:</span> <span class="o">@@</span><span class="nt">screen-sm-min</span><span class="o">)</span> <span class="p">{</span>
+    <span class="nl">margin-left</span><span class="p">:</span> <span class="nf">percentage</span><span class="p">((</span><span class="o">@@</span><span class="n">columns</span> <span class="o">/</span> <span class="o">@@</span><span class="n">grid-columns</span><span class="p">));</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="nc">.make-sm-column-push</span><span class="o">(@@</span><span class="nt">columns</span><span class="o">)</span> <span class="p">{</span>
+  <span class="k">@@media</span> <span class="o">(</span><span class="nt">min-width</span><span class="nd">:</span> <span class="o">@@</span><span class="nt">screen-sm-min</span><span class="o">)</span> <span class="p">{</span>
+    <span class="nl">left</span><span class="p">:</span> <span class="nf">percentage</span><span class="p">((</span><span class="o">@@</span><span class="n">columns</span> <span class="o">/</span> <span class="o">@@</span><span class="n">grid-columns</span><span class="p">));</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="nc">.make-sm-column-pull</span><span class="o">(@@</span><span class="nt">columns</span><span class="o">)</span> <span class="p">{</span>
+  <span class="k">@@media</span> <span class="o">(</span><span class="nt">min-width</span><span class="nd">:</span> <span class="o">@@</span><span class="nt">screen-sm-min</span><span class="o">)</span> <span class="p">{</span>
+    <span class="nl">right</span><span class="p">:</span> <span class="nf">percentage</span><span class="p">((</span><span class="o">@@</span><span class="n">columns</span> <span class="o">/</span> <span class="o">@@</span><span class="n">grid-columns</span><span class="p">));</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 產生中螢幕 column<!--Generate the medium columns-->
+</span><span class="nc">.make-md-column</span><span class="o">(@@</span><span class="nt">columns</span><span class="p">;</span> <span class="k">@@gutter</span><span class="nd">:</span> <span class="o">@@</span><span class="nt">grid-gutter-width</span><span class="o">)</span> <span class="p">{</span>
+  <span class="nl">position</span><span class="p">:</span> <span class="nb">relative</span><span class="p">;</span>
+  <span class="c1">// 當 column 為空，預防折疊行為<!--Prevent columns from collapsing when empty-->
+</span>  <span class="nl">min-height</span><span class="p">:</span> <span class="m">1px</span><span class="p">;</span>
+  <span class="c1">// 經由 padding 填入中縫<!--Inner gutter via padding-->
+</span>  <span class="nl">padding-left</span><span class="p">:</span>  <span class="p">(</span><span class="o">@@</span><span class="n">gutter</span> <span class="o">/</span> <span class="m">2</span><span class="p">);</span>
+  <span class="nl">padding-right</span><span class="p">:</span> <span class="p">(</span><span class="o">@@</span><span class="n">gutter</span> <span class="o">/</span> <span class="m">2</span><span class="p">);</span>
+
+  <span class="c1">// 基於可用 column 的數量計算寬度<!--Calculate width based on number of columns available-->
+</span>  <span class="k">@@media</span> <span class="o">(</span><span class="nt">min-width</span><span class="nd">:</span> <span class="o">@@</span><span class="nt">screen-md-min</span><span class="o">)</span> <span class="p">{</span>
+    <span class="nl">float</span><span class="p">:</span> <span class="nb">left</span><span class="p">;</span>
+    <span class="nl">width</span><span class="p">:</span> <span class="nf">percentage</span><span class="p">((</span><span class="o">@@</span><span class="n">columns</span> <span class="o">/</span> <span class="o">@@</span><span class="n">grid-columns</span><span class="p">));</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 產生中螢幕 column 位移<!--Generate the medium column offsets-->
+</span><span class="nc">.make-md-column-offset</span><span class="o">(@@</span><span class="nt">columns</span><span class="o">)</span> <span class="p">{</span>
+  <span class="k">@@media</span> <span class="o">(</span><span class="nt">min-width</span><span class="nd">:</span> <span class="o">@@</span><span class="nt">screen-md-min</span><span class="o">)</span> <span class="p">{</span>
+    <span class="nl">margin-left</span><span class="p">:</span> <span class="nf">percentage</span><span class="p">((</span><span class="o">@@</span><span class="n">columns</span> <span class="o">/</span> <span class="o">@@</span><span class="n">grid-columns</span><span class="p">));</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="nc">.make-md-column-push</span><span class="o">(@@</span><span class="nt">columns</span><span class="o">)</span> <span class="p">{</span>
+  <span class="k">@@media</span> <span class="o">(</span><span class="nt">min-width</span><span class="nd">:</span> <span class="o">@@</span><span class="nt">screen-md-min</span><span class="o">)</span> <span class="p">{</span>
+    <span class="nl">left</span><span class="p">:</span> <span class="nf">percentage</span><span class="p">((</span><span class="o">@@</span><span class="n">columns</span> <span class="o">/</span> <span class="o">@@</span><span class="n">grid-columns</span><span class="p">));</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="nc">.make-md-column-pull</span><span class="o">(@@</span><span class="nt">columns</span><span class="o">)</span> <span class="p">{</span>
+  <span class="k">@@media</span> <span class="o">(</span><span class="nt">min-width</span><span class="nd">:</span> <span class="o">@@</span><span class="nt">screen-md-min</span><span class="o">)</span> <span class="p">{</span>
+    <span class="nl">right</span><span class="p">:</span> <span class="nf">percentage</span><span class="p">((</span><span class="o">@@</span><span class="n">columns</span> <span class="o">/</span> <span class="o">@@</span><span class="n">grid-columns</span><span class="p">));</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 產生大螢幕 column<!--Generate the large columns-->
+</span><span class="nc">.make-lg-column</span><span class="o">(@@</span><span class="nt">columns</span><span class="p">;</span> <span class="k">@@gutter</span><span class="nd">:</span> <span class="o">@@</span><span class="nt">grid-gutter-width</span><span class="o">)</span> <span class="p">{</span>
+  <span class="nl">position</span><span class="p">:</span> <span class="nb">relative</span><span class="p">;</span>
+  <span class="c1">// 當 column 為空，預防折疊行為<!--Prevent columns from collapsing when empty-->
+</span>  <span class="nl">min-height</span><span class="p">:</span> <span class="m">1px</span><span class="p">;</span>
+  <span class="c1">// 經由 padding 填入中縫<!--Inner gutter via padding-->
+</span>  <span class="nl">padding-left</span><span class="p">:</span>  <span class="p">(</span><span class="o">@@</span><span class="n">gutter</span> <span class="o">/</span> <span class="m">2</span><span class="p">);</span>
+  <span class="nl">padding-right</span><span class="p">:</span> <span class="p">(</span><span class="o">@@</span><span class="n">gutter</span> <span class="o">/</span> <span class="m">2</span><span class="p">);</span>
+
+  <span class="c1">// 基於可用 column 的數量計算寬度<!--Calculate width based on number of columns available-->
+</span>  <span class="k">@@media</span> <span class="o">(</span><span class="nt">min-width</span><span class="nd">:</span> <span class="o">@@</span><span class="nt">screen-lg-min</span><span class="o">)</span> <span class="p">{</span>
+    <span class="nl">float</span><span class="p">:</span> <span class="nb">left</span><span class="p">;</span>
+    <span class="nl">width</span><span class="p">:</span> <span class="nf">percentage</span><span class="p">((</span><span class="o">@@</span><span class="n">columns</span> <span class="o">/</span> <span class="o">@@</span><span class="n">grid-columns</span><span class="p">));</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 產生大螢幕 column 位移<!--Generate the large column offsets-->
+</span><span class="nc">.make-lg-column-offset</span><span class="o">(@@</span><span class="nt">columns</span><span class="o">)</span> <span class="p">{</span>
+  <span class="k">@@media</span> <span class="o">(</span><span class="nt">min-width</span><span class="nd">:</span> <span class="o">@@</span><span class="nt">screen-lg-min</span><span class="o">)</span> <span class="p">{</span>
+    <span class="nl">margin-left</span><span class="p">:</span> <span class="nf">percentage</span><span class="p">((</span><span class="o">@@</span><span class="n">columns</span> <span class="o">/</span> <span class="o">@@</span><span class="n">grid-columns</span><span class="p">));</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="nc">.make-lg-column-push</span><span class="o">(@@</span><span class="nt">columns</span><span class="o">)</span> <span class="p">{</span>
+  <span class="k">@@media</span> <span class="o">(</span><span class="nt">min-width</span><span class="nd">:</span> <span class="o">@@</span><span class="nt">screen-lg-min</span><span class="o">)</span> <span class="p">{</span>
+    <span class="nl">left</span><span class="p">:</span> <span class="nf">percentage</span><span class="p">((</span><span class="o">@@</span><span class="n">columns</span> <span class="o">/</span> <span class="o">@@</span><span class="n">grid-columns</span><span class="p">));</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="nc">.make-lg-column-pull</span><span class="o">(@@</span><span class="nt">columns</span><span class="o">)</span> <span class="p">{</span>
+  <span class="k">@@media</span> <span class="o">(</span><span class="nt">min-width</span><span class="nd">:</span> <span class="o">@@</span><span class="nt">screen-lg-min</span><span class="o">)</span> <span class="p">{</span>
+    <span class="nl">right</span><span class="p">:</span> <span class="nf">percentage</span><span class="p">((</span><span class="o">@@</span><span class="n">columns</span> <span class="o">/</span> <span class="o">@@</span><span class="n">grid-columns</span><span class="p">));</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></div>
+
+  <h4>使用範例<!--Example usage--></h4>
+    <p>
+        你可以修改變數值或是僅使用 mixin 所提供預設值。以下範例使用預設的設定值去建立一個含有間距兩個 column（two-column）佈局。
+        <!--You can modify the variables to your own custom values, or just use the mixins with their default values. Here's an example of using the default settings to create a two-column layout with a gap between.-->
+    </p>
+<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="nc">.wrapper</span> <span class="p">{</span>
+  <span class="nc">.make-row</span><span class="o">()</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.content-main</span> <span class="p">{</span>
+  <span class="nc">.make-lg-column</span><span class="o">(</span><span class="nt">8</span><span class="o">)</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.content-secondary</span> <span class="p">{</span>
+  <span class="nc">.make-lg-column</span><span class="o">(</span><span class="nt">3</span><span class="o">)</span><span class="p">;</span>
+  <span class="nc">.make-lg-column-offset</span><span class="o">(</span><span class="nt">1</span><span class="o">)</span><span class="p">;</span>
+<span class="p">}</span></code></pre></div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"wrapper"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"content-main"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"content-secondary"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></div>
+</div>
+

@@ -1,0 +1,176 @@
+﻿<div class="bs-docs-section">
+  <h1 id="affix" class="page-header">附加巡覽<!--Affix--> <small>affix.js</small></h1>
+
+  <h2 id="affix-examples">範例<!--Example--></h2>
+    <p>
+        本文件右邊的巡覽列就是一個附加巡覽外掛的展示。
+        <!--The subnavigation on the right is a live demo of the affix plugin.-->
+    </p>
+
+  <div class="bs-callout bs-callout-warning">
+  <h4>譯者註</h4>
+  <p>本文件最上方是主巡覽列，除首頁外，其他教學文件頁面都有右邊附加巡覽（或稱子巡覽、次巡覽）。</p>
+  </div>    
+
+  <hr class="bs-docs-separator">
+
+  <h2 id="affix-usage">使用方法<!--Usage--></h2>
+    <p>
+        透過 <code>data-</code> 屬性或你自己的 JavaScript 來手動使用附加巡覽外掛。<strong class="text-danger">在這兩種情境下，你必須提供 CSS 定位點和你附加巡覽內容的寬度。</strong>
+        <!--Use the affix plugin via data attributes or manually with your own JavaScript. <strong class="text-danger">In both situations, you must provide CSS for the positioning and width of your affixed content.</strong>-->
+    </p>
+
+  <h3>透過 CSS 定位<!--Positioning via CSS--></h3>
+    <p>
+        附加巡覽外掛的切換在三個類別之間，每一個都代表一種特定狀態：<code>.affix</code>、<code>.affix-top</code> 和 <code>.affix-bottom</code>。因為這些類別能夠處理實際位置，你必須為這些類別是提供你的樣式（獨立於此外掛）。
+        <!--The affix plugin toggles between three classes, each representing a particular state: <code>.affix</code>, <code>.affix-top</code>, and <code>.affix-bottom</code>. You must provide the styles for these classes yourself (independent of this plugin) to handle the actual positions.-->
+    </p>
+    <p>
+        以下是附加巡覽如何作業：
+        <!--Here's how the affix plugin works:-->
+    </p>
+  <ol>
+      <li>
+          一開始，外掛會加入 <code>.affix-top</code> 以指明該元素是在最外層的位置。在這一點上，沒有 CSS 定位是必須的。
+          <!--To start, the plugin adds <code>.affix-top</code> to indicate the element is in its top-most position. At this point no CSS positioning is required.-->
+      </li>
+      <li>
+          滑動你想附加巡覽的元素並實際觸發附加巡覽。這裡 <code>.affix-top</code> 會被 <code>.affix</code> 替換並且設置 <code>position: fixed;</code>（這由 Bootstrap 的 CSS 提供）。
+          <!--Scrolling past the element you want affixed should trigger the actual affixing. This is where <code>.affix</code> replaces <code>.affix-top</code> and sets <code>position: fixed;</code> (provided by Bootstrap's CSS).-->
+      </li>
+      <li>
+          如果有定義底部位移（bottom offset），滑動應該會將 <code>.affix</code> 替換為 <code>.affix-bottom</code>。由於位移是選擇性的，設置的一個要求是你也要設置相對應的 CSS。在此情況下，當有需要時可以加入 <code>position: absolute;</code>。外掛會使用 <code>data-</code> 屬性或 JavaScript 選項來決定如何定位元素的位置。
+          <!--If a bottom offset is defined, scrolling past it should replace <code>.affix</code> with <code>.affix-bottom</code>. Since offsets are optional, setting one requires you to set the appropriate CSS. In this case, add <code>position: absolute;</code> when necessary. The plugin uses the data attribute or JavaScript option to determine where to position the element from there.-->
+      </li>
+  </ol>
+    <p>
+        依照上述步驟，使用下面選項來設置你的 CSS。
+        <!--Follow the above steps to set your CSS for either of the usage options below.-->
+    </p>
+
+  <h3>經由 <code>data-</code> 屬性<!--Via data attributes--></h3>
+    <p>
+        很輕鬆就可以加入附加巡覽的行為到任何元素，僅需要加入 <code>data-spy="affix"</code> 到你想要偵察的元素上。使用位移（offset）來定義何時切換鎖定的元素。
+        <!--To easily add affix behavior to any element, just add <code>data-spy="affix"</code> to the element you want to spy on. Use offsets to define when to toggle the pinning of an element.-->
+    </p>
+
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">data-spy=</span><span class="s">"affix"</span> <span class="na">data-offset-top=</span><span class="s">"60"</span> <span class="na">data-offset-bottom=</span><span class="s">"200"</span><span class="nt">&gt;</span>
+  ...
+<span class="nt">&lt;/div&gt;</span></code></pre></div>
+
+  <h3>經由 JavaScript<!--Via JavaScript--></h3>
+    <p>
+        經由 JavaScript 來呼叫附加巡覽：
+        <!--Call the affix plugin via JavaScript:-->
+    </p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'#myAffix'</span><span class="p">).</span><span class="nx">affix</span><span class="p">({</span>
+  <span class="na">offset</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">top</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+    <span class="na">bottom</span><span class="p">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">bottom</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'.footer'</span><span class="p">).</span><span class="nx">outerHeight</span><span class="p">(</span><span class="kc">true</span><span class="p">))</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">})</span></code></pre></div>
+
+
+  <h3>選項<!--Options--></h3>
+    <p>
+        選項能透過 <code>data-</code> 屬性或 JavaScript 來傳遞。<code>data-</code> 屬性，將選項名稱附加至 <code>data-</code> 後面，例如，<code>data-offset-top="200"</code>。
+        <!--Options can be passed via data attributes or JavaScript. For data attributes, append the option name to <code>data-</code>, as in <code>data-offset-top="200"</code>.-->
+    </p>
+
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped">
+      <thead>
+       <tr>
+         <th style="width: 100px;">名稱<!--Name--></th>
+         <th style="width: 100px;">類型<!--type--></th>
+         <th style="width: 50px;">預設<!--default--></th>
+         <th>說明<!--description--></th>
+       </tr>
+      </thead>
+      <tbody>
+       <tr>
+         <td>offset</td>
+         <td>number | function | object</td>
+         <td>10</td>
+           <td>
+               捲軸移動時，會從螢幕的像素去計算位移的位置。如果提供一個數字，那麼位移會直接套用到 <code>top</code> 和 <code>bottom</code>。監聽單一方向（<code>top</code> 或 <code>bottom</code>）的位移，僅需提供 <code>offset: { top: 10 }</code> 或 <code>offset: { top: 10, bottom: 5 }</code> 物件。當你需要動態地提供一個位移量時，請使用函數。
+               <!--Pixels to offset from screen when calculating position of scroll. If a single number is provided, the offset will be applied in both top and bottom directions. To provide a unique, bottom and top offset just provide an object <code>offset: { top: 10 }</code> or <code>offset: { top: 10, bottom: 5 }</code>. Use a function when you need to dynamically calculate an offset.-->
+           </td>
+       </tr>
+       <tr>
+         <td>target</td>
+         <td>selector | node | jQuery element</td>
+         <td>the <code>window</code> object</td>
+           <td>
+               指定附加巡覽的目標元素。
+               <!--Specifies the target element of the affix.-->
+           </td>
+       </tr>
+
+      </tbody>
+    </table>
+  </div><!-- /.table-responsive -->
+
+
+  <h3>事件<!--Events--></h3>
+    <p>
+        Bootstrap 附加巡覽類別有公開一些事件允許監聽附加巡覽功能。
+        <!--Bootstrap's affix plugin exposes a few events for hooking into affix functionality.-->
+    </p>
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th style="width: 150px;">事件類別<!--Event Type--></th>
+          <th>說明<!--Description--></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>affix.bs.affix</td>
+            <td>
+                在該元素完成 <code>.affix</code> 設置前，此事件會立即被觸發。
+                <!--This event fires immediately before the element has been affixed.-->
+            </td>
+        </tr>
+        <tr>
+          <td>affixed.bs.affix</td>
+            <td>
+                在該元素完成 <code>.affix</code> 設置後，此事件會被觸發。
+                <!--This event is fired after the element has been affixed.-->
+            </td>
+        </tr>
+        <tr>
+          <td>affix-top.bs.affix</td>
+            <td>
+                在該元素完成 <code>.affix-top</code> 設置前，此事件會立即被觸發。
+                <!--This event fires immediately before the element has been affixed-top.-->
+            </td>
+        </tr>
+        <tr>
+          <td>affixed-top.bs.affix</td>
+            <td>
+                在該元素完成 <code>.affix-top</code> 設置後，此事件會被觸發。
+                <!--This event is fired after the element has been affixed-top.-->
+            </td>
+        </tr>
+       <tr>
+        <td>affix-bottom.bs.affix</td>
+           <td>
+               在該元素完成 <code>.affix-bottom</code> 設置前，此事件會立即被觸發。
+               <!--This event fires immediately before the element has been affixed-bottom.-->
+           </td>
+        </tr>
+        <tr>
+          <td>affixed-bottom.bs.affix</td>
+            <td>
+                在該元素完成 <code>.affix-bottom</code> 設置後，此事件會被觸發。
+                <!--This event is fired after the element has been affixed-bottom.-->
+            </td>
+        </tr>
+      </tbody>
+    </table>
+  </div><!-- /.table-responsive -->
+</div>

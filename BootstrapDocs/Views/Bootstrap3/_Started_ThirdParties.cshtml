@@ -1,0 +1,59 @@
+﻿<div class="bs-docs-section">
+  <h1 id="third-parties" class="page-header">第三方支援<!--Third party support--></h1>
+    <p class="lead">
+        雖然我們不正式支援任何第三方開發的外掛或擴充程式，我們還是提供一些有用的建議，以幫助你在專案中避免潛在的問題。
+        <!--While we don't officially support any third party plugins or add-ons, we do offer some useful advice to help avoid potential issues in your projects.-->
+    </p>
+
+  <h3 id="third-box-sizing">Box-sizing</h3>
+    <p>
+        某些第三方軟體，包含 Google Maps 和 Google 自訂搜尋引擎都會因為 Bootstrap 3 的 <code>* { box-sizing: border-box; }</code> 設置產生衝突。通常，這會使得它的 <code>padding</code> 不會影響元素最終計算出的寬度。瞭解更多關於此問題，請參考 <a href="http://css-tricks.com/box-sizing/">box model and sizing at CSS Tricks</a> 一文。
+        <!--Some third party software, including Google Maps and Google Custom Search Engine, conflict with Bootstrap due to <code>* { box-sizing: border-box; }</code>, a rule which makes it so <code>padding</code> does not affect the final computed width of an element. Learn more about <a href="http://css-tricks.com/box-sizing/">box model and sizing at CSS Tricks</a>.-->
+    </p>
+    <p>
+        根據不同情境，你也許需要覆寫作為所需（Option 1）或重置 box-sizing 的整個區域（Option 2）大小。
+        <!--Depending on the context, you may override as-needed (Option 1) or reset the box-sizing for entire regions (Option 2).-->
+    </p>
+<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="cm">/* Box-sizing resets
+ *
+ * 為避免 Bootstrap 3 全域盒子模型（box model） 設置，可以選擇覆寫單獨的頁面元素<!--Reset individual elements or override regions to avoid conflicts due to（原文有誤）-->
+ * 或重置整個盒子模型（box model） 區域。二種選項，單獨頁面的覆寫和重要整個盒子模型<!--global box model settings of Bootstrap. Two options, individual overrides and-->
+ * （box model）區域，都能透過純 CSS 或 Less 來設置。<!--region resets, are available as plain CSS and uncompiled Less formats.-->
+ */</span>
+
+<span class="cm">/* Option 1A: 經由 CSS 覆寫單個頁面元素的 box model<!--Override a single element's box model via CSS--> */</span>
+<span class="nc">.element</span> <span class="p">{</span>
+  <span class="na">-webkit-box-sizing</span><span class="p">:</span> <span class="n">content-box</span><span class="p">;</span>
+     <span class="na">-moz-box-sizing</span><span class="p">:</span> <span class="n">content-box</span><span class="p">;</span>
+          <span class="nl">box-sizing</span><span class="p">:</span> <span class="n">content-box</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="cm">/* Option 1B: 使用 Bootstrap Less mixin 覆寫單個頁面元素的 box model<!--Override a single element's box model by using a Bootstrap Less mixin--> */</span>
+<span class="nc">.element</span> <span class="p">{</span>
+  <span class="nc">.box-sizing</span><span class="o">(</span><span class="nt">content-box</span><span class="o">)</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="cm">/* Option 2A: 經由 CSS 重置整個區域<!--Reset an entire region via CSS--> */</span>
+<span class="nc">.reset-box-sizing</span><span class="o">,</span>
+<span class="nc">.reset-box-sizing</span> <span class="o">*,</span>
+<span class="nc">.reset-box-sizing</span> <span class="o">*</span><span class="nd">:before</span><span class="o">,</span>
+<span class="nc">.reset-box-sizing</span> <span class="o">*</span><span class="nd">:after</span> <span class="p">{</span>
+  <span class="na">-webkit-box-sizing</span><span class="p">:</span> <span class="n">content-box</span><span class="p">;</span>
+     <span class="na">-moz-box-sizing</span><span class="p">:</span> <span class="n">content-box</span><span class="p">;</span>
+          <span class="nl">box-sizing</span><span class="p">:</span> <span class="n">content-box</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="cm">/* Option 2B: 自訂 Less mixin 重置整個區域<!--Reset an entire region with a custom Less mixin--> */</span>
+<span class="nc">.reset-box-sizing</span> <span class="p">{</span>
+  <span class="k">&amp;</span><span class="o">,</span>
+  <span class="o">*,</span>
+  <span class="o">*</span><span class="nd">:before</span><span class="o">,</span>
+  <span class="o">*</span><span class="nd">:after</span> <span class="p">{</span>
+    <span class="nc">.box-sizing</span><span class="o">(</span><span class="nt">content-box</span><span class="o">)</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="nc">.element</span> <span class="p">{</span>
+  <span class="nc">.reset-box-sizing</span><span class="o">()</span><span class="p">;</span>
+<span class="p">}</span></code></pre></div>
+</div>
+

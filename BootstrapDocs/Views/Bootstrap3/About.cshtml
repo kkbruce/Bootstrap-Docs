@@ -1,0 +1,268 @@
+﻿@{
+    ViewBag.Title = "關於 &middot; Bootstrap 3中文手冊";
+    ViewBag.Description = "Bootstrap 3簡潔，直覺，強大的行動設備優先前端框架，讓網頁開發更快速更簡單。";
+    ViewBag.Keywords = "HTML, CSS, JS, JavaScript, 框架, bootstrap 3, 前端, frontend, 網站開發";
+    Layout = "~/Views/Shared/_Bootstrap3.cshtml";
+
+    ViewBag.Domain = Request.Url.Scheme + System.Uri.SchemeDelimiter + Request.Url.Host + (Request.Url.IsDefaultPort ? "" : ":" + Request.Url.Port);
+    ViewBag.OgUrl = ViewBag.Domain + Url.Action("About");
+}
+
+@section navbar
+{
+    @Html.Partial("_NavBarPartial")
+}
+
+@section footer
+{
+    @Html.Partial("_FooterPartial")
+}
+
+@section HeadCSS
+{
+    <link href="data:text/css;charset=utf-8," data-href="dist/css/bootstrap-theme.min.css" rel="stylesheet" id="bs-theme-stylesheet">
+}
+
+    <div class="bs-docs-header" id="content">
+        <div class="container">
+            <h1>關於<!--About--></h1>
+            <p>
+                瞭解關於專案的歷史，介紹維護團隊以及如何使用 Bootstrap 商標。
+                <!--Learn about the project's history, meet the maintaining teams, and find out how to use the Bootstrap brand.-->
+            </p>
+            @Html.Partial("_SkillTreeADPartial")
+        </div>
+    </div>
+
+    <div class="container bs-docs-container">
+
+      <div class="row">
+        <div class="col-md-9" role="main">
+          <!-- History
+================================================== -->
+<div class="bs-docs-section">
+  <h1 id="history" class="page-header">歷史<!--History--></h1>
+
+    <p class="lead">
+        Bootstrap 最初是由 Twitter 裡的一位設計師和一位開發者所建立，現在，Bootstrap 已經成為這個世界上最火紅的前端框架與開放原始碼專案。
+        <!--Originally created by a designer and a developer at Twitter, Bootstrap has become one of the most popular front-end frameworks and open source projects in the world.-->
+    </p>
+    <p>
+        Bootstrap 是由任職於 Twitter 的 <a href="https://twitter.com/mdo">@@mdo</a> 和 <a href="https://twitter.com/fat">@@fat</a> 在 2010 年中建立。在開放原始碼之前稱為 <em>Twitter Blueprint</em>。經過數個月的開發，Twitter 舉辦了 <a href="https://blog.twitter.com/2010/hack-week">first Hack Week</a> 並將專案公開，各種等級的開發者都可以在沒有任何外部指導的情況下進行參與。在開放原始碼的一年以前，此專案為作公司內部工具開發的樣式指南，直至今日依然如此。
+        <!--Bootstrap was created at Twitter in mid-2010 by <a href="https://twitter.com/mdo">@@mdo</a> and <a href="https://twitter.com/fat">@@fat</a>. Prior to being an open-sourced framework, Bootstrap was known as <em>Twitter Blueprint</em>. A few months into development, Twitter held its <a href="https://blog.twitter.com/2010/hack-week">first Hack Week</a> and the project exploded as developers of all skill levels jumped in without any external guidance. It served as the style guide for internal tools development at the company for over a year before its public release, and continues to do so today.-->
+    </p>
+    <p>
+        最初的<a href="https://dev.twitter.com/blog/bootstrap-twitter">發行</a>在 <a href="https://twitter.com/mdo/statuses/104620039650557952"><time datetime="2011-08-19 11:25">2011年8月19日</time></a>，目前為止，已經發行超過<a href="https://github.com/twbs/bootstrap/releases">20個版本</a>，包含 v2 與 v3 兩個主版本的改寫。在 Bootstrap 2，我們加入自適應佈局的功能到框架中，不過它是一個選擇性樣式提供提供。在前一版的基礎上，我們建置了 Bootstrap 3，我們再次改寫函式庫，讓自適應佈局成為預設並且融入行動優先的理念到整個框架中。
+        <!--Originally <a href="https://dev.twitter.com/blog/bootstrap-twitter">released</a> on <a href="https://twitter.com/mdo/statuses/104620039650557952"><time datetime="2011-08-19 11:25">Friday, August 19, 2011</time></a>, we've since had over <a href="https://github.com/twbs/bootstrap/releases">twenty releases</a>, including two major rewrites with v2 and v3. With Bootstrap 2, we added responsive functionality to the entire framework as an optional stylesheet. Building on that with Bootstrap 3, we rewrote the library once more to make it responsive by default with a mobile first approach.-->
+    </p>
+</div>
+
+
+<!-- Team
+================================================== -->
+<div class="bs-docs-section">
+  <h1 id="team" class="page-header">團隊<!--Team--></h1>
+
+    <p class="lead">
+        Bootstrap 由創始成員與一組核心貢獻者維護，它們為社群提供巨大支援和幫助。
+        <!--Bootstrap is maintained by the founding team and a small group of invaluable core contributors, with the massive support and involvement of our community.-->
+    </p>
+
+  <h2 id="team-core">Core team</h2>
+  <div class="list-group bs-team">
+    
+      <div class="list-group-item">
+        <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=mdo&amp;type=follow"></iframe>
+        <a class="team-member" href="https://github.com/mdo">
+          <img src="http://www.gravatar.com/avatar/bc4ab438f7a4ce1c406aadc688427f2c" alt="@("@mdo")">
+          <strong>Mark Otto</strong> <small>@@mdo</small>
+        </a>
+      </div>
+    
+      <div class="list-group-item">
+        <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=fat&amp;type=follow"></iframe>
+        <a class="team-member" href="https://github.com/fat">
+          <img src="http://www.gravatar.com/avatar/a98244cbdacaf1c0b55499466002f7a8" alt="@("@fat")">
+          <strong>Jacob Thornton</strong> <small>@@fat</small>
+        </a>
+      </div>
+    
+      <div class="list-group-item">
+        <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=cvrebert&amp;type=follow"></iframe>
+        <a class="team-member" href="https://github.com/cvrebert">
+          <img src="http://www.gravatar.com/avatar/edec428c425453955f770095a7d26c50" alt="@("@cvrebert")">
+          <strong>Chris Rebert</strong> <small>@@cvrebert</small>
+        </a>
+      </div>
+    
+      <div class="list-group-item">
+        <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=juthilo&amp;type=follow"></iframe>
+        <a class="team-member" href="https://github.com/juthilo">
+          <img src="http://www.gravatar.com/avatar/0f7dd3ce58a416be5685ea6194f82b11" alt="@("@juthilo")">
+          <strong>Julian Thilo</strong> <small>@@juthilo</small>
+        </a>
+      </div>
+    
+      <div class="list-group-item">
+        <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=xhmikosr&amp;type=follow"></iframe>
+        <a class="team-member" href="https://github.com/xhmikosr">
+          <img src="http://www.gravatar.com/avatar/e37759b1ea0125d4e97b1e00b5eed26f" alt="@("@xhmikosr")">
+          <strong>XhmikosR</strong> <small>@@xhmikosr</small>
+        </a>
+      </div>
+    
+      <div class="list-group-item">
+        <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=hnrch02&amp;type=follow"></iframe>
+        <a class="team-member" href="https://github.com/hnrch02">
+          <img src="http://www.gravatar.com/avatar/0d53f5d3d3d28bd470f394d98f7ef48f" alt="@("@hnrch02")">
+          <strong>Heinrich Fenkart</strong> <small>@@hnrch02</small>
+        </a>
+      </div>
+    
+  </div>
+    <p>
+        透過<a href="https://github.com/twbs/bootstrap/issues/new">開啟一個 issue</a> 或傳送一個 pull 要求來參與 Bootstrap 的開發。閱讀<a href="https://github.com/twbs/bootstrap/blob/master/CONTRIBUTING.md">貢獻指南</a>以瞭解我們是如何進行開發的資訊。
+        <!--Get involved with Bootstrap development by <a href="https://github.com/twbs/bootstrap/issues/new">opening an issue</a> or submitting a pull request. Read our <a href="https://github.com/twbs/bootstrap/blob/master/CONTRIBUTING.md">contributing guidelines</a> for information on how we develop.-->
+    </p>
+
+  <h2 id="team-sass">Sass 團隊<!--Sass team--></h2>
+  <div class="list-group bs-team">
+    
+      <div class="list-group-item">
+        <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=thomas-mcdonald&amp;type=follow"></iframe>
+        <a class="team-member" href="https://github.com/thomas-mcdonald">
+          <img src="http://www.gravatar.com/avatar/24cd55ab1a62ffb113ab8c02f64c9301" alt="@("@thomas-mcdonald")">
+          <strong>Thomas McDonald</strong> <small>@@thomas-mcdonald</small>
+        </a>
+      </div>
+    
+      <div class="list-group-item">
+        <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=glebm&amp;type=follow"></iframe>
+        <a class="team-member" href="https://github.com/glebm">
+          <img src="http://www.gravatar.com/avatar/729f685b8e8d7e9feed18c177c82e59b" alt="@("@glebm")">
+          <strong>Gleb Mazovetskiy</strong> <small>@@glebm</small>
+        </a>
+      </div>
+    
+  </div>
+    <p>
+        <a href="https://github.com/twbs/bootstrap-sass">Bootstrap 官方的 Sass 移植版</a>由此小組建立與維護。它在 v3.1.0 正式成為 Bootstrap 官方組織。閱讀 Sass <a href="https://github.com/twbs/bootstrap-sass/blob/master/CONTRIBUTING.md">貢獻指南</a> 以瞭解我們是如何進行 Sass 移植版開發的資訊。
+        <!--The <a href="https://github.com/twbs/bootstrap-sass">official Sass port of Bootstrap</a> was created and is maintained by this team. It became part of Bootstrap's organization with v3.1.0. Read the Sass <a href="https://github.com/twbs/bootstrap-sass/blob/master/CONTRIBUTING.md">contributing guidelines</a> for information on how the Sass port is developed.-->
+    </p>
+</div>
+
+
+<!-- Brand
+================================================== -->
+<div class="bs-docs-section">
+  <h1 id="brand" class="page-header">商標指南<!--Brand guidelines--></h1>
+
+    <p class="lead">
+        有需要 Bootstrap 商標資源嗎？太好了，我們只有少數幾條指南供大家遵守，並且希望你也能一起遵守。這幾條指南受到了 MailChimp's <a href="http://mailchimp.com/about/brand-assets/" target="_blank">Brand Assets</a> 的啟發。
+        <!--Have a need for Bootstrap's brand resources? Great! We have only a few guidelines we follow, and in turn ask you to follow as well. These guidelines were inspired by MailChimp's <a href="http://mailchimp.com/about/brand-assets/" target="_blank">Brand Assets</a>.-->
+    </p>
+
+  <h2>商標（Mark）和標誌（Logo）<!--Mark and logo--></h2>
+    <p>
+        使用 Bootstrap 商標（大寫的 <strong>B</strong>）或標準的標誌（即 <strong>Bootstrap</strong>）。它們應該是使用 Helvetica Neue Bold 字型。千萬不要 Bootstrap 標誌和 <strong>Twitter <a href="https://about.twitter.com/press/brand-assets">小鳥標誌</a></strong>一起使用。
+        <!--Use either the Bootstrap mark (a capital <strong>B</strong>) or the standard logo (just <strong>Bootstrap</strong>). It should always appear in Helvetica Neue Bold. <strong>Do not use the Twitter bird</strong> in association with Bootstrap.-->
+    </p>
+  <div class="bs-brand-logos">
+    <div class="bs-brand-item">
+      <div class="bs-docs-booticon bs-docs-booticon-lg">B</div>
+    </div>
+    <div class="bs-brand-item inverse">
+      <div class="bs-docs-booticon bs-docs-booticon-lg bs-docs-booticon-inverse">B</div>
+    </div>
+  </div>
+  <div class="bs-brand-logos">
+    <div class="bs-brand-item">
+      <h1>Bootstrap</h1>
+    </div>
+    <div class="bs-brand-item inverse">
+      <h1>Bootstrap</h1>
+    </div>
+  </div>
+
+  <h2>下載商標<!--Download mark--></h2>
+    <p>
+        Bootstrap 商標有三種樣式提供下載，每一種都是 SVG 檔案類型。點擊右鍵選擇另存新檔。
+        <!--Download the Bootstrap mark in one of three styles, each available as an SVG file. Right click, Save as.-->
+    </p>
+  <div class="bs-brand-logos">
+    <div class="bs-brand-item">
+      <img class="svg" src="assets/brand/bootstrap-solid.svg" alt="Bootstrap">
+    </div>
+    <div class="bs-brand-item inverse">
+      <img class="svg" src="assets/brand/bootstrap-outline.svg" alt="Bootstrap">
+    </div>
+    <div class="bs-brand-item inverse">
+      <img class="svg" src="assets/brand/bootstrap-punchout.svg" alt="Bootstrap">
+    </div>
+  </div>
+
+  <h2>命名<!--Name--></h2>
+    <p>
+        此專案和框架應該總是被稱為 <strong>Bootstrap</strong>。前面不該有 Twitter，<em>s</em> 也不能大寫，並且除了大寫的 <strong>B</strong> 就再也沒有任何形式的縮寫。
+        <!--The project and framework should always be referred to as <strong>Bootstrap</strong>. No Twitter before it, no capital <em>s</em>, and no abbreviations except for one, a capital <strong>B</strong>.-->
+    </p>
+  <div class="bs-brand-logos">
+    <div class="bs-brand-item">
+      <h3>Bootstrap</h3>
+      <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+      <span class="sr-only">(correct)</span>
+    </div>
+    <div class="bs-brand-item">
+      <h3 class="text-muted">BootStrap</h3>
+      <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+      <span class="sr-only">(incorrect)</span>
+    </div>
+    <div class="bs-brand-item">
+      <h3 class="text-muted">Twitter Bootstrap</h3>
+      <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+      <span class="sr-only">(incorrect)</span>
+    </div>
+  </div>
+
+  <h2>顏色<!--Colors--></h2>
+    <p>
+        我們的文件與商標僅使用了少數的主要顏色來區別，從什麼<em>是在</em> Bootstrap 及什麼<em>是</em> Bootstrap。簡單的說，如果是紫色，就代表是 Bootstrap。
+        <!--Our docs and branding use a handful of primary colors to differentiate what <em>is</em> Bootstrap from what <em>is in</em> Bootstrap. In other words, if it's purple, it's representative of Bootstrap.-->
+    </p>
+  <div class="bs-brand">
+    <div class="color-swatches">
+      <div class="color-swatch bs-purple"></div>
+      <div class="color-swatch bs-purple-light"></div>
+      <div class="color-swatch bs-purple-lighter"></div>
+      <div class="color-swatch bs-gray"></div>
+    </div>
+  </div>
+</div>
+
+        </div>
+        
+        <div class="col-md-3">
+          <div class="bs-docs-sidebar hidden-print hidden-xs hidden-sm" role="complementary">
+            <ul class="nav bs-docs-sidenav">
+              
+                <li>
+  <a href="#history">歷史<!--History--></a>
+</li>
+<li>
+  <a href="#team">團隊<!--Team--></a>
+</li>
+<li>
+  <a href="#brand">商標指南<!--Brand guidelines--></a>
+</li>
+
+              
+            </ul>
+            <a class="back-to-top" href="#top">
+              返回頂端<!--Back to top-->
+            </a>
+            
+          </div>
+        </div>
+        
+      </div>
+    </div>

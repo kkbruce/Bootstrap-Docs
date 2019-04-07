@@ -1,0 +1,222 @@
+﻿<div class="bs-docs-section">
+    <h1 id="examples" class="page-header">範例<!--Examples--></h1>
+
+    <p class="lead">
+        以下範例全部基於上述的基礎範本並配合許多 Bootstrap 3 元件製作。我們鼓勵你根據專案的需求對 Bootstrap 3 範例動手進行修改。
+        <!--Build on the basic template above with Bootstrap's many components. We encourage you to customize and adapt Bootstrap to suit your individual project's needs.-->
+    </p>
+
+    <h3 id="examples-framework">使用框架<!--Using the framework--></h3>
+    <div class="row bs-examples">
+        <div class="col-xs-6 col-md-4">
+            <a class="thumbnail" href="@Url.RouteUrl("BS3", new { action = "Examples", name = "starter-template" })">
+                @Html.LazyLoadImg(Url.Content("~/Content/AssetsBS3/examples/screenshots/starter-template.jpg"), "入門範本", "800", "600", new { @class = "lazy" })
+            </a>
+            <h4>入門範本<!--Starter template--></h4>
+            <p>
+                最基礎內容：已編譯 CSS 和 JavaScript 以及一個 <code>container</code> 容器。
+                <!--Nothing but the basics: compiled CSS and JavaScript along with a container.-->
+            </p>
+        </div>
+        <div class="col-xs-6 col-md-4">
+            <a class="thumbnail" href="@Url.RouteUrl("BS3", new { action = "Examples", name = "theme"})">
+                @Html.LazyLoadImg(Url.Content("~/Content/AssetsBS3/examples/screenshots/theme.jpg"), "Bootstrap 佈景主題", "800", "600", new { @class = "lazy" })
+            </a>
+            <h4>Bootstrap 佈景主題<!--Bootstrap theme--></h4>
+            <p>
+                載入選擇性的 Bootstrap 佈景主題以加強視覺體驗。
+                <!--Load the optional Bootstrap theme for a visually enhanced experience.-->
+            </p>
+        </div>
+        <div class="clearfix visible-xs"></div>
+
+        <div class="col-xs-6 col-md-4">
+            <a class="thumbnail" href="@Url.RouteUrl("BS3", new {action = "Examples", name = "grid"})">
+                @Html.LazyLoadImg(Url.Content("~/Content/AssetsBS3/examples/screenshots/grid.jpg"), "格線", "800", "600", new { @class = "lazy" })
+            </a>
+            <h4>格線<!--Grids--></h4>
+            <p>
+                多個關於格線與四層(tiers)與巢狀方面佈局的範例。
+                <!--Multiple examples of grid layouts with all four tiers, nesting, and more.-->
+            </p>
+        </div>
+        <div class="col-xs-6 col-md-4">
+            <a class="thumbnail" href="@Url.RouteUrl("BS3", new { action = "Examples", name = "jumbotron" })">
+                @Html.LazyLoadImg(Url.Content("~/Content/AssetsBS3/examples/screenshots/jumbotron.jpg"), "大螢幕", "800", "600", new { @class = "lazy" })
+            </a>
+            <h4>大螢幕<!--Jumbotron--></h4>
+            <p>
+                建置含巡覽列與基本格線欄位的大螢幕範本。
+                <!--Build around the jumbotron with a navbar and some basic grid columns.-->
+            </p>
+        </div>
+        <div class="clearfix visible-xs"></div>
+
+        <div class="col-xs-6 col-md-4">
+            <a class="thumbnail" href="@Url.RouteUrl("BS3", new { action = "Examples", name = "jumbotron-narrow" })">
+                @Html.LazyLoadImg(Url.Content("~/Content/AssetsBS3/examples/screenshots/jumbotron-narrow.jpg"), "窄螢幕", "800", "600", new { @class = "lazy" })
+            </a>
+            <h4>窄螢幕<!--Narrow jumbotron--></h4>
+            <p>
+                建置含一個預設 <code>container</code> 容器與自訂頁面的窄螢幕範本。
+                <!--Build a more custom page by narrowing the default container and jumbotron.-->
+            </p>
+        </div>
+    </div>
+
+    <h3 id="examples-navbars">巡覽列實戰<!--Navbars in action--></h3>
+    <div class="row bs-examples">
+        <div class="col-xs-6 col-md-4">
+            <a class="thumbnail" href="@Url.RouteUrl("BS3", new { action = "Examples", name = "navbar" })">
+                @Html.LazyLoadImg(Url.Content("~/Content/AssetsBS3/examples/screenshots/navbar.jpg"), "巡覽列", "800", "600", new { @class = "lazy" })
+            </a>
+            <h4>巡覽列<!--Navbar--></h4>
+            <p>
+                超入門的範本，僅含有巡覽列與一些額外內容。
+                <!--Super basic template that includes the navbar along with some additional content.-->
+            </p>
+        </div>
+        <div class="col-xs-6 col-md-4">
+            <a class="thumbnail" href="@Url.RouteUrl("BS3", new { action = "Examples", name = "navbar-static-top" })">
+                @Html.LazyLoadImg(Url.Content("~/Content/AssetsBS3/examples/screenshots/navbar-static.jpg"), "靜態置頂巡覽列", "800", "600", new { @class = "lazy" })
+            </a>
+            <h4>靜態置頂巡覽列<!--Static top navbar--></h4>
+            <p>
+                超入門的範本，僅含有置頂巡覽列與一些額外內容。
+                <!--Super basic template with a static top navbar along with some additional content.-->
+            </p>
+        </div>
+        <div class="clearfix visible-xs"></div>
+
+        <div class="col-xs-6 col-md-4">
+            <a class="thumbnail" href="@Url.RouteUrl("BS3", new { action = "Examples", name = "navbar-fixed-top" })">
+                @Html.LazyLoadImg(Url.Content("~/Content/AssetsBS3/examples/screenshots/navbar-fixed.jpg"), "固定巡覽列", "800", "600", new { @class = "lazy" })
+            </a>
+            <h4>固定巡覽列<!--Fixed navbar--></h4>
+            <p>
+                超入門的範本，僅含有固定巡覽列與一些額外內容。
+                <!--Super basic template with a fixed top navbar along with some additional content.-->
+            </p>
+        </div>
+    </div>
+
+    <div class="bs-callout bs-callout-warning">
+        <h4>譯者註</h4>
+        <p>Bootstrap 文件中的"靜態（Static）"通常意思是固定不隨畫面滑動而移動。而"固定（Fixed）"通常意思是指元素（或容器）的位置會固定在畫面上且隨畫面滑動而移動，就像是固定在畫面上一樣。</p>
+    </div>
+
+    <h3 id="examples-custom">自訂元件<!--Custom components--></h3>
+    <div class="row bs-examples">
+        <div class="col-xs-6 col-md-4">
+            <a class="thumbnail" href="@Url.RouteUrl("BS3", new { action = "Examples", name = "cover" })">
+                @Html.LazyLoadImg(Url.Content("~/Content/AssetsBS3/examples/screenshots/cover.jpg"), "封面效果", "800", "600", new { @class = "lazy" })
+            </a>
+            <h4>封面效果<!--Cover--></h4>
+            <p>
+                單一頁面範本，建置一個簡單而大方的首頁。
+                <!--A one-page template for building simple and beautiful home pages.-->
+            </p>
+        </div>
+        <div class="col-xs-6 col-md-4">
+            <a class="thumbnail" href="@Url.RouteUrl("BS3", new { action = "Examples", name = "carousel" })">
+                @Html.LazyLoadImg(Url.Content("~/Content/AssetsBS3/examples/screenshots/carousel.jpg"), "幻燈片效果", "800", "600", new { @class = "lazy" })
+            </a>
+            <h4>幻燈片效果<!--Carousel--></h4>
+            <p>
+                自定義的巡覽列和幻燈片效果，還有加入一些新元件效果。
+                <!--Customize the navbar and carousel, then add some new components.-->
+            </p>
+        </div>
+        <div class="clearfix visible-xs"></div>
+
+        <div class="col-xs-6 col-md-4">
+            <a class="thumbnail" href="@Url.RouteUrl("BS3", new { action = "Examples", name = "blog" })">
+                @Html.LazyLoadImg(Url.Content("~/Content/AssetsBS3/examples/screenshots/blog.jpg"), "部落格", "800", "600", new { @class = "lazy" })
+            </a>
+            <h4>部落格<!--Blog--></h4>
+            <p>
+                簡單的兩列式的部落格佈局，含自定義巡覽列、標頭（header）和分類。
+                <!--Simple two-column blog layout with custom navigation, header, and type.-->
+            </p>
+        </div>
+        <div class="col-xs-6 col-md-4">
+            <a class="thumbnail" href="@Url.RouteUrl("BS3", new { action = "Examples", name = "dashboard" })">
+                @Html.LazyLoadImg(Url.Content("~/Content/AssetsBS3/examples/screenshots/dashboard.jpg"), "儀表板", "800", "600", new { @class = "lazy" })
+            </a>
+            <h4>儀表板<!--Dashboard--></h4>
+            <p>
+                基本的管理儀表板架構，含固定側邊欄和巡覽列。
+                <!--Basic structure for a admin dashboard with fixed sidebar and navbar.-->
+            </p>
+        </div>
+        <div class="clearfix visible-xs"></div>
+
+        <div class="col-xs-6 col-md-4">
+            <a class="thumbnail" href="@Url.RouteUrl("BS3", new { action = "Examples", name = "signin" })">
+                @Html.LazyLoadImg(Url.Content("~/Content/AssetsBS3/examples/screenshots/sign-in.jpg"), "登入頁", "800", "600", new { @class = "lazy" })
+            </a>
+            <h4>登入頁<!--Sign-in page--></h4>
+            <p>
+                自訂表單佈局和簡單的登入表單設計。
+                <!--Custom form layout and design for a simple sign in form.-->
+            </p>
+        </div>
+        <div class="col-xs-6 col-md-4">
+            <a class="thumbnail" href="@Url.RouteUrl("BS3", new { action = "Examples", name = "justified-nav" })">
+                @Html.LazyLoadImg(Url.Content("~/Content/AssetsBS3/examples/screenshots/justified-nav.jpg"), "等寬巡覽", "800", "600", new { @class = "lazy" })
+            </a>
+            <h4>等寬巡覽<!--Justified nav--></h4>
+            <p>
+                立一個自訂的巡覽列且具有等寬的連結。注意，<a href="components.html#nav-justified">此範本對 Safari 不太友善。</a>
+                <!--Create a custom navbar with justified links.
+                Heads up! <a href="components.html#nav-justified">Not too Safari friendly.</a>-->
+            </p>
+        </div>
+        <div class="clearfix visible-xs"></div>
+
+        <div class="col-xs-6 col-md-4">
+            <a class="thumbnail" href="@Url.RouteUrl("BS3", new { action = "Examples", name = "sticky-footer" })">
+                @Html.LazyLoadImg(Url.Content("~/Content/AssetsBS3/examples/screenshots/sticky-footer.jpg"), "固定頁尾", "800", "600", new { @class = "lazy" })
+            </a>
+            <h4>固定頁尾<!--Sticky footer--></h4>
+            <p>
+                將頁尾附加到可視區域的底部，內容要比頁尾還短。
+                <!--Attach a footer to the bottom of the viewport when the content is shorter than it.-->
+            </p>
+        </div>
+        <div class="col-xs-6 col-md-4">
+            <a class="thumbnail" href="@Url.RouteUrl("BS3", new {action = "Examples", name = "sticky-footer-navbar"})">
+                @Html.LazyLoadImg(Url.Content("~/Content/AssetsBS3/examples/screenshots/sticky-footer-navbar.jpg"), "固定頁尾與巡覽列", "800", "600", new { @class = "lazy" })
+            </a>
+            <h4>固定頁尾與巡覽列<!--Sticky footer with navbar--></h4>
+            <p>
+                將頁尾附加到可視區域的底部，且有固定巡覽列在頂端。
+                <!--Attach a footer to the bottom of the viewport with a fixed navbar at the top.-->
+            </p>
+        </div>
+    </div>
+
+    <h3 id="examples-experiments">實驗性<!--Experiments--></h3>
+    <div class="row bs-examples">
+        <div class="col-xs-6 col-md-4">
+            <a class="thumbnail" href="@Url.RouteUrl("BS3", new { action = "Examples", name = "non-responsive" })">
+                @Html.LazyLoadImg(Url.Content("~/Content/AssetsBS3/examples/screenshots/non-responsive.jpg"), "非自適應 Bootstrap", "800", "600", new { @class = "lazy" })
+            </a>
+            <h4>非自適應 Bootstrap<!--Non-responsive Bootstrap--></h4>
+            <p>
+                簡易就能取消 Bootstrap 3 自適應功能，查看<a href="#disable-responsive">我們的文件</a>。
+                <!--Easily disable the responsiveness of Bootstrap <a href="#disable-responsive">per our docs</a>.-->
+            </p>
+        </div>
+        <div class="col-xs-6 col-md-4">
+            <a class="thumbnail" href="@Url.RouteUrl("BS3", new { action = "Examples", name = "offcanvas" })">
+                @Html.LazyLoadImg(Url.Content("~/Content/AssetsBS3/examples/screenshots/offcanvas.jpg"), "空間利用", "800", "600", new { @class = "lazy" })
+            </a>
+            <h4>空間利用<!--Offcanvas--></h4>
+            <p>
+                使用 Bootstrap 3 建置一個空間利用巡覽功能表。
+                <!--Build a toggleable off-canvas navigation menu for use with Bootstrap.-->
+            </p>
+        </div>
+    </div>
+</div>

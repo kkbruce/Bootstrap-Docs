@@ -1,0 +1,39 @@
+﻿<div class="bs-docs-section">
+  <h1 id="images" class="page-header">圖片<!--Images--></h1>
+
+  <h2 id="images-responsive">自適應圖片<!--Responsive images--></h2>
+    <p>
+        在 Bootstrap 3 中，透過加入 <code>.img-responsive</code> 類別，可以讓圖片擁有良好的自適應功能。這僅套用 <code>max-width: 100%;</code> 和 <code>height: auto;</code> 屬性到圖片上，讓圖片可以在父元素中進行更好效果的縮放。
+        <!--Images in Bootstrap 3 can be made responsive-friendly via the addition of the <code>.img-responsive</code> class. This applies <code>max-width: 100%;</code> and <code>height: auto;</code> to the image so that it scales nicely to the parent element.-->
+    </p>
+  <div class="bs-callout bs-callout-warning">
+    <h4>SVG 圖片 和 IE 8-10<!--SVG images and IE 8-10--></h4>
+      <p>
+          在 Internet Explorer 8-10，設置 <code>.img-responsive</code> 類別的 SVG 圖片呈現出來會有不對稱的大小問題。要修正此問題，在出現問題的地方加入 <code>width: 100% \9;</code> 即可。Bootstrap 3 並未自動套用上述屬性，因為它會造成其他圖片格式的混亂。
+          <!--In Internet Explorer 8-10, SVG images with <code>.img-responsive</code> are disproportionately sized. To fix this, add <code>width: 100% \9;</code> where necessary. Bootstrap doesn't apply this automatically as it causes complications to other image formats.-->
+      </p>
+  </div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"..."</span> <span class="na">class=</span><span class="s">"img-responsive"</span> <span class="na">alt=</span><span class="s">"Responsive image"</span><span class="nt">&gt;</span></code></pre></div>
+
+  <h2 id="images-shapes">圖片形狀<!--Image shapes--></h2>
+    <p>
+        為 <code>&lt;img&gt;</code> 元素加入以下類別，可以很輕鬆的讓圖片以不同樣式來呈現。
+        <!--Add classes to an <code>&lt;img&gt;</code> element to easily style images in any project.-->
+    </p>
+  <div class="bs-callout bs-callout-danger">
+    <h4>跨瀏覽器相容性<!--Cross-browser compatibility--></h4>
+      <p>
+          牢記此事，Internet Explorer 8 不支援 CSS3 的圓角屬性。
+          <!--Keep in mind that Internet Explorer 8 lacks support for rounded corners.-->
+      </p>
+  </div>
+  <div class="bs-example bs-example-images">
+    <img data-src="holder.js/140x140" class="img-rounded" alt="A generic square placeholder image with rounded corners">
+    <img data-src="holder.js/140x140" class="img-circle" alt="A generic square placeholder image where only the portion within the circle circumscribed about said square is visible">
+    <img data-src="holder.js/140x140" class="img-thumbnail" alt="A generic square placeholder image with a white border around it, making it resemble a photograph taken with an old instant camera">
+  </div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"..."</span> <span class="na">alt=</span><span class="s">"..."</span> <span class="na">class=</span><span class="s">"img-rounded"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"..."</span> <span class="na">alt=</span><span class="s">"..."</span> <span class="na">class=</span><span class="s">"img-circle"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"..."</span> <span class="na">alt=</span><span class="s">"..."</span> <span class="na">class=</span><span class="s">"img-thumbnail"</span><span class="nt">&gt;</span></code></pre></div>
+</div>
+

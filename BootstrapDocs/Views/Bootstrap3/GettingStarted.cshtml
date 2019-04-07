@@ -1,0 +1,52 @@
+﻿@{
+    ViewBag.Title = "旅程開始 &middot; Bootstrap 3 中文手冊";
+    ViewBag.Description = "Bootstrap 3簡潔，直覺，強大的行動設備優先前端框架，讓網頁開發更快速更簡單。";
+    ViewBag.Keywords = "HTML, CSS, JS, JavaScript, 框架, bootstrap 3, 前端, frontend, 網站開發";
+    Layout = "~/Views/Shared/_Bootstrap3.cshtml";
+
+    ViewBag.Domain = Request.Url.Scheme + System.Uri.SchemeDelimiter + Request.Url.Host + (Request.Url.IsDefaultPort ? "" : ":" + Request.Url.Port);
+
+    ViewBag.OgUrl = ViewBag.Domain + Url.Action("GettingStarted");
+}
+
+@section navbar
+{
+    @Html.Partial("_NavBarPartial")
+}
+
+@section footer
+{
+    @Html.Partial("_FooterPartial")
+}
+
+<div class="bs-docs-header" id="content">
+    <div class="container">
+        <h1>旅程開始<!--Getting started--></h1>
+        <p>Bootstrap 3 概觀、如何下載使用、基礎範本和範例等等。
+           <!--An overview of Bootstrap, how to download and use, basic templates and examples, and more.-->
+        </p>
+        @Html.Partial("_SkillTreeADPartial")
+    </div>
+</div>
+
+<div class="container bs-docs-container">
+    <div class="row">
+        <div class="col-md-9" role="main">
+            @Html.Partial("_Started_Download")
+            @Html.Partial("_Started_WhatsIncluded")
+            @Html.Partial("_Started_Grunt")
+            @Html.Partial("_Started_Template")
+            @Html.Partial("_Started_Examples")
+            @Html.Partial("_Started_Tools")
+            @Html.Partial("_Started_Community")
+            @Html.Partial("_Started_DisableResponsive")
+            @Html.Partial("_Started_Migration")
+            @Html.Partial("_Started_Support")
+            @Html.Partial("_Started_ThirdParties")
+            @Html.Partial("_Started_Accessibility")
+            @Html.Partial("_Started_License")
+            @Html.Partial("_Started_Translations")
+        </div>
+        @Html.Partial("_Started_SideNav")
+    </div>
+</div>
