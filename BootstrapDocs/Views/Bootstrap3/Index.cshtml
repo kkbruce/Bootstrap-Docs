@@ -1,0 +1,136 @@
+﻿@{
+    ViewBag.Title = "Bootstrap 3 中文手冊 &middot; 世界最受歡迎的行動優先和自適應前端框架。";
+    ViewBag.Description = "Bootstrap 3簡潔，直覺，強大的行動設備優先前端框架，讓網頁開發更快速更簡單。";
+    ViewBag.Keywords = "HTML, CSS, JS, JavaScript, 框架, bootstrap 3, 前端, frontend, 網站開發";
+    Layout = "~/Views/Shared/_Bootstrap3.cshtml";
+
+    // http://stackoverflow.com/questions/61817/whats-the-best-method-in-asp-net-to-obtain-the-current-domain
+    ViewBag.Domain = Request.Url.Scheme + System.Uri.SchemeDelimiter + Request.Url.Host +
+                     (Request.Url.IsDefaultPort ? "" : ":" + Request.Url.Port);
+
+    ViewBag.OgUrl = ViewBag.Domain + Url.Action("Index");
+}
+
+@section navbar
+{
+    @Html.Partial("_NavBarPartial")
+}
+
+@section footer
+{
+    @Html.Partial("_FooterPartial")
+}
+
+    <!-- Page content of course! -->
+    <main class="bs-docs-masthead" id="content" role="main">
+        <div class="container">
+            <span class="bs-docs-booticon bs-docs-booticon-lg bs-docs-booticon-outline">B</span>
+            <p class="lead">
+                Bootstrap 3是最受歡迎的 HTML、CSS 和 JS 框架，用於開發自適應網頁與以行動優先的網站專案。
+                <!--Bootstrap is the most popular HTML, CSS, and JS framework for developing responsive, mobile first projects on the web.-->
+            </p>
+            <p id="eventTest"></p>
+            <p class="lead">
+                <!--<a href="getting-started.html#download" class="btn btn-outline-inverse btn-lg" onclick="ga('send', 'event', 'Jumbotron actions', 'Download', 'Download 3.3.1');">Download Bootstrap</a>-->
+                @Html.ActionLink("下載 Bootstrap 3", "GettingStarted", null, null, null, "download", null, new { @class = "btn btn-outline-inverse btn-lg" })
+            </p>
+            <p class="version">翻譯版本<!--Currently--> v3.3.1</p>
+            @*Bootstrap 廣告*@
+            @Html.Partial("_SkillTreeADPartial")
+        </div>
+    </main>
+    <div class="bs-docs-featurette">
+        <div class="container">
+            <h2 class="bs-docs-featurette-title">為每一人，每一種應用所設計。<!--Designed for everyone, everywhere.--></h2>
+            <p class="lead">
+                Bootstrap 3讓前端開發更快與簡單。讓所有人都能容易上手，所有設備都能合適，所有專案都能適用。
+                <!--Bootstrap makes front-end web development faster and easier. 
+                    It's made for folks of all skill levels, devices of all shapes, and projects of all sizes.-->
+            </p>
+            <hr class="half-rule">
+            <div class="row">
+                <div class="col-sm-4">
+                    <img src="~/Content/AssetsBS3/img/sass-less.png" alt="Sass and Less support" class="img-responsive">
+                    <h3>前置處理器<!--Preprocessors--></h3>
+                    <p>
+                        Bootstrap 雖然發行為一般的 CSS，但它的原始程式碼是基於兩個流行的 CSS 前置處理器，@Html.ActionLink("Less", "CSS", null, null, null, "less", null, null) 和 @Html.ActionLink("Sass", "CSS", null, null, null, "sass", null, null)。你可以選擇使用預編譯的 CSS 來快速上手或從原始程式碼建置自己的版本。
+                        <!--Bootstrap ships with vanilla CSS, 
+                            but its source code utilizes the two most popular CSS preprocessors, 
+                            <a href="../css/#less">Less</a> and <a href="../css/#sass">Sass</a>. 
+                            Quickly get started with precompiled CSS or build on the source.-->
+                    </p>
+                </div>
+                <div class="col-sm-4">
+                    <img src="~/Content/AssetsBS3/img/devices.png" alt="Responsive across devices" class="img-responsive">
+                    <h3>一個框架，所有設備<!--One framework, every device.--></h3>
+                    <p>
+                        Bootstrap 3 能基於一份程式碼而簡易且有效的擴展你的網站和應用程式，
+                        利用 CSS 媒體查詢（Media Query）來處理手機、平板到桌上電腦各種平台。
+                        <!--Bootstrap easily and efficiently scales your websites and applications with a single code base, 
+                            from phones to tablets to desktops with CSS media queries.-->
+                    </p>
+                </div>
+                <div class="col-sm-4">
+                    <img src="~/Content/AssetsBS3/img/components.png" alt="Components" class="img-responsive">
+                    <h3>功能齊全<!--Full of features--></h3>
+                    <p>
+                        在 Bootstrap 3，有全面且美觀的文件，你可以得到常見 HTML 元素、若干自訂 HTML 和 CSS 元件和棒極的 jQuery 外掛。
+                        <!--With Bootstrap, you get extensive and beautiful documentation for common HTML elements, 
+                            dozens of custom HTML and CSS components, and awesome jQuery plugins.-->
+                    </p>
+                </div>
+            </div>
+            <hr class="half-rule">
+            <p class="lead">
+                Bootstrap 3是開放源始碼。它托管、開發、維護在 GitHub。
+                <!--Bootstrap is open source. It's hosted, developed, and maintained on GitHub.-->
+            </p>
+            <a href="https://github.com/twbs/bootstrap" class="btn btn-outline btn-lg">瀏覽 GitHub 專案<!--View the GitHub project--></a>
+        </div>
+    </div>
+    <div class="bs-docs-featurette">
+        <div class="container">
+            <h2 class="bs-docs-featurette-title">基於 Bootstrap 建置<!--Built with Bootstrap.--></h2>
+            <p class="lead">
+                數以百萬的網站都是基於 Bootstrap 建置。
+                你可以瀏覽我們不斷 @Html.ActionLink("收藏的範例", "GettingStarted", null, null, null, "examples", null, null)，或是探索一些我們的最愛。
+                <!--Millions of amazing sites across the web are being built with Bootstrap. 
+                    Get started on your own with our growing <a href="../getting-started/#examples">collection of examples</a> 
+                    or by exploring some of our favorites.-->
+            </p>
+            <hr class="half-rule">
+            <div class="row bs-docs-featured-sites">
+
+                <div class="col-xs-6 col-sm-3">
+                    <a href="http://expo.getbootstrap.com/2014/10/29/lyft/" target="_blank" title="Lyft">
+                        @Html.LazyLoadImg(Url.Content("~/Images/BS3/expo/lyft-thumb.jpg"), "Lyft", "700", "525", new { @class = "lazy img-responsive" })
+                    </a>
+                </div>
+
+                <div class="col-xs-6 col-sm-3">
+                    <a href="http://expo.getbootstrap.com/2014/09/30/vogue/" target="_blank" title="Vogue">
+                        @Html.LazyLoadImg(Url.Content("~/Images/BS3/expo/vogue-thumb.jpg"), "Vogue", "700", "525", new { @class = "lazy img-responsive" })
+                    </a>
+                </div>
+
+                <div class="col-xs-6 col-sm-3">
+                    <a href="http://expo.getbootstrap.com/2014/03/13/riot-design/" target="_blank" title="Riot Design">
+                        @Html.LazyLoadImg(Url.Content("~/Images/BS3/expo/riot-thumb.jpg"), "Riot Design", "700", "525", new { @class = "lazy img-responsive"})
+                    </a>
+                </div>
+
+                <div class="col-xs-6 col-sm-3">
+                    <a href="http://expo.getbootstrap.com/2014/02/12/newsweek/" target="_blank" title="Newsweek">
+                        @Html.LazyLoadImg(Url.Content("~/Images/BS3/expo/newsweek-thumb.jpg"), "Newsweek", "700", "525", new { @class = "lazy img-responsive"})
+                    </a>
+                </div>
+
+            </div>
+            <hr class="half-rule">
+            <p class="lead">
+                我們展示基於 Bootstrap 3 建置的若干具有啟發性專案在 Bootstrap 3 精選。
+                <!--We showcase dozens of inspiring projects built with Bootstrap on the Bootstrap Expo.-->
+            </p>
+            <a href="http://expo.getbootstrap.com" class="btn btn-outline btn-lg">探索 Bootstrap 3 精選<!--Explore the Expo--></a>
+        </div>
+    </div>

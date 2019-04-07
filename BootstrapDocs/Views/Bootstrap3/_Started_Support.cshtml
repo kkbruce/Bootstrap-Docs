@@ -1,0 +1,319 @@
+﻿<div class="bs-docs-section">
+    <h1 id="support" class="page-header">瀏覽器和設備支援狀態<!--Browser and device support--></h1>
+    <p class="lead">
+        Bootstrap 3 是建置在最新桌面與行動瀏覽器以求最佳表現，換句話說，在舊版瀏覽上可能某些元件是運作正常，但呈現出來的佈局樣式可能不同。
+        <!--Bootstrap is built to work best in the latest desktop and mobile browsers, meaning older browsers might display differently styled, though fully functional, renderings of certain components.-->
+    </p>
+
+    <h3 id="support-browsers">支援的瀏覽器<!--Supported browsers--></h3>
+    <p>
+        特別注意，我們支援以下瀏覽器和平台的<strong>最新版本</strong>。在 Windows 平台，我們支援 <strong>Internet Explorer 8-11</strong>。更多支援細節請參考下列資訊。
+        <!--Specifically, we support the <strong>latest versions</strong> of the following browsers and platforms. On Windows, <strong>we support Internet Explorer 8-11</strong>. More specific support information is provided below.-->
+    </p>
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <td></td>
+                    <th>Chrome</th>
+                    <th>Firefox</th>
+                    <th>Internet Explorer</th>
+                    <th>Opera</th>
+                    <th>Safari</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>Android</th>
+                    <td class="text-success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> 支援<!--Supported--></td>
+                    <td class="text-success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> 支援<!--Supported--></td>
+                    <td class="text-muted" rowspan="3" style="vertical-align: middle;">N/A</td>
+                    <td class="text-danger"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> 不支援<!--Not Supported--></td>
+                    <td class="text-muted">N/A</td>
+                </tr>
+                <tr>
+                    <th>iOS</th>
+                    <td class="text-success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> 支援<!--Supported--></td>
+                    <td class="text-muted">N/A</td>
+                    <td class="text-danger"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> 不支援<!--Not Supported--></td>
+                    <td class="text-success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> 支援<!--Supported--></td>
+                </tr>
+                <tr>
+                    <th>Mac OS X</th>
+                    <td class="text-success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> 支援<!--Supported--></td>
+                    <td class="text-success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> 支援<!--Supported--></td>
+                    <td class="text-success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> 支援<!--Supported--></td>
+                    <td class="text-success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> 支援<!--Supported--></td>
+                </tr>
+                <tr>
+                    <th>Windows</th>
+                    <td class="text-success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> 支援<!--Supported--></td>
+                    <td class="text-success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> 支援<!--Supported--></td>
+                    <td class="text-success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> 支援<!--Supported--></td>
+                    <td class="text-success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> 支援<!--Supported--></td>
+                    <td class="text-danger"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> 不支援<!--Not Supported--></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <p>
+        Bootstrap 3 在 Chromium 和 Linux 版本的 Chrome，Linux 版本的 Firefox 和 Internet Explorer 7 上都運作的不錯，雖然它們不在官方的支援之內。
+        <!--Unofficially, Bootstrap should look and behave well enough in Chromium and Chrome for Linux, Firefox for Linux, and Internet Explorer 7, though they are not officially supported.-->
+    </p>
+    <p>
+        這裡有關一些 Bootstrap 3 在瀏覽器的臭蟲清單需要處理，查看我們的<a href="@Url.Action("BrowserBugs")">瀏覽器臭蟲牆</a>。
+        <!--For a list of some of the browser bugs that Bootstrap has to grapple with, see our <a href="browser-bugs.html">Wall of browser bugs</a>.-->
+    </p>
+
+    <h3 id="support-ie8-ie9">Internet Explorer 8 和 9<!--Internet Explorer 8 and 9--></h3>
+    <p>
+        Internet Explorer 8 和 9 也是被支援的，無論如何，請務必注意一些 CSS3 屬性和 HTML5 元素是不被支援的。另外，<strong>Internet Explorer 8 需要使用 <a href="https://github.com/scottjehl/Respond">Respond.js</a> 以取得媒體查詢的支援。</strong>
+        <!--Internet Explorer 8 and 9 are also supported, however, please be aware that some CSS3 properties and HTML5 elements are not fully supported by these browsers. In addition, <strong>Internet Explorer 8 requires the use of <a href="https://github.com/scottjehl/Respond">Respond.js</a> to enable media query support.</strong>-->
+    </p>
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th scope="col" class="col-xs-4">CSS3 功能<!--Feature--></th>
+                    <th scope="col" class="col-xs-4">Internet Explorer 8</th>
+                    <th scope="col" class="col-xs-4">Internet Explorer 9</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row"><code>border-radius</code></th>
+                    <td class="text-danger"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> 不支援<!--Not Supported--></td>
+                    <td class="text-success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> 支援<!--Supported--></td>
+                </tr>
+                <tr>
+                    <th scope="row"><code>box-shadow</code></th>
+                    <td class="text-danger"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> 不支援<!--Not Supported--></td>
+                    <td class="text-success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> 支援<!--Supported--></td>
+                </tr>
+                <tr>
+                    <th scope="row"><code>transform</code></th>
+                    <td class="text-danger"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> 不支援<!--Not Supported--></td>
+                    <td class="text-success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> 支援，但需要加入 <code>-ms</code> 前綴<!--Supported, with <code>-ms</code> prefix--></td>
+                </tr>
+                <tr>
+                    <th scope="row"><code>transition</code></th>
+                    <td colspan="2" class="text-danger"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> 不支援<!--Not Supported--></td>
+                </tr>
+                <tr>
+                    <th scope="row"><code>placeholder</code></th>
+                    <td colspan="2" class="text-danger"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> 不支援<!--Not Supported--></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <p>
+        訪問 <a href="http://caniuse.com/">Can I use...</a> 網站以瞭解瀏覽器支援 CSS3 和 HTML5 功能狀態。
+        <!--Visit <a href="http://caniuse.com/">Can I use...</a> for details on browser support of CSS3 and HTML5 features.-->
+    </p>
+
+    <h3 id="support-ie8-respondjs">Internet Explorer 8 和 Respond.js<!--Internet Explorer 8 and Respond.js--></h3>
+    <p>
+        當必須在開發或正式環境使用 Respond.js 以支援 Internet Explorer 8，請清楚列出以下警告來提防。
+        <!--Beware of the following caveats when using Respond.js in your development and production environments for Internet Explorer 8.-->
+    </p>
+    <h4 id="respond-js-x-domain">Respond.js 和跨網域 CSS<!--Respond.js and cross-domain CSS--></h4>
+    <p>
+        如果 Respond.js 與 CSS 檔案是存放在不同網域或子網域下（例如，使用 CDN）時需要一些額外的設置。請參考 <a href="https://github.com/scottjehl/Respond/blob/master/README.md#cdnx-domain-setup">Respond.js 文件</a> 以瞭解更多資訊。
+        <!--Using Respond.js with CSS hosted on a different (sub)domain (for example, on a CDN) requires some additional setup. <a href="https://github.com/scottjehl/Respond/blob/master/README.md#cdnx-domain-setup">See the Respond.js docs</a> for details.-->
+    </p>
+    <h4 id="respond-file-proto">Respond.js 和 <code>file://</code><!--Respond.js and <code>file://</code>--></h4>
+    <p>
+        由於瀏覽器的安全規則，Respond.js 無法運作在使用 <code>file://</code> 協定（像是開啟本機上的 HTML 檔案）觀看的頁面。要在 IE8 測試自適應功能，請務必使用 HTTP(S) 協定。請參考 <a href="https://github.com/scottjehl/Respond/blob/master/README.md#support--caveats">Respond.js 文件</a> 以瞭解更多資訊。
+        <!--Due to browser security rules, Respond.js doesn't work with pages viewed via the <code>file://</code> protocol (like when opening a local HTML file). To test responsive features in IE8, view your pages over HTTP(S). <a href="https://github.com/scottjehl/Respond/blob/master/README.md#support--caveats">See the Respond.js docs</a> for details.-->
+    </p>
+    <h4 id="respond-import">Respond.js 和 <code>@@import</code><!--Respond.js and <code>@@import</code>--></h4>
+    <p>
+        Respond.js 的 CSS 無法正常運作在經由 <code>@@import</code> 的參考。例如，是像一些 Drupal 的組態就是使用 <code>@@import</code> 來進行配置。請參考 <a href="https://github.com/scottjehl/Respond/blob/master/README.md#support--caveats">Respond.js 文件</a> 以瞭解更多資訊。
+        <!--Respond.js doesn't work with CSS that's referenced via <code>@@import</code>. In particular, some Drupal configurations are known to use <code>@@import</code>. <a href="https://github.com/scottjehl/Respond/blob/master/README.md#support--caveats">See the Respond.js docs</a> for details.-->
+    </p>
+
+    <h3 id="support-ie8-box-sizing">Internet Explorer 8 和 box-sizing<!--Internet Explorer 8 and box-sizing--></h3>
+    <p>
+        當 <code>min-width</code>、<code>max-width</code>、<code>min-height</code> 或 <code>max-height</code> 一起使用時，IE8 不能完全支援 <code>box-sizing: border-box;</code>。有鑒於此，從 v3.0.1 開始不為 <code>.container</code> 賦予 <code>max-width</code>。
+        <!--IE8 does not fully support <code>box-sizing: border-box;</code> when combined with <code>min-width</code>, <code>max-width</code>, <code>min-height</code>, or <code>max-height</code>. For that reason, as of v3.0.1, we no longer use <code>max-width</code> on <code>.container</code>s.-->
+    </p>
+
+    <h3 id="support-ie8-font-face">Internet Explorer 8 和 @@font-face<!--Internet Explorer 8 and @@font-face--></h3>
+    <p>
+        當 <code>@@font-face</code> 和 <code>:before</code> 一起使用時，在 IE8 會產生一些問題。Bootstrap 3 使用 Glyphicons 的組合。如果頁面被快取，並且載入沒有滑鼠滑過的視窗（例如，點擊重新載入按鈕或載入 iframe 中的東西）然後在字型載入之前頁面已取得並呈現。將滑鼠停留在頁面上（即 body 元素）將顯示一些圖示和停留在其他圖示上將會顯哪些是好的。<a href="https://github.com/twbs/bootstrap/issues/13863">查看問題 #13863</a> 取得更進一步資料。
+        <!--IE8 has some issues with <code>@@font-face</code> when combined with <code>:before</code>. Bootstrap uses that combination with its Glyphicons. If a page is cached, and loaded without the mouse over the window (i.e. hit the refresh button or load something in an iframe) then the page gets rendered before the font loads. Hovering over the page (body) will show some of the icons and hovering over the remaining icons will show those as well. <a href="https://github.com/twbs/bootstrap/issues/13863">See issue #13863</a> for details.-->
+    </p>
+
+    <h3 id="support-ie-compatibility-modes">IE 相容性模式<!--IE Compatibility modes--></h3>
+    <p>
+        Bootstrap 3 不支援舊版本 IE 相容性模式。為了確保 IE 是使用最新的呈現模式，考慮將下列 <code>&lt;meta&gt;</code> 加入你的頁面：
+        <!--Bootstrap is not supported in the old Internet Explorer compatibility modes. To be sure you're using the latest rendering mode for IE, consider including the appropriate <code>&lt;meta&gt;</code> tag in your pages:-->
+    </p>
+    <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;meta</span> <span class="na">http-equiv=</span><span class="s">"X-UA-Compatible"</span> <span class="na">content=</span><span class="s">"IE=edge"</span><span class="nt">&gt;</span></code></pre></div>
+    <p>
+        按 <kbd>F12</kbd> 開啟開發者工具，並檢查"文件模式"以確認現在呈現模式為何。
+        <!--Confirm the document mode by opening the debugging tools: press <kbd>F12</kbd> and check the "Document Mode".-->
+    </p>
+    <p>
+        此 <code>&lt;meta&gt;</code> 標籤應該包含在所有 Bootstrap 3 文件和範例中，以保證所有支援的 Internet Explorer 能有最佳的呈現效果。
+        <!--This tag is included in all of Bootstrap's documentation and examples to ensure the best rendering possible in each supported version of Internet Explorer.-->
+    </p>
+    <p>
+        參考 <a href="http://stackoverflow.com/questions/6771258/whats-the-difference-if-meta-http-equiv-x-ua-compatible-content-ie-edge">StackOverflow 此一問題的討論</a>取得更進一步資料。
+        <!--See <a href="http://stackoverflow.com/questions/6771258/whats-the-difference-if-meta-http-equiv-x-ua-compatible-content-ie-edge">this StackOverflow question</a> for more information.-->
+    </p>
+
+    <h3 id="support-ie10-width">Windows 8 和 Windows Phone 8 的 Internet Explorer 10<!--Internet Explorer 10 in Windows 8 and Windows Phone 8--></h3>
+    <p>
+        Internet Explorer 10 並不從 <strong>可視（viewport）寬度</strong> 去區別 <strong>設備寬度</strong>，因此，為能正確套用 Bootstrap 3 媒體查詢的 CSS 屬性，通常，你僅需要加入以下 CSS 片段以解決此問題：
+        <!--Internet Explorer 10 doesn't differentiate <strong>device width</strong> from <strong>viewport width</strong>, and thus doesn't properly apply the media queries in Bootstrap's CSS. Normally you'd just add a quick snippet of CSS to fix this:-->
+    </p>
+    <div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="k">@@-ms-viewport</span>       <span class="p">{</span> <span class="nl">width</span><span class="p">:</span> <span class="n">device-width</span><span class="p">;</span> <span class="p">}</span></code></pre></div>
+    <p>
+        然而，這在 Windows Phone 8 <a href="http://blogs.windows.com/windows_phone/b/wpdev/archive/2013/10/14/introducing-windows-phone-preview-for-developers.aspx">Update 3 (a.k.a. GDR3)</a> 之前的版本並不起作用，這會導致類似的設備以桌面模式替代較窄的手機模式來呈現。要解決此問題，你還需要<strong>加入以下 CSS 和 JavaScript 以變通解決此問題。</strong>
+        <!--However, this doesn't work for devices running Windows Phone 8 versions older than <a href="http://blogs.windows.com/windows_phone/b/wpdev/archive/2013/10/14/introducing-windows-phone-preview-for-developers.aspx">Update 3 (a.k.a. GDR3)</a>, as it causes such devices to show a mostly desktop view instead of narrow "phone" view. To address this, you'll need to <strong>include the following CSS and JavaScript to work around the bug</strong>.-->
+    </p>
+    <div class="highlight">
+        <pre><code class="language-scss" data-lang="scss"><span class="k">@@-webkit-viewport</span>   <span class="p">{</span> <span class="nl">width</span><span class="p">:</span> <span class="n">device-width</span><span class="p">;</span> <span class="p">}</span>
+<span class="k">@@-moz-viewport</span>      <span class="p">{</span> <span class="nl">width</span><span class="p">:</span> <span class="n">device-width</span><span class="p">;</span> <span class="p">}</span>
+<span class="k">@@-ms-viewport</span>       <span class="p">{</span> <span class="nl">width</span><span class="p">:</span> <span class="n">device-width</span><span class="p">;</span> <span class="p">}</span>
+<span class="k">@@-o-viewport</span>        <span class="p">{</span> <span class="nl">width</span><span class="p">:</span> <span class="n">device-width</span><span class="p">;</span> <span class="p">}</span>
+<span class="k">@@viewport</span>           <span class="p">{</span> <span class="nl">width</span><span class="p">:</span> <span class="n">device-width</span><span class="p">;</span> <span class="p">}</span></code></pre>
+    </div>
+
+    <div class="highlight">
+        <pre><code class="language-js" data-lang="js"><span class="k">if</span> <span class="p">(</span><span class="nx">navigator</span><span class="p">.</span><span class="nx">userAgent</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/IEMobile</span><span class="se">\/</span><span class="sr">10</span><span class="se">\.</span><span class="sr">0/</span><span class="p">))</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">msViewportStyle</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">'style'</span><span class="p">)</span>
+        <span class="nx">msViewportStyle</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span>
+        <span class="nb">document</span><span class="p">.</span><span class="nx">createTextNode</span><span class="p">(</span>
+        <span class="s1">'@@-ms-viewport{width:auto!important}'</span>
+        <span class="p">)</span>
+        <span class="p">)</span>
+        <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'head'</span><span class="p">).</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">msViewportStyle</span><span class="p">)</span>
+<span class="p">}</span></code></pre>
+    </div>
+    <p>
+        更多資訊與使用指南，請參考 <a href="http://timkadlec.com/2013/01/windows-phone-8-and-device-width/">Windows Phone 8 and Device-Width</a> 一文。
+        <!--For more information and usage guidelines, read <a href="http://timkadlec.com/2013/01/windows-phone-8-and-device-width/">Windows Phone 8 and Device-Width</a>.-->
+    </p>
+    <p>
+        作為提醒，我們將上面的程式碼加入所有的 Bootstrap 3 文件和示範的範例之中。
+        <!--As a heads up, we include this in all of Bootstrap's documentation and examples as a demonstration.-->
+    </p>
+
+    <h3 id="support-safari-percentages">Safari 百分比進位<!--Safari percent rounding--></h3>
+    <p>
+        當我們使用格線類別 <code>.col-*-1</code> 含有小數位數時，從 OS X 的 Safari v7.0.1 和 iOS 的 Safari v8.0 版開始，Safari 的呈現引擎存在一些問題。如果你在一行中（row）定義了12個單獨的格線列（<code>.col-*-1</code>），你將會注意到它們比其他的行的列要來得短一些。除了升級 Safari / iOS 之外，你能有一些變通的選項來處理：
+        <!--The rendering engine of versions of Safari prior to v7.1 for OS X and Safari for iOS v8.0 had some trouble with the number of decimal places used in our <code>.col-*-1</code> grid classes. So if you had 12 individual grid columns, you'd notice that they came up short compared to other rows of columns. Besides upgrading Safari/iOS, you have some options for workarounds:-->
+    </p>
+    <ul>
+        <li>
+            加入 <code>.pull-right</code> 到最後一個線格列，並強制向右對齊。
+            <!--Add <code>.pull-right</code> to your last grid column to get the hard-right alignment-->
+        </li>
+        <li>
+            手動調整百分比，以符合 Safari 百比分進位（這比第一條還困難）
+            <!--Tweak your percentages manually to get the perfect rounding for Safari (more difficult than the first option)-->
+        </li>
+    </ul>
+    <p>我們會持續追蹤此問題，並且如果有任何簡單的解決方案，我們會立即更新程式碼。<!--We'll keep an eye on this though and update our code if we have an easy solution.--></p>
+
+    <h3 id="support-fixed-position-keyboards">互動視窗、巡覽列和虛擬鍵盤<!--Modals, navbars, and virtual keyboards--></h3>
+    <h4>互動視窗的Overflow和滑動<!--Overflow and scrolling--></h4>
+    <p>
+        在 iOS 和 Android，對於 <code>&lt;body&gt;</code> 元素中的 <code>overflow: hidden</code> 支援相當有限。結果就是，在這兩種作業系統的設備瀏覽器中，當你滑動超過互動視窗（modals）的頂端或底端時，<code>&lt;body&gt;</code> 中的內容將會開始隨之滑動。
+        <!--Support for <code>overflow: hidden</code> on the <code>&lt;body&gt;</code> element is quite limited in iOS and Android. To that end, when you scroll past the top or bottom of a modal in either of those devices' browsers, the <code>&lt;body&gt;</code> content will begin to scroll.-->
+    </p>
+    <h4>虛擬鍵盤<!--Virtual keyboards--></h4>
+    <p>
+        還有，請注意，如果你在互動視窗或巡覽列上使用輸入欄位（input），iOS 在畫面呈現上有臭蟲，當虛擬鍵盤被觸發時，不會更新 <code>fixed</code> 元素的位置。這裡有幾種變通方法，一、轉換你的 <code>fixed</code> 元素為 <code>position: absolute</code>；二、呼叫一個計時器（timer）以嘗試手動修正定位問題。這些方式都未含在 Bootstrap 3 之內，你必須依照你的應用程式來決定合適你的最佳解決方案。
+        <!--Also, note that if you're using a fixed navbar or using inputs within a modal, iOS has a rendering bug that doesn't update the position of fixed elements when the virtual keyboard is triggered. A few workarounds for this include transforming your elements to <code>position: absolute</code> or invoking a timer on focus to try to correct the positioning manually. This is not handled by Bootstrap, so it is up to you to decide which solution is best for your application.-->
+    </p>
+    <h4>巡覽列的下拉選單<!--Navbar Dropdowns--></h4>
+    <p>
+        <code>.dropdown-backdrop</code> 元素並未被使用在 iOS 的巡覽列上，因為巡覽複雜的 <code>z-index</code> 屬性。因此，要關閉巡覽列的下拉選單，你必須直接點擊下拉選單上的元素（或是其他任何能在 iOS 上觸發 <code>click</code> 事件的元素）。
+        <!--The <code>.dropdown-backdrop</code> element isn't used on iOS in the nav because of the complexity of z-indexing. Thus, to close dropdowns in navbars, you must directly click the dropdown element (or any other element which will fire a click event in iOS).-->
+    </p>
+
+    <h3 id="support-browser-zooming">瀏覽器的縮放<!--Browser zooming--></h3>
+    <p>
+        頁面的縮放將不可避免擾亂某現元件在呈現上的顯示，這在 Bootstrap 3 或其餘的網站都是一樣。針對具體的問題，我們也許能夠修正它們（請先搜尋它們，看看是否有解決方案，如果需要，再到 GitHub 上提交 Issue）。然而，我們更趨向於忽略它們，因為通常除了一些變態的變通手法，一般沒有直接的解決方案。
+        <!--Page zooming inevitably presents rendering artifacts in some components, both in Bootstrap and the rest of the web. Depending on the issue, we may be able to fix it (search first and then open an issue if need be). However, we tend to ignore these as they often have no direct solution other than hacky workarounds.-->
+    </p>
+
+    <h3 id="support-printing">列印<!--Printing--></h3>
+    <p>
+        即使在現在主流的瀏覽器，列印依然是有問題的。
+        <!--Even in some modern browsers, printing can be quirky.-->
+    </p>
+    <p>
+        具體來說，從 Chrome v32 開始，當解析媒體查詢來列印網頁時，不管 <code>margin</code> 設置多少，Chrome 使用的可視區域（viewport）明顯地比實際紙張還要窄很多。這會導致列印時 Boostrap 的超小螢幕格線設置被意外觸發。<a href="https://github.com/twbs/bootstrap/issues/12078">查看 #12078 以取得更多細節。</a>建議的變通解決方法：
+        <!--In particular, as of Chrome v32 and regardless of margin settings, Chrome uses a viewport width significantly narrower than the physical paper size when resolving media queries while printing a webpage. This can result in Bootstrap's extra-small grid being unexpectedly activated when printing. <a href="https://github.com/twbs/bootstrap/issues/12078">See #12078 for some details.</a> Suggested workarounds:-->
+    </p>
+    <ul>
+        <li>
+            擁抱超小螢幕格線設置並且讓你的頁面看起來能接受它。
+            <!--Embrace the extra-small grid and make sure your page looks acceptable under it.-->
+        </li>
+        <li>
+            自訂 Less 的 <code>@@screen-*</code> 變數值，讓你的列印紙被認為比超小螢幕的格線設置還大。
+            <!--Customize the values of the <code>@@screen-*</code> Less variables so that your printer paper is considered larger than extra-small.-->
+        </li>
+        <li>
+            加入自訂媒體查詢來變更格線系統大小的判斷點，讓它僅用在列印媒體上。
+            <!--Add custom media queries to change the grid size breakpoints for print media only.-->
+        </li>
+    </ul>
+    <p>
+        此外，在 Safari v8.0，當在列印時，固定寬度的 <code>.container</code> 會導致不正常小字型尺寸大小。查閱 <a href="https://github.com/twbs/bootstrap/issues/14868">#14868</a> 瞭解更多資訊。一種可能的變通方法是加入以下 CSS：
+        <!--Also, as of Safari v8.0, fixed-width <code>.container</code>s can cause Safari to use an unusually small font size when printing. See <a href="https://github.com/twbs/bootstrap/issues/14868">#14868</a> for more details. One potential workaround for this is adding the following CSS:-->
+    </p>
+    <div class="highlight">
+        <pre><code class="language-css" data-lang="css"><span class="k">@@media</span> <span class="n">print</span> <span class="p">{</span>
+        <span class="nc">.container</span> <span class="p">{</span>
+        <span class="nl">width</span><span class="p">:</span> <span class="nb">auto</span><span class="p">;</span>
+        <span class="p">}</span>
+<span class="p">}</span></code></pre>
+    </div>
+
+    <h3 id="support-android-stock-browser">Android stock 瀏覽器<!--Android stock browser--></h3>
+    <p>
+        在 Android 4.1（甚至一些較新的版本也是）選擇使用瀏覽器 App 作為預設的網頁瀏覽器（而不是 Chrome）。不幸的是，瀏覽器 App 有許多臭蟲和一般 CSS 的不一致。
+        <!--Out of the box, Android 4.1 (and even some newer releases apparently) ship with the Browser app as the default web browser of choice (as opposed to Chrome). Unfortunately, the Browser app has lots of bugs and inconsistencies with CSS in general.-->
+    </p>
+    <h4>Select 選單<!--Select menus--></h4>
+    <p>
+        在 <code>&lt;select&gt;</code> 元素，如果套用了 <code>border-radius</code> 和（與）　<code>border</code>，Android stock 瀏覽器將不會呈現像圓角等效果。（查看 <a href="http://stackoverflow.com/questions/14744437/html-select-box-not-showing-drop-down-arrow-on-android-version-4-0-when-set-with">StackOverflow</a> 有關此問題的討論。）使用以下的程式碼片段，以移除有問題的 CSS 和Android stock 瀏覽器在呈現 <code>&lt;select&gt;</code> 無效的樣式元素。使用者代理（userAgent）的探測可以避免干擾 Chrome、Safari 和 Mozilla 瀏覽器。
+        <!--On <code>&lt;select&gt;</code> elements, the Android stock browser will not display the side controls if there is a <code>border-radius</code> and/or <code>border</code> applied. (See <a href="http://stackoverflow.com/questions/14744437/html-select-box-not-showing-drop-down-arrow-on-android-version-4-0-when-set-with">this StackOverflow question</a> for details.) Use the snippet of code below to remove the offending CSS and render the <code>&lt;select&gt;</code> as an unstyled element on the Android stock browser. The user agent sniffing avoids interference with Chrome, Safari, and Mozilla browsers.-->
+    </p>
+    <div class="highlight">
+        <pre><code class="language-html" data-lang="html"><span class="nt">&lt;script&gt;</span>
+<span class="nx">$</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">nua</span> <span class="o">=</span> <span class="nx">navigator</span><span class="p">.</span><span class="nx">userAgent</span>
+        <span class="kd">var</span> <span class="nx">isAndroid</span> <span class="o">=</span> <span class="p">(</span><span class="nx">nua</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s1">'Mozilla/5.0'</span><span class="p">)</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="nx">nua</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s1">'Android '</span><span class="p">)</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="nx">nua</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s1">'AppleWebKit'</span><span class="p">)</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="nx">nua</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s1">'Chrome'</span><span class="p">)</span> <span class="o">===</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">isAndroid</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">$</span><span class="p">(</span><span class="s1">'select.form-control'</span><span class="p">).</span><span class="nx">removeClass</span><span class="p">(</span><span class="s1">'form-control'</span><span class="p">).</span><span class="nx">css</span><span class="p">(</span><span class="s1">'width'</span><span class="p">,</span> <span class="s1">'100%'</span><span class="p">)</span>
+        <span class="p">}</span>
+<span class="p">})</span>
+<span class="nt">&lt;/script&gt;</span></code></pre>
+    </div>
+    <p>
+        是否想看個範例？<a href="http://jsbin.com/kuvoz/1">看看這個 JS Bin 展示。</a>
+        <!--Want to see an example? <a href="http://jsbin.com/kuvoz/1">Check out this JS Bin demo.</a>-->
+    </p>
+
+    <h3 id="support-validators">驗證器<!--Validators--></h3>
+    <p>
+        為了替又老又充斥著臭蟲的瀏覽器提供最好的體驗，在幾個地方針對特定的 CSS 特定瀏灠器版本，Bootstrap 使用 <a href="http://browserhacks.com">CSS browser hacks</a> 技巧來解決瀏灠器的臭蟲。這些 hack 技巧是可以理解的，但會造成 CSS 驗證器抱怨它們是無效的。在幾個地方，我們使用了尚未標準化最先進的 CSS 功能，但這都只是為了漸進增強。
+        <!--In order to provide the best possible experience to old and buggy browsers, Bootstrap uses <a href="http://browserhacks.com">CSS browser hacks</a> in several places to target special CSS to certain browser versions in order to work around bugs in the browsers themselves. These hacks understandably cause CSS validators to complain that they are invalid. In a couple places, we also use bleeding-edge CSS features that aren't yet fully standardized, but these are used purely for progressive enhancement.-->
+    </p>
+    <p>
+        在非 hacky 部分，這些驗證器警告在實務並不重要，我們的 CSS 有充分的驗證，hacky 部分不會干擾到非 hacky 的功能。因此，這就是為什麼我們特意忽略這些具體的警告。
+        <!--These validation warnings don't matter in practice since the non-hacky portion of our CSS does fully validate and the hacky portions don't interfere with the proper functioning of the non-hacky portion, hence why we deliberately ignore these particular warnings.-->
+    </p>
+    <p>
+        我們的 HTML 文件也有一些類似且無關緊要的 HTML 驗證器警告，這是由於我們包含處理一個 <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=654072">Firefox 臭蟲</a>的變通方法。
+        <!--Our HTML docs likewise have some trivial and inconsequential HTML validation warnings due to our inclusion of a workaround for <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=654072">a certain Firefox bug</a>.-->
+    </p>
+</div>

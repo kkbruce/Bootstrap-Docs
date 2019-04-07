@@ -1,0 +1,31 @@
+﻿<div class="bs-docs-section">
+  <h1 id="responsive-embed" class="page-header">自適應嵌入內容<!--Responsive embed--></h1>
+
+    <p>
+        基於包含它們的容器區塊建立一個內部比率，允許瀏覽器決定影片或投影片的大小，以能正確地在任何設備上進行縮放。
+        <!--Allow browsers to determine video or slideshow dimensions based on the width of their containing block by creating an intrinsic ratio that will properly scale on any device.-->
+    </p>
+    <p>
+        此規則直接套用在 <code>&lt;iframe&gt;</code>、<code>&lt;embed&gt;</code> 和 <code>&lt;object&gt;</code> 元素上。當你想要符合某些屬性的樣式，還可以選擇使用明確的子類別 <code>.embed-responsive-item</code>。
+        <!--Rules are directly applied to <code>&lt;iframe&gt;</code>, <code>&lt;embed&gt;</code>, <code>&lt;video&gt;</code>, and <code>&lt;object&gt;</code> elements; optionally use an explicit descendant class <code>.embed-responsive-item</code> when you want to match the styling for other attributes.-->
+    </p>
+    <p>
+        <strong>專業提示！<!--Pro-Tip!--></strong>你不需要在你的 <code>&lt;iframe&gt;</code> 包含 <code>frameborder="0"</code> 屬性，因為我們已經幫你做好了。
+        <!--<strong>Pro-Tip!</strong> You don't need to include <code>frameborder="0"</code> in your <code>&lt;iframe&gt;</code>s as we override that for you.-->
+    </p>
+    <!-- TODO: iframe 在 WinApp 要額外處理 -->
+  <div class="bs-example">
+    <div class="embed-responsive embed-responsive-16by9">
+      <iframe class="embed-responsive-item" src="//www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
+    </div>
+  </div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- 16:9 aspect ratio --&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"embed-responsive embed-responsive-16by9"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;iframe</span> <span class="na">class=</span><span class="s">"embed-responsive-item"</span> <span class="na">src=</span><span class="s">"..."</span><span class="nt">&gt;&lt;/iframe&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="c">&lt;!-- 4:3 aspect ratio --&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"embed-responsive embed-responsive-4by3"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;iframe</span> <span class="na">class=</span><span class="s">"embed-responsive-item"</span> <span class="na">src=</span><span class="s">"..."</span><span class="nt">&gt;&lt;/iframe&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></div>
+</div>

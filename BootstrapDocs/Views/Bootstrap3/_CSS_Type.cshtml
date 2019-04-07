@@ -1,0 +1,547 @@
+﻿<div class="bs-docs-section">
+  <h1 id="type" class="page-header">排版<!--Typography--></h1>
+
+  <!-- Headings -->
+  <h2 id="type-headings">標題<!--Headings--></h2>
+    <p>
+        所有 HTML 的標題元素，<code>&lt;h1&gt;</code> 到 <code>&lt;h6&gt;</code> 均可使用。另外還提供 <code>.h1</code> 到 <code>.h6</code> 類別，當你想要搭配標題字型樣式並且在行內元素（inline）顯示你的文字。
+        <!--All HTML headings, <code>&lt;h1&gt;</code> through <code>&lt;h6&gt;</code>, are available. <code>.h1</code> through <code>.h6</code> classes are also available, for when you want to match the font styling of a heading but still want your text to be displayed inline.-->
+    </p>
+  <div class="bs-example bs-example-type">
+    <table class="table">
+      <tbody>
+        <tr>
+          <td><h1>h1. Bootstrap heading</h1></td>
+          <td class="type-info">Semibold 36px</td>
+        </tr>
+        <tr>
+          <td><h2>h2. Bootstrap heading</h2></td>
+          <td class="type-info">Semibold 30px</td>
+        </tr>
+        <tr>
+          <td><h3>h3. Bootstrap heading</h3></td>
+          <td class="type-info">Semibold 24px</td>
+        </tr>
+        <tr>
+          <td><h4>h4. Bootstrap heading</h4></td>
+          <td class="type-info">Semibold 18px</td>
+        </tr>
+        <tr>
+          <td><h5>h5. Bootstrap heading</h5></td>
+          <td class="type-info">Semibold 14px</td>
+        </tr>
+        <tr>
+          <td><h6>h6. Bootstrap heading</h6></td>
+          <td class="type-info">Semibold 12px</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;h1&gt;</span>h1. Bootstrap heading<span class="nt">&lt;/h1&gt;</span>
+<span class="nt">&lt;h2&gt;</span>h2. Bootstrap heading<span class="nt">&lt;/h2&gt;</span>
+<span class="nt">&lt;h3&gt;</span>h3. Bootstrap heading<span class="nt">&lt;/h3&gt;</span>
+<span class="nt">&lt;h4&gt;</span>h4. Bootstrap heading<span class="nt">&lt;/h4&gt;</span>
+<span class="nt">&lt;h5&gt;</span>h5. Bootstrap heading<span class="nt">&lt;/h5&gt;</span>
+<span class="nt">&lt;h6&gt;</span>h6. Bootstrap heading<span class="nt">&lt;/h6&gt;</span></code></pre></div>
+
+    <p>
+        在任何主標題內使用 <code>&lt;small&gt;</code> 標籤或 <code>.small</code> 類別，以產生更輕小的副標題效果。
+        <!--Create lighter, secondary text in any heading with a generic <code>&lt;small&gt;</code> tag or the <code>.small</code> class.-->
+    </p>
+  <div class="bs-example bs-example-type">
+    <table class="table">
+      <tbody>
+        <tr>
+          <td><h1>h1. Bootstrap heading <small>Secondary text</small></h1></td>
+        </tr>
+        <tr>
+          <td><h2>h2. Bootstrap heading <small>Secondary text</small></h2></td>
+        </tr>
+        <tr>
+          <td><h3>h3. Bootstrap heading <small>Secondary text</small></h3></td>
+        </tr>
+        <tr>
+          <td><h4>h4. Bootstrap heading <small>Secondary text</small></h4></td>
+        </tr>
+        <tr>
+          <td><h5>h5. Bootstrap heading <small>Secondary text</small></h5></td>
+        </tr>
+        <tr>
+          <td><h6>h6. Bootstrap heading <small>Secondary text</small></h6></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;h1&gt;</span>h1. Bootstrap heading <span class="nt">&lt;small&gt;</span>Secondary text<span class="nt">&lt;/small&gt;&lt;/h1&gt;</span>
+<span class="nt">&lt;h2&gt;</span>h2. Bootstrap heading <span class="nt">&lt;small&gt;</span>Secondary text<span class="nt">&lt;/small&gt;&lt;/h2&gt;</span>
+<span class="nt">&lt;h3&gt;</span>h3. Bootstrap heading <span class="nt">&lt;small&gt;</span>Secondary text<span class="nt">&lt;/small&gt;&lt;/h3&gt;</span>
+<span class="nt">&lt;h4&gt;</span>h4. Bootstrap heading <span class="nt">&lt;small&gt;</span>Secondary text<span class="nt">&lt;/small&gt;&lt;/h4&gt;</span>
+<span class="nt">&lt;h5&gt;</span>h5. Bootstrap heading <span class="nt">&lt;small&gt;</span>Secondary text<span class="nt">&lt;/small&gt;&lt;/h5&gt;</span>
+<span class="nt">&lt;h6&gt;</span>h6. Bootstrap heading <span class="nt">&lt;small&gt;</span>Secondary text<span class="nt">&lt;/small&gt;&lt;/h6&gt;</span></code></pre></div>
+
+
+  <!-- Body copy -->
+  <h2 id="type-body-copy">頁面主體<!--Body copy--></h2>
+    <p>
+        Bootstrap 3 的全域設置中，預設 <code>font-size</code> 是 <strong>14px</strong>，<code>line-height</code> 是 <strong>1.428</strong>。這些屬性值被套用至 <code>&lt;body&gt;</code> 和 <code>p</code>（段落）元素上。此外，<code>&lt;p&gt;</code> 設置了一個 1/2 行高（預設 10px）的底部邊距（<code>margin</code>）值。
+        <!--Bootstrap's global default <code>font-size</code> is <strong>14px</strong>, with a <code>line-height</code> of <strong>1.428</strong>. This is applied to the <code>&lt;body&gt;</code> and all paragraphs. In addition, <code>&lt;p&gt;</code> (paragraphs) receive a bottom margin of half their computed line-height (10px by default).-->
+    </p>
+  <div class="bs-example">
+    <p>Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.</p>
+    <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec ullamcorper nulla non metus auctor fringilla. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla.</p>
+    <p>Maecenas sed diam eget risus varius blandit sit amet non magna. Donec id elit non mi porta gravida at eget metus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
+  </div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;p&gt;</span>...<span class="nt">&lt;/p&gt;</span></code></pre></div>
+    
+<div class="bs-callout bs-callout-warning">
+  <h4>譯者註</h4>
+  <p>英文和中文在閱讀的感受上所有不同，開發者請自行測試並調整之。</p>
+  <div class="bs-example">
+    <p>葡萄美酒夜光杯，欲飲琵琶馬上催。</p>
+    <p>醉臥沙場君莫笑，古來征戰幾人回。</p>
+  </div>
+</div>
+
+  <!-- Body copy .lead -->
+  <h3>前導主體<!--Lead body copy--></h3>
+    <p>
+        製作一個讓段落突出的效果（字型加大加粗），僅需要在段落加入 <code>.lead</code> 類別。
+        <!--Make a paragraph stand out by adding <code>.lead</code>.-->
+    </p>
+  <div class="bs-example">
+    <p class="lead">Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus.</p>
+  </div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"lead"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/p&gt;</span></code></pre></div>
+
+  <!-- Using Less -->
+  <h3>使用 Less 建置<!--Built with Less--></h3>
+    <p>
+        在 <strong>variables.less</strong> 文件中定義了兩個 LESS 變數來決定佈局大小：<code>@@font-size-base</code> 和 <code>@@line-height-base</code>。第一個變數定義 <code>font-size</code> 基準，第二個變數定義 <code>line-height</code> 基準。我們使用這些變數和一些簡單的數學計算去建立其他所有頁面元素的 <code>margin</code>、<code>padding</code> 和 <code>line-height</code>。自定義這些變數可以改變 Bootstrap 3 預設樣式。
+        <!--The typographic scale is based on two Less variables in <strong>variables.less</strong>: <code>@@font-size-base</code> and <code>@@line-height-base</code>. The first is the base font-size used throughout and the second is the base line-height. We use those variables and some simple math to create the margins, paddings, and line-heights of all our type and more. Customize them and Bootstrap adapts.-->
+    </p>
+
+  <!-- Inline text elements -->
+  <h2 id="type-inline-text">行內文字元素<!--Inline text elements--></h2>
+  <h3>標記文字<!--Marked text--></h3>
+    <p>
+        由於其他方面的關聯性，醒目提示一段的文字內容。使用 <code>&lt;mark&gt;</code> 標籤。
+        <!--For highlighting a run of text due to its relevance in another context, use the <code>&lt;mark&gt;</code> tag.-->
+    </p>
+  <div class="bs-example">
+      <p>
+          你可以使用 <code>mark</code> 標籤以<mark>醒目提示</mark>文字內容。
+          <!--You can use the mark tag to <mark>highlight</mark> text.-->
+      </p>
+  </div>
+<div class="highlight"><pre><code class="language-html" data-lang="html">你可以使用 mark 標籤以 <span class="nt">&lt;mark&gt;</span>醒目提示<span class="nt">&lt;/mark&gt;</span> 文字內容。</code></pre></div>
+
+
+  <h3>刪除文字<!--Deleted text--></h3>
+    <p>
+        使用 <code>&lt;del&gt;</code> 標籤表明此文字區塊已被刪除。
+        <!--For indicating blocks of text that have been deleted use the <code>&lt;del&gt;</code> tag.-->
+    </p>
+  <div class="bs-example">
+    <p><del>此行文字是要被視為已刪除文字。<!--This line of text is meant to be treated as deleted text.--></del></p>
+  </div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;del&gt;</span>此行文字是要被視為已刪除文字。<!--This line of text is meant to be treated as deleted text.--><span class="nt">&lt;/del&gt;</span></code></pre></div>
+
+  <h3>刪除線效果<!--Strikethrough text--></h3>
+  <p>使用 <code>&lt;s&gt;</code> 用於指出此文字區塊已經不再和段落有相關聯。<!--For indicating blocks of text that are no longer relevant use the <code>&lt;s&gt;</code> tag.--></p>
+  <div class="bs-example">
+    <p><s>This line of text is meant to be treated as no longer accurate.</s></p>
+  </div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;s&gt;</span>This line of text is meant to be treated as no longer accurate.<span class="nt">&lt;/s&gt;</span></code></pre></div>
+
+  <h3>插入文字<!--Inserted text--></h3>
+  <p>使用 <code>&lt;ins&gt;</code> 標籤，用來指出被額外加入至文件的文字。<!--For indicating additions to the document use the <code>&lt;ins&gt;</code> tag.--></p>
+  <div class="bs-example">
+    <p><ins>此行文字是要被視為已新加入的文字。<!--This line of text is meant to be treated as an addition to the document.--></ins></p>
+  </div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ins&gt;</span>此行文字是要被視為已新加入的文字。<!--This line of text is meant to be treated as an addition to the document.--><span class="nt">&lt;/ins&gt;</span></code></pre></div>
+
+  <div class="bs-callout bs-callout-warning">
+    <h4>譯者註</h4>
+    <p><code>&lt;del&gt;</code> 和 <code>&lt;s&gt;</code> 就呈現上的效果是一模一樣，主要差異是在語義上。html5 Doctor有篇不錯的 <a href="http://html5doctor.com/ins-del-s/" target="_blank">Comparing and contrasting ins, del, and s</a> 文章可以參考。</p>
+  </div>  
+
+  <h3>底線文字<!--Underlined text--></h3>
+  <p>使用 <code>&lt;u&gt;</code> 標籤以呈現底線文字效果。<!--To underline text use the <code>&lt;u&gt;</code> tag.--></p>
+  <div class="bs-example">
+    <p><u>此行文將會呈現底線效果。<!--This line of text will render as underlined--></u></p>
+  </div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;u&gt;</span>此行文將會呈現底線效果。<!--This line of text will render as underlined--><span class="nt">&lt;/u&gt;</span></code></pre></div>
+
+  <p>利用 HTML 的預設加強重要性的標籤並加入少量樣式。<!--Make use of HTML's default emphasis tags with lightweight styles.--></p>
+
+  <h3>較小文字<!--Small text--></h3>
+    <p>
+        對於不那麼重要的行內（inline）或區塊（block）元素裡的文字，使用 <code>&lt;small&gt;</code> 標籤包圍的文字，將被設置為父容器的 85% 大小。標題元素中巢狀的 <code>&lt;small&gt;</code> 元素，將依標題的 <code>font-size</code> 來設置。
+        <!--For de-emphasizing inline or blocks of text, use the <code>&lt;small&gt;</code> tag to set text at 85% the size of the parent. Heading elements receive their own <code>font-size</code> for nested <code>&lt;small&gt;</code> elements.-->
+    </p>
+    <p>
+        你也可以在行內元素使用 <code>.small</code> 類別來代替任何 <code>&lt;small&gt;</code> 元素。
+        <!--You may alternatively use an inline element with <code>.small</code> in place of any <code>&lt;small&gt;</code>.-->
+    </p>
+  <div class="bs-example">
+    <p><small>此行文字是會被視為印刷精美的文字。<!--This line of text is meant to be treated as fine print.--></small></p>
+  </div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;small&gt;</span>此行文字是會被視為印刷精美的文字。<!--This line of text is meant to be treated as fine print.--><span class="nt">&lt;/small&gt;</span></code></pre></div>
+
+
+  <h3>粗體<!--Bold--></h3>
+    <p>
+        透過加重 <code>font-weight</code> 值（加粗字體），用於強調某一片段文字。
+        <!--For emphasizing a snippet of text with a heavier font-weight.-->
+    </p>
+  <div class="bs-example">
+    <p>此片段文字<strong>呈現粗體文字效果</strong>。<!--The following snippet of text is <strong>rendered as bold text</strong>.--></p>
+  </div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;strong&gt;</span>呈現粗體文字效果<span class="nt">&lt;/strong&gt;</span></code></pre></div>
+
+  <h3>斜體<!--Italics--></h3>
+    <p>
+        使用斜體來強調某一段文字。
+        <!--For emphasizing a snippet of text with italics.-->
+    </p>
+  <div class="bs-example">
+    <p>此片段文字<em>呈現斜體文字效果</em>。<!--The following snippet of text is <em>rendered as italicized text</em>.--></p>
+  </div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;em&gt;</span>呈現斜體文字效果<span class="nt">&lt;/em&gt;</span></code></pre></div>
+
+  <div class="bs-callout bs-callout-warning">
+    <h4>譯者註</h4>
+    <p>就筆者本身的經驗，<code>em</code> 元素預設的斜體效果，<strong>在中文閱讀上不太是加分效果</strong>。一般會透過 <code>font-style:normal;</code> 來取消樣式，並且另外進行顏色或粗體來強調。</p>
+  </div>  
+
+  <div class="bs-callout bs-callout-info">
+    <h4>可選元素<!--Alternate elements--></h4>
+      <p>
+          在 HTML5 中可放心使用 <code>&lt;b&gt;</code> 和 <code>&lt;i&gt;</code>。<code>&lt;b&gt;</code> 用於加粗字體或短句，沒有額外重要的語義，<code>&lt;i&gt;</code> 常用於發言或技術術語等。
+          <!--Feel free to use <code>&lt;b&gt;</code> and <code>&lt;i&gt;</code> in HTML5. <code>&lt;b&gt;</code> is meant to highlight words or phrases without conveying additional importance while <code>&lt;i&gt;</code> is mostly for voice, technical terms, etc.-->
+      </p>
+  </div>
+
+  <h2 id="type-alignment">對齊類別<!--Alignment classes--></h2>
+    <p>
+        透過文字對齊類別，可以輕鬆將元件裡的文字重新對齊。
+        <!--Easily realign text to components with text alignment classes.-->
+    </p>
+  <div class="bs-example">
+    <p class="text-left">靠左對齊文字。<!--Left aligned text.--></p>
+    <p class="text-center">置中對齊文字。<!--Center aligned text.--></p>
+    <p class="text-right">靠右對齊文字。<!--Right aligned text.--></p>
+    <p class="text-justify">平均對齊文字。<!--Justified text.--></p>
+    <p class="text-nowrap">不換行文字。<!--No wrap text.--></p>
+  </div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"text-left"</span><span class="nt">&gt;</span>靠左對齊文字。<!--Left aligned text.--><span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"text-center"</span><span class="nt">&gt;</span>置中對齊文字。<!--Center aligned text.--><span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"text-right"</span><span class="nt">&gt;</span>靠右對齊文字。<!--Right aligned text.--><span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"text-justify"</span><span class="nt">&gt;</span>平均對齊文字。<!--Justified text.--><span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"text-nowrap"</span><span class="nt">&gt;</span>不換行文字。<!--No wrap text.--><span class="nt">&lt;/p&gt;</span></code></pre></div>
+
+  <div class="bs-callout bs-callout-warning">
+    <h4>譯者註</h4>
+    <ol>
+      <li><code>.text-justify</code> 的範例不是很好（不管官方或我翻譯後的），可另外參考 w3schools 的 <a href="http://www.w3schools.com/cssref/pr_text_text-align.asp">text-align</a> 範例。</li>
+      <li>Bootstrap 3 預設的 <code>.text-justify</code> 類別僅對英文有效，如果想要中文有一樣的效果，在原始碼的 <code>.text-justify</code> 類別附加一個 <code>text-justify:inter-ideograph;</code> 屬性設定。</li>
+    </ol>
+    <p></p>
+  </div>  
+
+  <h2 id="type-transformation">轉換類別<!--Transformation classes--></h2>
+    <p>
+        透過文字轉換類別，將元件裡的英文文字進行大小寫轉換。
+        <!--Transform text in components with text capitalization classes.-->
+    </p>
+  <div class="bs-example">
+    <p class="text-lowercase">Lowercased text.（全小寫）</p>
+    <p class="text-uppercase">Uppercased text.（全大寫）</p>
+    <p class="text-capitalize">Capitalized text.（字首大寫）</p>
+  </div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"text-lowercase"</span><span class="nt">&gt;</span>Lowercased text.（全小寫）<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"text-uppercase"</span><span class="nt">&gt;</span>Uppercased text.（全大寫）<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"text-capitalize"</span><span class="nt">&gt;</span>Capitalized text.（字首大寫）<span class="nt">&lt;/p&gt;</span></code></pre></div>
+
+  <!-- Abbreviations -->
+  <h2 id="type-abbreviations">縮寫<!--Abbreviations--></h2>
+    <p>
+        當滑鼠停留在縮寫或縮寫詞上時會顯示完整內容，Bootstrap 3 增強 HTML <code>&lt;abbr&gt;</code> 元素的樣式。縮寫元素帶有 <code>title</code> 屬性，外觀會帶有淡淡的虛底線，滑鼠移至縮寫詞上面時會帶有問號指標。
+        <!--Stylized implementation of HTML's <code>&lt;abbr&gt;</code> element for abbreviations and acronyms to show the expanded version on hover. Abbreviations with a <code>title</code> attribute have a light dotted bottom border and a help cursor on hover, providing additional context on hover.-->
+    </p>
+
+  <h3>基本縮寫<!--Basic abbreviation--></h3>
+    <p>
+        想看完整的內容，可以把滑鼠停留在縮寫詞上，但 <code>&lt;abbr&gt;</code> 元素必須包含 <code>title</code> 屬性。
+        <!--For expanded text on long hover of an abbreviation, include the <code>title</code> attribute with the <code>&lt;abbr&gt;</code> element.-->
+    </p>
+  <div class="bs-example">
+    <p>An abbreviation of the word attribute is <abbr title="attribute">attr</abbr>.</p>
+  </div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;abbr</span> <span class="na">title=</span><span class="s">"attribute"</span><span class="nt">&gt;</span>attr<span class="nt">&lt;/abbr&gt;</span></code></pre></div>
+
+  <h3>字首縮寫<!--Initialism--></h3>
+    <p>
+        加入 <code>.initialism</code> 類別到縮寫裡，會使用更小一些的 <code>font-size</code>。
+        <!--Add <code>.initialism</code> to an abbreviation for a slightly smaller font-size.-->
+    </p>
+  <div class="bs-example">
+    <p><abbr title="HyperText Markup Language" class="initialism">HTML</abbr> is the best thing since sliced bread.</p>
+  </div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;abbr</span> <span class="na">title=</span><span class="s">"HyperText Markup Language"</span> <span class="na">class=</span><span class="s">"initialism"</span><span class="nt">&gt;</span>HTML<span class="nt">&lt;/abbr&gt;</span></code></pre></div>
+
+
+  <!-- Addresses -->
+  <h2 id="type-addresses">地址<!--Addresses--></h2>
+    <p>
+        讓連絡資訊以最接近日常使用格式呈現。在每行結尾加入 <code>&lt;br&gt;</code> 以保留格式。
+        <!--Present contact information for the nearest ancestor or the entire body of work. Preserve formatting by ending all lines with <code>&lt;br&gt;</code>.-->
+    </p>
+  <div class="bs-example">
+    <address>
+      <strong>Twitter, Inc.</strong><br>
+      795 Folsom Ave, Suite 600<br>
+      San Francisco, CA 94107<br>
+      <abbr title="Phone">P:</abbr> (123) 456-7890
+    </address>
+    <address>
+      <strong>Full Name</strong><br>
+      <a href="mailto:#">first.last@example.com</a>
+    </address>
+  </div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;address&gt;</span>
+  <span class="nt">&lt;strong&gt;</span>Twitter, Inc.<span class="nt">&lt;/strong&gt;&lt;br&gt;</span>
+  795 Folsom Ave, Suite 600<span class="nt">&lt;br&gt;</span>
+  San Francisco, CA 94107<span class="nt">&lt;br&gt;</span>
+  <span class="nt">&lt;abbr</span> <span class="na">title=</span><span class="s">"Phone"</span><span class="nt">&gt;</span>P:<span class="nt">&lt;/abbr&gt;</span> (123) 456-7890
+<span class="nt">&lt;/address&gt;</span>
+
+<span class="nt">&lt;address&gt;</span>
+  <span class="nt">&lt;strong&gt;</span>Full Name<span class="nt">&lt;/strong&gt;&lt;br&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"mailto:#"</span><span class="nt">&gt;</span>first.last@example.com<span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;/address&gt;</span></code></pre></div>
+
+
+  <!-- Blockquotes -->
+  <h2 id="type-blockquotes">引用<!--Blockquotes--></h2>
+    <p>
+        在你的文件中引用其他來源的內容。
+        <!--For quoting blocks of content from another source within your document.-->
+    </p>
+
+  <h3>預設引用<!--Default blockquote--></h3>
+    <p>
+        將任何 <abbr title="HyperText Markup Language">HTML</abbr> 包含在 <code>&lt;blockquote&gt;</code> 其中即為引用。直接的引用建議用 <code>&lt;p&gt;</code>。
+        <!--Wrap <code>&lt;blockquote&gt;</code> around any <abbr title="HyperText Markup Language">HTML</abbr> as the quote. For straight quotes, we recommend a <code>&lt;p&gt;</code>.-->
+    </p>
+  <div class="bs-example">
+    <blockquote>
+        <!--<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>-->
+        <p>少小離家老大回，鄉音無改鬢毛催。兒童相見不相識，笑問客從何處來。</p>
+    </blockquote>
+  </div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;blockquote&gt;</span>
+  <span class="nt">&lt;p&gt;</span>少小離家老大回，鄉音無改鬢毛催。兒童相見不相識，笑問客從何處來。<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/blockquote&gt;</span></code></pre></div>
+    
+  <div class="bs-callout bs-callout-warning">
+    <h4>譯者註</h4>
+    <p><code>&lt;blockquote&gt;</code> 是區塊元素，通常是整段或較長內容的引用。<code>&lt;q&gt;</code> 則是行內元素，合適短句、短言的引用，另外，主流瀏覽器會自動在被 <code>&lt;q&gt;</code> 所引用的文字前後加上左右雙引號。</p>
+  </div>  
+
+  <h3>引用選項<!--Blockquote options--></h3>
+    <p>
+        在標準 <code>&lt;blockquote&gt;</code> 裡，可以很簡單的改變樣式和內容。
+        <!--Style and content changes for simple variations on a standard <code>&lt;blockquote&gt;</code>.-->
+    </p>
+
+  <h4>說明來源<!--Naming a source--></h4>
+    <p>
+        加入 <code>&lt;footer&gt;</code> 以標識來源。將來源名稱放在 <code>&lt;cite&gt;</code>。
+        <!--Add a <code>&lt;footer&gt;</code> for identifying the source. Wrap the name of the source work in <code>&lt;cite&gt;</code>.-->
+    </p>
+  <div class="bs-example">
+    <blockquote>
+      <!--<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+      <footer>Someone famous in <cite title="Source Title">Source Title</cite></footer>-->
+      <p>少小離家老大回，鄉音無改鬢毛催。兒童相見不相識，笑問客從何處來。</p>
+      <footer>回鄉偶書，作者：<cite title="賀知章">賀知章</cite></footer>
+    </blockquote>
+  </div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;blockquote&gt;</span>
+  <span class="nt">&lt;p&gt;</span>少小離家老大回，鄉音無改鬢毛催。兒童相見不相識，笑問客從何處來。<span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;footer&gt;</span>回鄉偶書，作者：<span class="nt">&lt;cite</span> <span class="na">title=</span><span class="s">"Source Title"</span><span class="nt">&gt;</span>賀知章<span class="nt">&lt;/cite&gt;&lt;/footer&gt;</span>
+<span class="nt">&lt;/blockquote&gt;</span></code></pre></div>
+
+  <div class="bs-callout bs-callout-warning">
+    <h4>譯者註</h4>
+    <p><code>&lt;q&gt;</code> 使用 <code>cite</code> 屬性來註明來源。<code>&lt;cite&gt;</code> 標籤的 <code>title</code> 屬性與 <code>&lt;q&gt;</code> 的 <code>cite</code> 屬性也可以是 <abbr title="Uniform Resource Locator">URL</abbr> 網址。例如，引用 Wiki 的資料。</p>
+  </div>
+
+  <h4>換邊對齊<!--Alternate displays--></h4>
+    <p>
+        加入 <code>.blockquote-reverse</code> 類別到 <code>blockquote</code> 標籤中，那麼內容會靠右對齊呈現。
+        <!--Add <code>.blockquote-reverse</code> for a blockquote with right-aligned content.-->
+    </p>
+  <div class="bs-example" style="overflow: hidden;">
+    <blockquote class="blockquote-reverse">
+      <!--<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+      <footer>Someone famous in <cite title="Source Title">Source Title</cite></footer>-->
+      <p>少小離家老大回，鄉音無改鬢毛催。兒童相見不相識，笑問客從何處來。</p>
+      <footer>回鄉偶書，作者：<cite title="Source Title">賀知章</cite></footer>
+    </blockquote>
+  </div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;blockquote</span> <span class="na">class=</span><span class="s">"blockquote-reverse"</span><span class="nt">&gt;</span>
+  ...
+<span class="nt">&lt;/blockquote&gt;</span></code></pre></div>
+
+
+  <!-- Lists -->
+  <h2 id="type-lists">清單<!--Lists--></h2>
+
+  <h3>無序清單<!--Unordered--></h3>
+    <p>
+        清單中的項目順序<em>不是</em>那麼明顯或重要。
+        <!--A list of items in which the order does <em>not</em> explicitly matter.-->
+    </p>
+  <div class="bs-example">
+    <ul>
+      <li>Lorem ipsum dolor sit amet</li>
+      <li>Consectetur adipiscing elit</li>
+      <li>Integer molestie lorem at massa</li>
+      <li>Facilisis in pretium nisl aliquet</li>
+      <li>Nulla volutpat aliquam velit
+        <ul>
+          <li>Phasellus iaculis neque</li>
+          <li>Purus sodales ultricies</li>
+          <li>Vestibulum laoreet porttitor sem</li>
+          <li>Ac tristique libero volutpat at</li>
+        </ul>
+      </li>
+      <li>Faucibus porta lacus fringilla vel</li>
+      <li>Aenean sit amet erat nunc</li>
+      <li>Eget porttitor lorem</li>
+    </ul>
+  </div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ul&gt;</span>
+  <span class="nt">&lt;li&gt;</span>...<span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span></code></pre></div>
+
+  <h3>有序清單<!--Ordered--></h3>
+    <p>
+        清單中的項目順序<em>是</em>明顯或重要的。
+        <!--A list of items in which the order <em>does</em> explicitly matter.-->
+    </p>
+  <div class="bs-example">
+    <ol>
+      <li>Lorem ipsum dolor sit amet</li>
+      <li>Consectetur adipiscing elit</li>
+      <li>Integer molestie lorem at massa</li>
+      <li>Facilisis in pretium nisl aliquet</li>
+      <li>Nulla volutpat aliquam velit</li>
+      <li>Faucibus porta lacus fringilla vel</li>
+      <li>Aenean sit amet erat nunc</li>
+      <li>Eget porttitor lorem</li>
+    </ol>
+  </div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ol&gt;</span>
+  <span class="nt">&lt;li&gt;</span>...<span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ol&gt;</span></code></pre></div>
+
+  <h3>移除清單樣式<!--Unstyled--></h3>
+    <p>
+        移除清單項目預設 <code>list-style</code> 樣式和左邊距（margin）值（僅對直接子元素有效）。<strong>這僅會套用到子清單項目上</strong>，意思是，你必須將所有巢狀清單都加入此類別才能得到相同的樣式。
+        <!--Remove the default <code>list-style</code> and left margin on list items (immediate children only). <strong>This only applies to immediate children list items</strong>, meaning you will need to add the class for any nested lists as well.-->
+    </p>
+  <div class="bs-example">
+    <ul class="list-unstyled">
+      <li>Lorem ipsum dolor sit amet</li>
+      <li>Consectetur adipiscing elit</li>
+      <li>Integer molestie lorem at massa</li>
+      <li>Facilisis in pretium nisl aliquet</li>
+      <li>Nulla volutpat aliquam velit
+        <ul>
+          <li>Phasellus iaculis neque</li>
+          <li>Purus sodales ultricies</li>
+          <li>Vestibulum laoreet porttitor sem</li>
+          <li>Ac tristique libero volutpat at</li>
+        </ul>
+      </li>
+      <li>Faucibus porta lacus fringilla vel</li>
+      <li>Aenean sit amet erat nunc</li>
+      <li>Eget porttitor lorem</li>
+    </ul>
+  </div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"list-style"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;li&gt;</span>...<span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span></code></pre></div>
+
+  <h3>行內清單<!--Inline--></h3>
+    <p>
+        透過設置 <code>display: inline-block;</code> 和一些內距（<code>padding</code>），將所有清單項目放在同一行上顯示。
+        <!--Place all list items on a single line with <code>display: inline-block;</code> and some light padding.-->
+    </p>
+  <div class="bs-example">
+    <ul class="list-inline">
+      <li>Lorem ipsum</li>
+      <li>Phasellus iaculis</li>
+      <li>Nulla volutpat</li>
+    </ul>
+  </div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"list-inline"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;li&gt;</span>...<span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span></code></pre></div>
+
+  <h3>術語清單<!--Description--></h3>
+    <p>
+        一個專業術語和相關描述的清單。
+        <!--A list of terms with their associated descriptions.-->
+    </p>
+  <div class="bs-example">
+    <dl>
+      <dt><abbr title="Uniform Resource Identifier">URI</abbr></dt>
+      <dd>在電腦術語中，統一資源標識是一個用於標識某一互聯網資源名稱的字符串。</dd>
+      <dt><abbr title="Universal Resource Locator">URL</abbr></dt>
+      <dd>統一資源定位器，有時也被俗稱為網頁地址（網址）。</dd>
+      <dd>如同在網路上的門牌，是 Internet 上標準的資源的地址（Address）。</dd>
+      <dt><abbr title="Uniform resource name">URN</abbr></dt>
+      <dd>統一資源名稱是統一資源標識的歷史名字，它使用urn:作為URI scheme。</dd>
+    </dl>
+  </div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;dl&gt;</span>
+  <span class="nt">&lt;dt&gt;</span>專業術語<span class="nt">&lt;/dt&gt;</span>
+  <span class="nt">&lt;dd&gt;</span>相關描述<span class="nt">&lt;/dd&gt;</span>
+<span class="nt">&lt;/dl&gt;</span></code></pre></div>
+
+  <h4>水平佈局術語清單<!--Horizontal description--></h4>
+    <p>
+        讓專業術語與描述在 <code>&lt;dl&gt;</code> 同一行並行（水平）呈現。一開始會如同預設 <code>&lt;dl&gt;</code> 是上下堆疊樣式，但隨著瀏覽者逐漸展開畫面而轉換水平佈局。
+        <!--Make terms and descriptions in <code>&lt;dl&gt;</code> line up side-by-side. Starts off stacked like default <code>&lt;dl&gt;</code>s, but when the navbar expands, so do these.-->
+    </p>
+  <div class="bs-example">
+    <dl class="dl-horizontal">
+      <dt>Description lists</dt>
+      <dd>A description list is perfect for defining terms.</dd>
+      <dt>Euismod</dt>
+      <dd>Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.</dd>
+      <dd>Donec id elit non mi porta gravida at eget metus.</dd>
+      <dt>Malesuada porta</dt>
+      <dd>Etiam porta sem malesuada magna mollis euismod.</dd>
+      <dt>Felis euismod semper eget lacinia</dt>
+      <dd>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</dd>
+    </dl>
+  </div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;dl</span> <span class="na">class=</span><span class="s">"dl-horizontal"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;dt&gt;</span>...<span class="nt">&lt;/dt&gt;</span>
+  <span class="nt">&lt;dd&gt;</span>...<span class="nt">&lt;/dd&gt;</span>
+<span class="nt">&lt;/dl&gt;</span></code></pre></div>
+
+  <div class="bs-callout bs-callout-info">
+    <h4>自動截斷<!--Auto-truncating--></h4>
+      <p>
+          透過 <code>text-overflow</code> 屬性，讓水平佈局術語清單會將過長無法在左邊 column 中完全呈現的專業術語截去一部分（例如，上面範例的第四個 <code>&lt;dt&gt;</code> 原始內容為：<q>Felis euismod semper eget lacinia</q>）。而在較窄的可視區域中，會改變回預設堆疊（垂直）佈局方式。
+          <!--Horizontal description lists will truncate terms that are too long to fit in the left column with <code>text-overflow</code>. In narrower viewports, they will change to the default stacked layout.-->
+      </p>
+  </div>
+</div>
+

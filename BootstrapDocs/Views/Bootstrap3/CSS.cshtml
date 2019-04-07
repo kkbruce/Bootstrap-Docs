@@ -1,0 +1,50 @@
+﻿@{
+    ViewBag.Title = "CSS &middot; Bootstrap 3中文手冊";
+    ViewBag.Description = "Bootstrap 3簡潔，直覺，強大的行動設備優先前端框架，讓網頁開發更快速更簡單。";
+    ViewBag.Keywords = "HTML, CSS, JS, JavaScript, 框架, bootstrap 3, 前端, frontend, 網站開發";
+    Layout = "~/Views/Shared/_Bootstrap3.cshtml";
+
+    ViewBag.Domain = Request.Url.Scheme + System.Uri.SchemeDelimiter + Request.Url.Host + (Request.Url.IsDefaultPort ? "" : ":" + Request.Url.Port);
+    ViewBag.OgUrl = ViewBag.Domain + Url.Action("CSS");
+}
+
+@section navbar
+{
+    @Html.Partial("_NavBarPartial")
+}
+
+@section footer
+{
+    @Html.Partial("_FooterPartial")
+}
+
+<div class="bs-docs-header" id="content">
+    <div class="container">
+        <h1>CSS</h1>
+        <p>全域的 CSS 設置、樣式與可擴充的類別以增強基礎的 HTML 元素，還有優秀的格線系統。
+           <!--Global CSS settings, fundamental HTML elements styled and enhanced with extensible classes, and an advanced grid system.-->
+        </p>
+        @Html.Partial("_SkillTreeADPartial")
+    </div>
+</div>
+
+<div class="container bs-docs-container">
+    <div class="row">
+        <div class="col-md-9" role="main">
+            @Html.Partial("_CSS_Overview")
+            @Html.Partial("_CSS_Grid")
+            @Html.Partial("_CSS_Type")
+            @Html.Partial("_CSS_Code")
+            @Html.Partial("_CSS_Tables")
+            @Html.Partial("_CSS_Forms")
+            @Html.Partial("_CSS_Buttons")
+            @Html.Partial("_CSS_Images")
+            @Html.Partial("_CSS_HelpClasses")
+            @Html.Partial("_CSS_Responsive")
+            @Html.Partial("_CSS_Less")
+            @Html.Partial("_CSS_Sass")
+        </div>
+
+        @Html.Partial("_CSS_SideNav")
+    </div>
+</div>

@@ -1,0 +1,99 @@
+﻿<div class="bs-docs-section">
+  <h1 id="overview" class="page-header">概觀<!--Overview--></h1>
+
+              <p class="lead">
+                  深入瞭解 Bootstrap 3 基礎架構的關鍵內容，包含我們讓 Web 開發變的更好、更快、更穩健的方法。
+                  <!--Get the lowdown on the key pieces of Bootstrap's infrastructure, including our approach to better, faster, stronger web development.-->
+              </p>
+
+  <h3 id="overview-doctype">HTML5 doctype</h3>
+              <p>
+                  Bootstrap 3 所使用的 HTML 元素與 CSS 屬性都需要使用到 HTML5 doctype，將它包含在所有專案中頁面的第一行。
+                  <!--Bootstrap makes use of certain HTML elements and CSS properties that require the use of the HTML5 doctype. Include it at the beginning of all your projects.-->
+              </p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"zh-Hant"</span><span class="nt">&gt;</span>
+  ...
+<span class="nt">&lt;/html&gt;</span></code></pre></div>
+    
+  <div class="bs-callout bs-callout-warning">
+  <h4>譯者註</h4>
+  <p><code>&lt;html lang="zh"&gt;</code> 裡的 <code>lang</code> 屬性用來標記網頁所使用的語系。中文有三種設法，一、賦予 <code>zh</code> 值，表示為通用中文。二、賦予 <code>zh-Hant</code> 值，表示為正體中文。三、賦予 <code>zh-Hant-TW</code> 值，表示為台灣所使用的正體中文。更多資訊請參考：</p>
+  <ol>
+    <li><a href="http://www.w3schools.com/tags/ref_language_codes.asp" target="_blank">HTML Language Code Reference</a></li>
+    <li><a href="http://www.w3schools.com/tags/ref_country_codes.asp" target="_blank">HTML ISO Country Codes Reference</a></li>
+    <li>格式細節可參考 <a href="http://www.ietf.org/rfc/rfc4646.txt">RFC 4646</a> 的說明。</li>
+  </ol>
+  </div>
+
+  <h3 id="overview-mobile">行動優先<!--Mobile first--></h3>
+              <p>
+                  在 Bootstrap 2 裡，我們在框架核心面加入選擇性的行動友善樣式。在 Bootstrap 3 裡，我們改寫了整個專案，並從一開始就將行動友善放入其中。這不是簡單增加一些選擇性的行動樣式，而且直接置於框架核心當中。事實上，<strong>Bootstrap 3 是行動優先（Mobile First）</strong>。行動優先的樣式融合在框架的每個角落，而不是散落於各個文件。
+                  <!--With Bootstrap 2, we added optional mobile friendly styles for key aspects of the framework. With Bootstrap 3, we've rewritten the project to be mobile friendly from the start. Instead of adding on optional mobile styles, they're baked right into the core. In fact, <strong>Bootstrap is mobile first</strong>. Mobile first styles can be found throughout the entire library instead of in separate files.-->
+              </p>
+              <p>
+                  為了確保適當的呈現和觸控縮放效果，<strong>加入可視區域（viewport）的 meta 標籤</strong>到頁面的 <code>&lt;head&gt;</code>。
+                  <!--To ensure proper rendering and touch zooming, <strong>add the viewport meta tag</strong> to your <code>&lt;head&gt;</code>.-->
+              </p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"viewport"</span> <span class="na">content=</span><span class="s">"width=device-width, initial-scale=1"</span><span class="nt">&gt;</span></code></pre></div>
+              <p>
+                  你也能在可視區域的 <code>meta</code> 標籤中加入 <code>user-scalable=no</code> 設置，即可取消行動設備上的縮放功能。取消縮放功能意味著使用者只能滑動螢幕，結果就是，你的網站看起來更像是原生應用程式般的感覺。總之，我們不建議所有網站都使用此方式，因此，請自行斟酌。
+                  <!--You can disable zooming capabilities on mobile devices by adding <code>user-scalable=no</code> to the viewport meta tag. This disables zooming, meaning users are only able to scroll, and results in your site feeling a bit more like a native application. Overall, we don't recommend this on every site, so use caution!-->
+              </p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"viewport"</span> <span class="na">content=</span><span class="s">"width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"</span><span class="nt">&gt;</span></code></pre></div>
+
+  <h3 id="overview-type-links">版面與連結<!--Typography and links--></h3>
+              <p>
+                  Bootstrap 3 進行了基本的全域呈現、版面和連結樣式的設置。分別是：
+                  <!--Bootstrap sets basic global display, typography, and link styles. Specifically, we:-->
+              </p>
+  <ul>
+      <li>
+          為 <code>body</code> 設置 <code>background-color: #fff;</code>
+          <!--Set <code>background-color: #fff;</code> on the <code>body</code>-->
+      </li>
+      <li>
+          使用 <code>@@font-family-base</code>、<code>@@font-size-base</code> 和 <code>@@line-height-base</code> 屬性（attribute）作為我們版面的基礎
+          <!--Use the <code>@@font-family-base</code>, <code>@@font-size-base</code>, and <code>@@line-height-base</code> attributes as our typographic base-->
+      </li>
+      <li>
+          經由 <code>@@link-color</code> 設置全域的連結顏色，並且當連結處於 <code>:hover</code> 時才會呈現下劃線
+          <!--Set the global link color via <code>@@link-color</code> and apply link underlines only on <code>:hover</code>-->
+      </li>
+  </ul>
+              <p>
+                  這些樣式設置都能在 <code>scaffolding.less</code> 中找到。
+                  <!--These styles can be found within <code>scaffolding.less</code>.-->
+              </p>
+
+  <div class="bs-callout bs-callout-warning">
+    <h4>譯者註</h4>
+    <p>Bootstrap Sass 專案中是在 <code>_scaffolding.scss</code> 檔案，並且 Sass 是使用 <code>$</code> 符號，變數名稱一樣。</p>
+  </div>
+
+  <h3 id="overview-normalize">Normalize.css</h3>
+              <p>
+                  為了改善跨瀏覽器的呈現效果，我們使用了 <a href="http://necolas.github.io/normalize.css/" target="_blank">Normalize.css</a>，此專案由 <a href="http://twitter.com/necolas" target="_blank">Nicolas Gallagher</a> 和 <a href="http://twitter.com/jon_neal" target="_blank">Jonathan Neal</a> 開發維護。
+                  <!--For improved cross-browser rendering, we use <a href="http://necolas.github.io/normalize.css/" target="_blank">Normalize.css</a>, a project by <a href="https://twitter.com/necolas" target="_blank">Nicolas Gallagher</a> and <a href="https://twitter.com/jon_neal" target="_blank">Jonathan Neal</a>.-->
+              </p>
+
+  <h3 id="overview-container">容器<!--Containers--></h3>
+              <p>
+                  Bootstrap 3 需要一個 <code>.container</code> <strong>容器</strong>元素來包裝網站內容與容納我們的格線系統。你可以在專案裡從下面範例的二個容器之間進行選擇。注意，由於內距（<code>padding</code>）和其他屬性的原因，這二個容器並不能互動巢狀套用。
+                  <!--Bootstrap requires a containing element to wrap site contents and house our grid system. You may choose one of two containers to use in your projects. Note that, due to <code>padding</code> and more, neither container is nestable.-->
+              </p>
+              <p>
+                  <code>.container</code> 用於自適應且固定寬度的容器。
+                  <!--Use <code>.container</code> for a responsive fixed width container.-->
+              </p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container"</span><span class="nt">&gt;</span>
+  ...
+<span class="nt">&lt;/div&gt;</span></code></pre></div>
+              <p>
+                  <code>.container-fluid</code> 用於 100% 寬度的容器，橫跨可視區域的全部寬度。
+                  <!--Use <code>.container-fluid</code> for a full width container, spanning the entire width of your viewport.-->
+              </p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container-fluid"</span><span class="nt">&gt;</span>
+  ...
+<span class="nt">&lt;/div&gt;</span></code></pre></div>
+</div>

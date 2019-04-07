@@ -1,0 +1,42 @@
+﻿<div class="bs-docs-section">
+  <h1 id="labels" class="page-header">標籤<!--Labels--></h1>
+
+  <h3>範例<!--Example--></h3>
+  <div class="bs-example">
+    <h1>Example heading <span class="label label-default">New</span></h1>
+    <h2>Example heading <span class="label label-default">New</span></h2>
+    <h3>Example heading <span class="label label-default">New</span></h3>
+    <h4>Example heading <span class="label label-default">New</span></h4>
+    <h5>Example heading <span class="label label-default">New</span></h5>
+    <h6>Example heading <span class="label label-default">New</span></h6>
+  </div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;h3&gt;</span>Example heading <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"label label-default"</span><span class="nt">&gt;</span>New<span class="nt">&lt;/span&gt;&lt;/h3&gt;</span></code></pre></div>
+
+  <h3>可用的變化<!--Available variations--></h3>
+    <p>
+        使用下面任何一個修飾類別可以改變標籤的外觀。
+        <!--Add any of the below mentioned modifier classes to change the appearance of a label.-->
+    </p>
+  <div class="bs-example">
+    <span class="label label-default">Default</span>
+    <span class="label label-primary">Primary</span>
+    <span class="label label-success">Success</span>
+    <span class="label label-info">Info</span>
+    <span class="label label-warning">Warning</span>
+    <span class="label label-danger">Danger</span>
+  </div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"label label-default"</span><span class="nt">&gt;</span>Default<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"label label-primary"</span><span class="nt">&gt;</span>Primary<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"label label-success"</span><span class="nt">&gt;</span>Success<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"label label-info"</span><span class="nt">&gt;</span>Info<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"label label-warning"</span><span class="nt">&gt;</span>Warning<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"label label-danger"</span><span class="nt">&gt;</span>Danger<span class="nt">&lt;/span&gt;</span></code></pre></div>
+
+  <div class="bs-callout bs-callout-info">
+    <h4>有大量的標籤？<!--Have tons of labels?--></h4>
+      <p>
+          當你將若干的行內標籤放置在一個較窄的容器中，每個標籤都含有它自己的 <code>inline-block</code> 元素（像是圖示一樣），那麼在呈現上會出現問題。解決這個問題的辦法是設置 <code>display: inline-block;</code>，詳細的內容與範例請參考<a href="https://github.com/twbs/bootstrap/issues/13219">問題編號 #13219</a> 說明。
+          <!--Rendering problems can arise when you have dozens of inline labels within a narrow container, each containing its own <code>inline-block</code> element (like an icon). The way around this is setting <code>display: inline-block;</code>. For context and an example, <a href="https://github.com/twbs/bootstrap/issues/13219">see #13219</a>.-->
+      </p>
+  </div>
+</div>

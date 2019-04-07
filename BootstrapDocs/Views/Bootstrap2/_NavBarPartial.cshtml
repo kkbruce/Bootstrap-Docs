@@ -1,0 +1,47 @@
+﻿<!-- Navbar -->
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            @Html.ActionLink("Bootstrap 2", "Index", null, routeValues: null, htmlAttributes: new { @class = "brand" })
+
+            <nav class="nav-collapse collapse">
+                <ul class="nav">
+                    <li>
+                        @Html.ActionLink("首頁", "Index", "Home")
+                    </li>
+                    <li>
+                        @Html.ActionLink("旅程開始", "GettingStarted")
+                    </li>
+                    <li>
+                        @Html.ActionLink("架構", "Scaffolding")
+                    </li>
+                    <li>
+
+                        @Html.ActionLink("基礎CSS", "BaseCSS")
+                    </li>
+                    <li>
+                        @Html.ActionLink("元件", "Components")
+                    </li>
+                    <li>
+                        @Html.ActionLink("JavaScript", "JavaScript")
+                    </li>
+                    <li>
+                        @Html.ActionLink("客製化", "Customize")
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+<script>
+    // TODO: 處理巡覽列 Active class
+    var CurrentActionName = "@ViewContext.RouteData.Values["Action"].ToString()";
+    console.log(CurrentActionName);
+</script>
+

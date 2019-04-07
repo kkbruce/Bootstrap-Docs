@@ -1,0 +1,292 @@
+﻿@{
+    ViewBag.Title = "瀏覽器臭蟲牆 &middot; Bootstrap 3中文手冊";
+    ViewBag.Description = "Bootstrap 3簡潔，直覺，強大的行動設備優先前端框架，讓網頁開發更快速更簡單。";
+    ViewBag.Keywords = "HTML, CSS, JS, JavaScript, 框架, bootstrap 3, 前端, frontend, 網站開發";
+    Layout = "~/Views/Shared/_Bootstrap3.cshtml";
+    
+    ViewBag.Domain = Request.Url.Scheme + System.Uri.SchemeDelimiter + Request.Url.Host + (Request.Url.IsDefaultPort ? "" : ":" + Request.Url.Port);
+    ViewBag.OgUrl = ViewBag.Domain + Url.Action("BrowserBugs");
+}
+
+@section navbar
+{
+    @Html.Partial("_NavBarPartial")
+}
+
+@section footer
+{
+    @Html.Partial("_FooterPartial")
+}
+
+@section HeadCSS
+{
+    <link href="data:text/css;charset=utf-8," data-href="dist/css/bootstrap-theme.min.css" rel="stylesheet" id="bs-theme-stylesheet">
+}
+
+    <div class="bs-docs-header" id="content">
+        <div class="container">
+            <h1>瀏覽器臭蟲牆<!--Wall of browser bugs--></h1>
+            <p>
+                瀏覽器的臭蟲清單也是 Bootstrap 目前正在廝殺的對像。
+                <!--A list of the browser bugs that Bootstrap is currently grappling with.-->
+            </p>
+            @Html.Partial("_SkillTreeADPartial")
+        </div>
+    </div>
+
+    <div class="container bs-docs-container">
+
+      <div class="row">
+        <div class="col-md-12" role="main">
+          <div class="bs-docs-section">
+  <h1 id="browser-bugs" class="page-header">Browser bugs</h1>
+
+              <p class="lead">
+                  Bootstrap 目前在處理幾個主流瀏覽器上的臭蟲，以提供最好的跨瀏覽器體驗的可能性。但一些臭蟲，像是下面列表，並不能由我們來解決。
+                  <!--Bootstrap currently works around several outstanding browser bugs in major browsers to deliver the best cross-browser experience possible. Some bugs, like those listed below, cannot be solved by us.-->
+              </p>
+              <p>
+                  我們公開列出那些瀏覽器的臭蟲會影響我們，也希望加快腳步的修正它們。更多關於 Bootstrap 瀏覽器相容性，請參考我們的@(@Html.ActionLink("瀏覽器相容性", "GettingStarted", null, null, null, "support", null, null))文件。
+                  <!--We publicly list browser bugs that are impacting us here, in the hopes of expediting the process of fixing them. For information on Bootstrap's browser compatibility, <a href="../getting-started/#support">see our browser compatibility docs</a>.-->
+              </p>
+
+  <div class="table-responsive">
+    <table class="bs-docs-browser-bugs table table-bordered table-hover">
+      <thead>
+        <tr>
+          <th>瀏覽器<!--Browser(s)--></th>
+          <th>臭蟲總結<!--Summary of bug--></th>
+          <th>提交臭蟲處<!--Upstream bug(s)--></th>
+          <th>Bootstrap 問題<!--Bootstrap issue(s)--></th>
+        </tr>
+      </thead>
+      <tbody>
+        
+        <tr>
+          <td>Internet Explorer 11
+</td>
+          <td><p>Hovered element still remains in <code>:hover</code> state after scrolling away.</p>
+</td>
+          <td><a href="https://connect.microsoft.com/IE/feedback/details/926665">IE bug #926665</a>
+</td>
+          <td><a href="https://github.com/twbs/bootstrap/issues/14211">#14211</a>
+</td>
+        </tr>
+        
+        <tr>
+          <td>Internet Explorer 11
+</td>
+          <td><p>When hovering over a <code>&lt;select&gt;</code> menu item, the cursor for the element underneath the menu is displayed.</p>
+</td>
+          <td><a href="https://connect.microsoft.com/IE/feedback/details/963961">IE bug #963961</a>
+</td>
+          <td><a href="https://github.com/twbs/bootstrap/issues/14528">#14528</a>
+</td>
+        </tr>
+        
+        <tr>
+          <td>Firefox
+</td>
+          <td><p><code>.table-bordered</code> with an empty <code>&lt;tbody&gt;</code> is missing borders.</p>
+</td>
+          <td><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1023761">Mozilla bug #1023761</a>
+</td>
+          <td><a href="https://github.com/twbs/bootstrap/issues/13453">#13453</a>
+</td>
+        </tr>
+        
+        <tr>
+          <td>Firefox
+</td>
+          <td><p><code>max-width: 100%;</code> doesn’t work inside tables.</p>
+</td>
+          <td><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=975632">Mozilla bug #975632</a>
+</td>
+          <td><a href="https://github.com/twbs/bootstrap/issues/10690">#10690</a>
+</td>
+        </tr>
+        
+        <tr>
+          <td>Firefox (Windows)
+</td>
+          <td><p>Java applets that are descendants of elements with forced hardware acceleration using <code>translate3d(0,0,0)</code> are invisible.</p>
+</td>
+          <td><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1048279">Mozilla bug #1048279</a>
+</td>
+          <td><a href="https://github.com/twbs/bootstrap/issues/14124">#14124</a>
+</td>
+        </tr>
+        
+        <tr>
+          <td>Firefox
+</td>
+          <td><p>Button elements with <code>width: 100%</code> become cropped in long tables.</p>
+</td>
+          <td><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1060131">Mozilla bug #1060131</a>
+</td>
+          <td><a href="https://github.com/twbs/bootstrap/issues/14320">#14320</a>
+</td>
+        </tr>
+        
+        <tr>
+          <td>Firefox
+</td>
+          <td><p>If the disabled state of a form control is changed via JavaScript, the normal state doesn’t return after refreshing the page.</p>
+</td>
+          <td><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=654072">Mozilla bug #654072</a>
+</td>
+          <td><a href="https://github.com/twbs/bootstrap/issues/793">#793</a>
+</td>
+        </tr>
+        
+        <tr>
+          <td>Chrome (OS X)
+</td>
+          <td><p>Clicking above <code>&lt;input type="number"&gt;</code> increment button flashes the decrement button.</p>
+</td>
+          <td><a href="https://code.google.com/p/chromium/issues/detail?id=419108">Chromium issue #419108</a>
+</td>
+          <td>Offshoot of <a href="https://github.com/twbs/bootstrap/issues/8350">#8350</a> & <a href="https://code.google.com/p/chromium/issues/detail?id=337668">Chromium issue #337668</a>
+</td>
+        </tr>
+        
+        <tr>
+          <td>Chrome
+</td>
+          <td><p><code>display: table;</code> within <code>display: block;</code> forces sibling content to new line.</p>
+</td>
+          <td><a href="https://code.google.com/p/chromium/issues/detail?id=309483">Chromium issue #309483</a>
+</td>
+          <td><a href="https://github.com/twbs/bootstrap/issues/9950">#9950</a>
+</td>
+        </tr>
+        
+        <tr>
+          <td>Chrome
+</td>
+          <td><p>Incorrect viewport size used for media queries when printing.</p>
+</td>
+          <td><a href="https://code.google.com/p/chromium/issues/detail?id=273306">Chromium issue #273306</a>
+</td>
+          <td><a href="https://github.com/twbs/bootstrap/issues/12078">#12078</a>
+</td>
+        </tr>
+        
+        <tr>
+          <td>Safari (OS X)
+</td>
+          <td><p>Scrollbar clipped in <code>select[multiple]</code> with padding.</p>
+</td>
+          <td><a href="https://bugs.webkit.org/show_bug.cgi?id=128489">WebKit bug #128489</a>
+</td>
+          <td><a href="https://github.com/twbs/bootstrap/issues/12536">#12536</a>
+</td>
+        </tr>
+        
+        <tr>
+          <td>Chrome
+</td>
+          <td><p><code>display: table-cell; width: 100%;</code> doesn’t work correctly on <code>&lt;input type="date"&gt;</code>.</p>
+</td>
+          <td><a href="https://code.google.com/p/chromium/issues/detail?id=346051">Chromium issue #346051</a>
+</td>
+          <td><a href="https://github.com/twbs/bootstrap/issues/12548">#12548</a>
+</td>
+        </tr>
+        
+        <tr>
+          <td>Chrome
+</td>
+          <td><p><code>&lt;input type="password"&gt;</code> sporadically causes bad widths on floated elements.</p>
+</td>
+          <td><a href="https://code.google.com/p/chromium/issues/detail?id=377346">Chromium issue #377346</a>
+</td>
+          <td><a href="https://github.com/twbs/bootstrap/issues/13892">#13892</a>
+</td>
+        </tr>
+        
+        <tr>
+          <td>Chrome
+</td>
+          <td><p>CSS infinite linear animation with alpha transparency leaks memory.</p>
+</td>
+          <td><a href="https://code.google.com/p/chromium/issues/detail?id=429375">Chromium issue #429375</a>
+</td>
+          <td><a href="https://github.com/twbs/bootstrap/issues/14409">#14409</a>
+</td>
+        </tr>
+        
+        <tr>
+          <td>Safari (OS X)
+</td>
+          <td><p>Weird button behavior with some <code>&lt;input type="number"&gt;</code> elements.</p>
+</td>
+          <td><a href="https://bugs.webkit.org/show_bug.cgi?id=137269">WebKit bug #137269</a>
+</td>
+          <td><a href="https://github.com/twbs/bootstrap/issues/8350">#8350</a>, <a href="https://github.com/necolas/normalize.css/issues/283">Normalize #283</a>, <a href="https://code.google.com/p/chromium/issues/detail?id=337668">Chromium issue #337668</a>
+</td>
+        </tr>
+        
+        <tr>
+          <td>Safari (OS X)
+</td>
+          <td><p><code>display: table-cell;</code> within media query renders incorrectly when resizing the window.</p>
+</td>
+          <td><a href="https://bugs.webkit.org/show_bug.cgi?id=138167">WebKit bug #138167</a>
+</td>
+          <td><a href="https://github.com/twbs/bootstrap/issues/9774">#9774</a>
+</td>
+        </tr>
+        
+        <tr>
+          <td>Safari (iOS)
+</td>
+          <td><p><code>transform: translate3d(0,0,0);</code> rendering bug.</p>
+</td>
+          <td><a href="https://bugs.webkit.org/show_bug.cgi?id=138162">WebKit bug #138162</a>, <a href="https://openradar.appspot.com/18804973">Apple Safari Radar #18804973</a>
+</td>
+          <td><a href="https://github.com/twbs/bootstrap/issues/14603">#14603</a>
+</td>
+        </tr>
+        
+        <tr>
+          <td>Safari (OS X)
+</td>
+          <td><p>Small font size when printing webpage with fixed-width <code>.container</code>.</p>
+</td>
+          <td><a href="https://bugs.webkit.org/show_bug.cgi?id=138192">WebKit bug #138192</a>
+</td>
+          <td><a href="https://github.com/twbs/bootstrap/issues/14868">#14868</a>
+</td>
+        </tr>
+        
+        <tr>
+          <td>Safari (iOS)
+</td>
+          <td><p>Text input’s cursor doesn’t move while scrolling the page.</p>
+</td>
+          <td><a href="https://bugs.webkit.org/show_bug.cgi?id=138201">WebKit bug #138201</a>, <a href="https://openradar.appspot.com/18819624">Apple Safari Radar #18819624</a>
+</td>
+          <td><a href="https://github.com/twbs/bootstrap/issues/14708">#14708</a>
+</td>
+        </tr>
+        
+        <tr>
+          <td>Chrome (Windows & Linux)
+</td>
+          <td><p>Body content can be scrolled even though <code>overflow: hidden;</code> is applied to it.</p>
+</td>
+          <td><a href="https://code.google.com/p/chromium/issues/detail?id=429604">Chromium issue #429604</a>
+</td>
+          <td><a href="https://github.com/twbs/bootstrap/issues/14972">#14972</a></td>
+        </tr>
+        
+      </tbody>
+    </table>
+  </div>
+</div>
+
+        </div>
+        
+      </div>
+    </div>

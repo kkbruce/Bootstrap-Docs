@@ -1,0 +1,385 @@
+﻿<div class="bs-docs-section">
+  <h1 id="tooltips" class="page-header">提示訊息<!--Tooltips--> <small>tooltip.js</small></h1>
+    <p>
+        取自 Jason Frame 所撰寫優秀 jQuery.tipsy 外掛得到的靈感；提示訊息是一個更新版本，它不依賴圖片，改用 CSS3 的動畫和 <code>data-</code> 屬性來對標題進行本地標題儲存。
+        <!--Inspired by the excellent jQuery.tipsy plugin written by Jason Frame; Tooltips are an updated version, which don't rely on images, use CSS3 for animations, and data-attributes for local title storage.-->
+    </p>
+
+  <div class="bs-callout bs-callout-warning">
+    <h4>譯者註</h4>
+    <p>本地標題儲存意思是，將提示的描述（或說明）放入元素的 <code>title</code> 屬性內。</p>
+  </div>    
+
+    <p>
+        長度為零的標題，提示訊息將會不顯示。
+        <!--Tooltips with zero-length titles are never displayed.-->
+    </p>
+
+  <h2 id="tooltips-examples">範例<!--Examples--></h2>
+    <p>
+        將滑鼠移至連結上將可看到提示訊息：
+        <!--Hover over the links below to see tooltips:-->
+    </p>
+  <div class="bs-example tooltip-demo">
+    <p class="muted" style="margin-bottom: 0;">Tight pants next level keffiyeh <a href="#" data-toggle="tooltip" title="Default tooltip">you probably</a> haven't heard of them. Photo booth beard raw denim letterpress vegan messenger bag stumptown. Farm-to-table seitan, mcsweeney's fixie sustainable quinoa 8-bit american apparel <a href="#" data-toggle="tooltip" title="Another tooltip">have a</a> terry richardson vinyl chambray. Beard stumptown, cardigans banh mi lomo thundercats. Tofu biodiesel williamsburg marfa, four loko mcsweeney's cleanse vegan chambray. A really ironic artisan <a href="#" data-toggle="tooltip" title="Another one here too">whatever keytar</a>, scenester farm-to-table banksy Austin <a href="#" data-toggle="tooltip" title="The last tip!">twitter handle</a> freegan cred raw denim single-origin coffee viral.
+    </p>
+  </div><!-- /example -->
+
+  <h3>靜態提示訊息<!--Static tooltip--></h3>
+    <p>
+        有四個可用的選項：top、right、bottom 和 left 對齊方式。
+        <!--Four options are available: top, right, bottom, and left aligned.-->
+    </p>
+  <div class="bs-example bs-example-tooltip">
+    <div class="tooltip left" role="tooltip">
+      <div class="tooltip-arrow"></div>
+      <div class="tooltip-inner">
+        Tooltip on the left
+      </div>
+    </div>
+    <div class="tooltip top" role="tooltip">
+      <div class="tooltip-arrow"></div>
+      <div class="tooltip-inner">
+        Tooltip on the top
+      </div>
+    </div>
+    <div class="tooltip bottom" role="tooltip">
+      <div class="tooltip-arrow"></div>
+      <div class="tooltip-inner">
+        Tooltip on the bottom
+      </div>
+    </div>
+    <div class="tooltip right" role="tooltip">
+      <div class="tooltip-arrow"></div>
+      <div class="tooltip-inner">
+        Tooltip on the right
+      </div>
+    </div>
+  </div>
+
+  <h3>四種方向<!--Four directions--></h3>
+  <div class="bs-example tooltip-demo">
+    <div class="bs-example-tooltips">
+      <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="left" title="Tooltip on left">Tooltip on left</button>
+      <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Tooltip on top">Tooltip on top</button>
+      <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Tooltip on bottom">Tooltip on bottom</button>
+      <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right">Tooltip on right</button>
+    </div>
+  </div><!-- /example -->
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-default"</span> <span class="na">data-toggle=</span><span class="s">"tooltip"</span> <span class="na">data-placement=</span><span class="s">"left"</span> <span class="na">title=</span><span class="s">"Tooltip on left"</span><span class="nt">&gt;</span>Tooltip on left<span class="nt">&lt;/button&gt;</span>
+
+<span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-default"</span> <span class="na">data-toggle=</span><span class="s">"tooltip"</span> <span class="na">data-placement=</span><span class="s">"top"</span> <span class="na">title=</span><span class="s">"Tooltip on top"</span><span class="nt">&gt;</span>Tooltip on top<span class="nt">&lt;/button&gt;</span>
+
+<span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-default"</span> <span class="na">data-toggle=</span><span class="s">"tooltip"</span> <span class="na">data-placement=</span><span class="s">"bottom"</span> <span class="na">title=</span><span class="s">"Tooltip on bottom"</span><span class="nt">&gt;</span>Tooltip on bottom<span class="nt">&lt;/button&gt;</span>
+
+<span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-default"</span> <span class="na">data-toggle=</span><span class="s">"tooltip"</span> <span class="na">data-placement=</span><span class="s">"right"</span> <span class="na">title=</span><span class="s">"Tooltip on right"</span><span class="nt">&gt;</span>Tooltip on right<span class="nt">&lt;/button&gt;</span></code></pre></div>
+
+  <div class="bs-callout bs-callout-danger">
+    <h4>宣告目的<!--Opt-in functionality--></h4>
+      <p>
+          出於性能原因，提訊息訊和彈出提示的 data-api 必須明確宣告，意思是，<strong>你必須自行初始化它們</strong>。
+          <!--For performance reasons, the Tooltip and Popover data-apis are opt-in, meaning <strong>you must initialize them yourself</strong>.-->
+      </p>
+      <p>
+          有一種方式來初始化頁面上所有提示訊息，透過 <code>data-toggle</code> 屬性來選擇它們自己。
+          <!--One way to initialize all tooltips on a page would be to select them by their <code>data-toggle</code> attribute:-->
+      </p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="nx">$</span><span class="p">(</span><span class="s1">'[data-toggle="tooltip"]'</span><span class="p">).</span><span class="nx">tooltip</span><span class="p">()</span>
+<span class="p">})</span></code></pre></div>
+
+  </div>
+  <div class="bs-callout bs-callout-warning">
+    <h4>提示訊息在按鈕群組與 input 群組需要特別設置<!--Tooltips in button groups and input groups require special setting--></h4>
+      <p>
+          當你在 <code>.btn-group</code> 或 <code>.input-group</code> 裡使用提示訊息，你必須設置 <code>container: 'body'</code> （文件後面說明）以避免不必要的副作用（例如，工具提示被觸發時，會讓元素變寬和（或）失去圓角效果）。
+          <!--When using tooltips on elements within a <code>.btn-group</code> or an <code>.input-group</code>, you'll have to specify the option <code>container: 'body'</code> (documented below) to avoid unwanted side effects (such as the element growing wider and/or losing its rounded corners when the tooltip is triggered).-->
+      </p>
+  </div>
+  <div class="bs-callout bs-callout-warning">
+    <h4>不要嘗試在隱藏元素使用提示訊息<!--Don't try to show tooltips on hidden elements--></h4>
+      <p>
+          當呼叫 <code>$(...).tooltip('show')</code> 的目標元素是 <code>display: none;</code> 狀態，那麼會造成提示訊息被不正常定位的情況。
+          <!--Invoking <code>$(...).tooltip('show')</code> when the target element is <code>display: none;</code> will cause the tooltip to be incorrectly positioned.-->
+      </p>
+  </div>
+  <div class="bs-callout bs-callout-info">
+      <h4>在被禁用的元素上使用提示訊息需要額外包裝的容器<!--Tooltips on disabled elements require wrapper elements--></h4>
+      <p>
+          加入提示訊息到被套用 <code>disabled</code> 或 <code>.disabled</code> 的元素上，請將元素放置到 <code>&lt;div&gt;</code> 內並且將提示訊息套用到 <code>&lt;div&gt;</code> 上。
+          <!--To add a tooltip to a <code>disabled</code> or <code>.disabled</code> element, put the element inside of a <code>&lt;div&gt;</code> and apply the tooltip to that <code>&lt;div&gt;</code> instead.-->
+      </p>
+  </div>
+
+  <h2 id="tooltips-usage">使用方法<!--Usage--></h2>
+    <p>
+        提示訊息外掛依照需求來產生內容的標記，並預設情況下，放置提示訊息之後會觸發它們的元素。
+        <!--The tooltip plugin generates content and markup on demand, and by default places tooltips after their trigger element.-->
+    </p>
+    <p>
+        經由 JavaScript 觸發提示訊息：
+        <!--Trigger the tooltip via JavaScript:-->
+    </p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">tooltip</span><span class="p">(</span><span class="nx">options</span><span class="p">)</span></code></pre></div>
+
+  <h3>標記<!--Markup--></h3>
+    <p>
+        在你希望提供提示訊息的 HTML 元素，僅僅需要設 <code>data-</code> 屬性和 <code>title</code> 屬性。產生標記的提示訊息是相當簡單，但它需要一個明確的位置（預設外掛是設置為 <code>top</code> 方向）。
+        <!--The required markup for a tooltip is only a <code>data</code> attribute and <code>title</code> on the HTML element you wish to have a tooltip. The generated markup of a tooltip is rather simple, though it does require a position (by default, set to <code>top</code> by the plugin).-->
+    </p>
+  <div class="bs-callout bs-callout-warning">
+    <h4>多行的連結<!--Multiple-line links--></h4>
+      <p>
+          有時你會想要把提示訊息加到連結裡，但此連結包裝了多行資訊，提示訊息外掛的預設行為會置中對齊，不論是水平或垂置。加入 <code>white-space: nowrap;</code> 到你的連結，可以避免此問題。
+          <!--Sometimes you want to add a tooltip to a hyperlink that wraps multiple lines. The default behavior of the tooltip plugin is to center it horizontally and vertically. Add <code>white-space: nowrap;</code> to your anchors to avoid this.-->
+      </p>
+  </div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- HTML to write --&gt;</span>
+<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">data-toggle=</span><span class="s">"tooltip"</span> <span class="na">title=</span><span class="s">"Some tooltip text!"</span><span class="nt">&gt;</span>Hover over me<span class="nt">&lt;/a&gt;</span>
+
+<span class="c">&lt;!-- Generated markup by the plugin --&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"tooltip top"</span> <span class="na">role=</span><span class="s">"tooltip"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"tooltip-arrow"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"tooltip-inner"</span><span class="nt">&gt;</span>
+    Some tooltip text!
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></div>
+
+  <h3>選項<!--Options--></h3>
+    <p>
+        選項能透過 <code>data-</code> 屬性或 JavaScript 來傳遞。使用 <code>data-</code> 屬性傳遞，將選項名稱附加至 <code>data-</code> 後面，例如，<code>data-animation=""</code>。
+        <!--Options can be passed via data attributes or JavaScript. For data attributes, append the option name to <code>data-</code>, as in <code>data-animation=""</code>.-->
+    </p>
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th style="width: 100px;">名稱<!--Name--></th>
+          <th style="width: 100px;">類型<!--Type--></th>
+          <th style="width: 50px;">預設<!--Default--></th>
+          <th>說明<!--Description--></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>animation</td>
+          <td>boolean</td>
+          <td>true</td>
+            <td>
+                為提示訊息加入一個 CSS 淡出入轉換的效果。
+                <!--Apply a CSS fade transition to the tooltip-->
+            </td>
+        </tr>
+        <tr>
+          <td>container</td>
+          <td>string | false</td>
+          <td>false</td>
+          <td>
+              <p>
+                  附加提示訊息到指定的元素。例如，<code>container: 'body'</code>。此選項在提示訊息需要在一個流動的文件附近觸發元素要定位時特別有用，這可以預防提示訊息在視窗調整大小的從觸發的元素中流走。
+                  <!--Appends the tooltip to a specific element. Example: <code>container: 'body'</code>. This option is particularly useful in that it allows you to position the tooltip in the flow of the document  near the triggering element - which will prevent the tooltip from floating away from the triggering element during a window resize.-->
+              </p>
+          </td>
+        </tr>
+        <tr>
+          <td>delay</td>
+          <td>number | object</td>
+          <td>0</td>
+          <td>
+              <p>
+                  呈現或隱藏提示訊息的延遲時間（毫秒），注意，不要設置到手動（manual）類型觸發器上。
+                  <!--Delay showing and hiding the tooltip (ms) - does not apply to manual trigger type-->
+              </p>
+              <p>
+                  如果提供的數字合法，延遲設置會同時套用到隱藏或顯示上。
+                  <!--If a number is supplied, delay is applied to both hide/show-->
+              </p>
+              <p>
+                  物件建構式：<code>delay: { "show": 500, "hide": 100 }
+                  <!--Object structure is: <code>delay: { "show": 500, "hide": 100 }--></code>
+              </p>
+          </td>
+        </tr>
+        <tr>
+          <td>html</td>
+          <td>boolean</td>
+          <td>false</td>
+            <td>
+                插入 HTML 元素到提示訊息。如果為 false，jQuery 使用 <code>text</code> 方法來插入內容到 DOM 中。使用 <code>text</code> 你必須小心關於 <abbr title="Cross-site scripting">XSS</abbr> 攻擊。
+                <!--Insert HTML into the tooltip. If false, jQuery's <code>text</code> method will be used to insert content into the DOM. Use text if you're worried about XSS attacks.-->
+            </td>
+        </tr>
+        <tr>
+          <td>placement</td>
+          <td>string | function</td>
+          <td>'top'</td>
+          <td>
+              <p>
+                  如何定位提示訊息的方向 - top | bottom | left | right | auto。<br>當指定為"<code>auto</code>"時，會動態調整提示訊息的方向。例如，當 <code>placement</code> 指定為 "<code>auto left</code>" 時，那麼提示訊息會盡可能的在左邊呈現，否則會在右邊呈現。
+                  <!--How to position the tooltip - top | bottom | left | right | auto.<br>When "auto" is specified, it will dynamically reorient the tooltip. For example, if placement is "auto left", the tooltip will display to the left when possible, otherwise it will display right.-->
+              </p>
+              <p>
+                  當函式決定使用 <code>placement</code>，它會經由第一個參數來指出提示訊息的 <abbr title="Document Object Model">DOM</abbr> 節點，並且經由第二個參數來指出要觸發 <abbr title="Document Object Model">DOM</abbr> 節點的動作。tooltip.js 裡的 <code>this</code> 設置為提示訊息的執行個體。
+                  <!--When a function is used to determine the placement, it is called with the tooltip DOM node as its first argument and the triggering element DOM node as its second. The <code>this</code> context is set to the tooltip instance.-->
+              </p>
+          </td>
+        </tr>
+        <tr>
+          <td>selector</td>
+          <td>string</td>
+          <td>false</td>
+            <td>
+                如果有提供 <code>selector</code>，提示訊息物件將會被委派至所有合乎條件的目標上。在實務上，這會使用在動態產生的 HTML 內容去加入提示訊息功能。可以到 <a href="https://github.com/twbs/bootstrap/issues/4215">Bootstrap Issues 4215</a> 和 <a href="http://jsbin.com/zopod/1/edit">selector 範例</a>瞭解更多資訊。
+                <!--If a selector is provided, tooltip objects will be delegated to the specified targets. In practice, this is used to enable dynamic HTML content to have tooltips added. See <a href="https://github.com/twbs/bootstrap/issues/4215">this</a> and <a href="http://jsbin.com/zopod/1/edit">an informative example</a>.-->
+            </td>
+        </tr>
+        <tr>
+          <td>template</td>
+          <td>string</td>
+          <td><code>'&lt;div class="tooltip" role="tooltip"&gt;&lt;div class="tooltip-arrow"&gt;&lt;/div&gt;&lt;div class="tooltip-inner"&gt;&lt;/div&gt;&lt;/div&gt;'</code></td>
+          <td>
+              <p>
+                  當建立提示訊息時要使用的範本 HTML。
+                  <!--Base HTML to use when creating the tooltip.-->
+              </p>
+              <p>
+                  提示訊息的 <code>title</code> 將會被注入到 <code>.tooltip-inner</code> 裡。
+                  <!--The tooltip's <code>title</code> will be injected into the <code>.tooltip-inner</code>.-->
+              </p>
+              <p>
+                  <code>.tooltip-arrow</code> 會成為提示訊息指示方向。
+                  <!--<code>.tooltip-arrow</code> will become the tooltip's arrow.-->
+              </p>
+              <p>
+                  最外層的元素應該含有 <code>.tooltip</code> 類別。
+                  <!--The outermost wrapper element should have the <code>.tooltip</code> class.-->
+              </p>
+          </td>
+        </tr>
+        <tr>
+          <td>title</td>
+          <td>string | function</td>
+          <td>''</td>
+          <td>
+              <p>
+                  如果 <code>title</code> 屬性不存在，使用此值做為預設標題值。
+                  <!--Default title value if <code>title</code> attribute isn't present.-->
+              </p>
+              <p>
+                  如果是一個 <code>function</code> 被賦予，它將會呼叫 <code>this</code> 參考並設置提示訊息附加到元素上。
+                  <!--If a function is given, it will be called with its <code>this</code> reference set to the element that the tooltip is attached to.-->
+              </p>
+          </td>
+        </tr>
+        <tr>
+          <td>trigger</td>
+          <td>string</td>
+          <td>'hover focus'</td>
+            <td>
+                提示訊息的觸發方式 - click | hover | focus | manual。你可以傳遞多個觸發器，使用空格分隔它們。
+                <!--How tooltip is triggered - click | hover | focus | manual. You may pass multiple triggers; separate them with a space.-->
+            </td>
+        </tr>
+        <tr>
+          <td>viewport</td>
+          <td>string | object</td>
+          <td>{ selector: 'body', padding: 0 }</td>
+          <td>
+              <p>
+                  保持此元素邊界內的提示訊息。範例：<code>viewport: '#viewport'</code> 或 <code>{ "selector": "#viewport", "padding": 0 }</code>
+                  <!--Keeps the tooltip within the bounds of this element. Example: <code>viewport: '#viewport'</code> or <code>{ "selector": "#viewport", "padding": 0 }</code>-->
+              </p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div><!-- /.table-responsive -->
+
+  <div class="bs-callout bs-callout-warning">
+    <h4>譯者註</h4>
+    <p><code>click</code> 是點擊時觸發；<code>hover</code> 是滑鼠移入時觸發；<code>focus</code> 是取得焦點時觸發；<code>manual</code> 是手動控制觸發。</p>
+  </div>
+
+  <div class="bs-callout bs-callout-info">
+    <h4>各別提示訊息的 <code>data-</code> 屬性<!--Data attributes for individual tooltips--></h4>
+      <p>
+          如前所說，各別提示訊息的選項也可以透過 <code>data-</code> 屬性來指定。
+          <!--Options for individual tooltips can alternatively be specified through the use of data attributes, as explained above.-->
+      </p>
+  </div>
+
+  <h3>方法<!--Methods--></h3>
+
+  <h4>$().tooltip(options)</h4>
+    <p>
+        附加提示訊息處理常式到元素的集合中。
+        <!--Attaches a tooltip handler to an element collection.-->
+    </p>
+
+  <h4>.tooltip('show')</h4>
+    <p>
+        呈現元素的提示訊息。<code>title</code> 屬性長度為零的提示訊息將不會呈現。
+        <!--Reveals an element's tooltip. Tooltips with zero-length titles are never displayed.-->
+    </p>
+  <div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'#element'</span><span class="p">).</span><span class="nx">tooltip</span><span class="p">(</span><span class="s1">'show'</span><span class="p">)</span></code></pre></div>
+
+  <h4>.tooltip('hide')</h4>
+    <p>
+        隱藏元素的提示訊息。
+        <!--Hides an element's tooltip.-->
+    </p>
+  <div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'#element'</span><span class="p">).</span><span class="nx">tooltip</span><span class="p">(</span><span class="s1">'hide'</span><span class="p">)</span></code></pre></div>
+
+  <h4>.tooltip('toggle')</h4>
+  <p>進行元素提示訊息 <code>show</code> 或 <code>hide</code> 狀態的切換<!--Toggles an element's tooltip.--></p>
+  <div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'#element'</span><span class="p">).</span><span class="nx">tooltip</span><span class="p">(</span><span class="s1">'toggle'</span><span class="p">)</span></code></pre></div>
+
+  <h4>.tooltip('destroy')</h4>
+  <p>隱藏和銷毀元素的提示訊息。<!--Hides and destroys an element's tooltip.--></p>
+  <div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'#element'</span><span class="p">).</span><span class="nx">tooltip</span><span class="p">(</span><span class="s1">'destroy'</span><span class="p">)</span></code></pre></div>
+
+  <h3>事件<!--Events--></h3>
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th style="width: 150px;">類型<!--Event Type--></th>
+          <th>說明<!--Description--></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>show.bs.tooltip</td>
+            <td>
+                當 <code>show</code> 執行個體方法被呼叫，此事件會立即被觸發。
+                <!--This event fires immediately when the <code>show</code> instance method is called.-->
+            </td>
+        </tr>
+        <tr>
+          <td>shown.bs.tooltip</td>
+            <td>
+                當提示訊息已經在使用者面前顯示完成（且 CSS 轉場效果已經完成），此事件會被觸發。
+                <!--This event is fired when the tooltip has been made visible to the user (will wait for CSS transitions to complete).-->
+            </td>
+        </tr>
+        <tr>
+          <td>hide.bs.tooltip</td>
+            <td>
+                當 <code>hide</code> 執行個體方法被呼叫，此事件會立即被觸發。
+                <!--This event is fired immediately when the <code>hide</code> instance method has been called.-->
+            </td>
+        </tr>
+        <tr>
+          <td>hidden.bs.tooltip</td>
+            <td>
+                當提示訊息已經在使用者面前隱藏完成（且 CSS 轉場效果已經完成），此事件會被觸發。
+                <!--This event is fired when the tooltip has finished being hidden from the user (will wait for CSS transitions to complete).-->
+            </td>
+        </tr>
+      </tbody>
+    </table>
+  </div><!-- /.table-responsive -->
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'#myTooltip'</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">'hidden.bs.tooltip'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// do something…</span>
+<span class="p">})</span></code></pre></div>
+</div>

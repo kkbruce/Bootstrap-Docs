@@ -1,0 +1,568 @@
+﻿<div class="bs-docs-section">
+  <h1 id="less" class="page-header">使用 Less<!--Using Less--></h1>
+
+    <p class="lead">
+        Bootstrap 3 的 CSS 是透過 Less 建置的，Less 是一個預處理器，額外提供像是變數、mixin 和函數等功能以編譯出 CSS。那些希望使用 Less 原始碼來替代已編譯 CSS 檔案開發者，Bootstrap 3 框架含有大量的變數和 mixin 可供使用。
+        <!--Bootstrap's CSS is built on Less, a preprocessor with additional functionality like variables, mixins, and functions for compiling CSS. Those looking to use the source Less files instead of our compiled CSS files can make use of the numerous variables and mixins we use throughout the framework.-->
+    </p>
+
+    <p>
+        格線變數和 mixin 已含在<a href="#grid-less">格線系統小節</a>。
+        <!--Grid variables and mixins are covered <a href="#grid-less">within the Grid system section</a>.-->
+    </p>
+
+
+  <h2 id="less-bootstrap">編譯 Bootstrap 3<!--Compiling Bootstrap--></h2>
+    <p>
+        Bootstrap 3 至少有兩種使用方式：使用已編譯 CSS 檔案或使用 Less 原始碼。要使用 Less 原始碼進行編譯，請參考旅程開始的@(@Html.ActionLink("編譯 CSS 和 JavaScript", "GettingStarted", null, null, null, "grunt", null, null)) 小節，以瞭解如何設置你的開發環境和執行所需的指令。
+        <!--Bootstrap can be used in at least two ways: with the compiled CSS or with the source Less files. To compile the Less files, <a href="../getting-started/#grunt">consult the Getting Started section</a> for how to setup your development environment to run the necessary commands.-->
+    </p>
+    <p>
+        第三方編譯工具也許能編譯 Bootstrap 3，但它們不是核心團隊所支援的對象。
+        <!--Third party compilation tools may work with Bootstrap, but they are not supported by our core team.-->
+    </p>
+
+  <h2 id="less-variables">變數<!--Variables--></h2>
+    <p>
+        變數用於整個專案中，以此來集中與共享通用的值，像是顏色、間距、字型等。完整的分類，請參考<a href="http://getbootstrap.com/customize/#less-variables-section">客製化</a>一節。
+        <!--Variables are used throughout the entire project as a way to centralize and share commonly used values like colors, spacing, or font stacks. For a complete breakdown, please see <a href="../customize/#less-variables-section">the Customizer</a>.-->
+    </p>
+
+  <h3 id="less-variables-colors">顏色<!--Colors--></h3>
+    <p>
+        輕鬆使用兩種顏色方案：灰階和表達語意。灰階顏色提供快速存取常用的黑色陰影。而表達語意含有各種顏色，分配給有意義的情境值。
+        <!--Easily make use of two color schemes: grayscale and semantic. Grayscale colors provide quick access to commonly used shades of black while semantic include various colors assigned to meaningful contextual values.-->
+    </p>
+  <div class="bs-example">
+    <div class="color-swatches">
+      <div class="color-swatch gray-darker"></div>
+      <div class="color-swatch gray-dark"></div>
+      <div class="color-swatch gray"></div>
+      <div class="color-swatch gray-light"></div>
+      <div class="color-swatch gray-lighter"></div>
+    </div>
+  </div>
+<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="k">@@gray-darker</span><span class="nd">:</span>  <span class="nt">lighten</span><span class="o">(</span><span class="nn">#000</span><span class="o">,</span> <span class="nt">13</span><span class="nc">.5</span><span class="nv">%</span><span class="o">)</span><span class="p">;</span> <span class="c1">// #222
+</span><span class="k">@@gray-dark</span><span class="nd">:</span>    <span class="nt">lighten</span><span class="o">(</span><span class="nn">#000</span><span class="o">,</span> <span class="nt">20</span><span class="nv">%</span><span class="o">)</span><span class="p">;</span>   <span class="c1">// #333
+</span><span class="k">@@gray</span><span class="nd">:</span>         <span class="nt">lighten</span><span class="o">(</span><span class="nn">#000</span><span class="o">,</span> <span class="nt">33</span><span class="nc">.5</span><span class="nv">%</span><span class="o">)</span><span class="p">;</span> <span class="c1">// #555
+</span><span class="k">@@gray-light</span><span class="nd">:</span>   <span class="nt">lighten</span><span class="o">(</span><span class="nn">#000</span><span class="o">,</span> <span class="nt">46</span><span class="nc">.7</span><span class="nv">%</span><span class="o">)</span><span class="p">;</span> <span class="c1">// #777
+</span><span class="k">@@gray-lighter</span><span class="nd">:</span> <span class="nt">lighten</span><span class="o">(</span><span class="nn">#000</span><span class="o">,</span> <span class="nt">93</span><span class="nc">.5</span><span class="nv">%</span><span class="o">)</span><span class="p">;</span> <span class="o">//</span> <span class="nn">#eee</span></code></pre></div>
+
+  <div class="bs-example">
+    <div class="color-swatches">
+      <div class="color-swatch brand-primary"></div>
+      <div class="color-swatch brand-success"></div>
+      <div class="color-swatch brand-info"></div>
+      <div class="color-swatch brand-warning"></div>
+      <div class="color-swatch brand-danger"></div>
+    </div>
+  </div>
+<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="k">@@brand-primary</span><span class="nd">:</span> <span class="nn">#428bca</span><span class="p">;</span>
+<span class="k">@@brand-success</span><span class="nd">:</span> <span class="nn">#5cb85c</span><span class="p">;</span>
+<span class="k">@@brand-info</span><span class="nd">:</span>    <span class="nn">#5bc0de</span><span class="p">;</span>
+<span class="k">@@brand-warning</span><span class="nd">:</span> <span class="nn">#f0ad4e</span><span class="p">;</span>
+<span class="k">@@brand-danger</span><span class="nd">:</span>  <span class="nn">#d9534f</span><span class="p">;</span></code></pre></div>
+
+    <p>
+        可以使用以上任何顏色變數或在你的專案中重新分配它們到更有意義的變數。
+        <!--Use any of these color variables as they are or reassign them to more meaningful variables for your project.-->
+    </p>
+<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="c1">// 照常使用<!--Use as-is-->
+</span><span class="nc">.masthead</span> <span class="p">{</span>
+  <span class="nl">background-color</span><span class="p">:</span> <span class="o">@@</span><span class="n">brand-primary</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// 在 Less 重新分配變數<!--Reassigned variables in Less-->
+</span><span class="k">@@alert-message-background</span><span class="nd">:</span> <span class="o">@@</span><span class="nt">brand-info</span><span class="p">;</span>
+<span class="nc">.alert</span> <span class="p">{</span>
+  <span class="nl">background-color</span><span class="p">:</span> <span class="o">@@</span><span class="n">alert-message-background</span><span class="p">;</span>
+<span class="p">}</span></code></pre></div>
+
+  <h3 id="less-variables-scaffolding">基架<!--Scaffolding--></h3>
+    <p>
+        少數的變數來快速自訂網站的骨架中的關鍵元素。
+        <!--A handful of variables for quickly customizing key elements of your site's skeleton.-->
+    </p>
+<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="c1">// Scaffolding
+</span><span class="k">@@body-bg</span><span class="nd">:</span>    <span class="nn">#fff</span><span class="p">;</span>
+<span class="k">@@text-color</span><span class="nd">:</span> <span class="o">@@</span><span class="nt">black-50</span><span class="p">;</span></code></pre></div>
+
+  <h3 id="less-variables-links">連結<!--Links--></h3>
+    <p>
+        賦予你的連結一個輕鬆的樣式，合適的顏色並且僅有一個值。
+        <!--Easily style your links with the right color with only one value.-->
+    </p>
+<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="c1">// 變數<!--Variables-->
+</span><span class="k">@@link-color</span><span class="nd">:</span>       <span class="o">@@</span><span class="nt">brand-primary</span><span class="p">;</span>
+<span class="k">@@link-hover-color</span><span class="nd">:</span> <span class="nt">darken</span><span class="o">(@@</span><span class="nt">link-color</span><span class="o">,</span> <span class="nt">15</span><span class="nv">%</span><span class="o">)</span><span class="p">;</span>
+
+<span class="c1">// Usage
+</span><span class="nt">a</span> <span class="p">{</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="o">@@</span><span class="n">link-color</span><span class="p">;</span>
+  <span class="nl">text-decoration</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
+
+  <span class="k">&amp;</span><span class="nd">:hover</span> <span class="p">{</span>
+    <span class="nl">color</span><span class="p">:</span> <span class="o">@@</span><span class="n">link-hover-color</span><span class="p">;</span>
+    <span class="nl">text-decoration</span><span class="p">:</span> <span class="nb">underline</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></div>
+    <p>
+        注意 <code>@@link-hover-color</code> 使用的功能。Less 裡另一個很棒的工具，能自動正確建立滑鼠移入時的顏色。你可以使用 <code>darken</code>、<code>lighten</code>、<code>saturate</code> 和 <code>desaturate</code>。
+        <!--Note that the <code>@@link-hover-color</code> uses a function, another awesome tool from Less, to automagically create the right hover color. You can use <code>darken</code>, <code>lighten</code>, <code>saturate</code>, and <code>desaturate</code>.-->
+    </p>
+
+  <h3 id="less-variables-typography">排版<!--Typography--></h3>
+    <p>
+        輕鬆設置你的版型，文字大小、行距和更多的快速變數。Bootstrap 3 使用這些內容以及提供容易排版的 mixin。
+        <!--Easily set your type face, text size, leading, and more with a few quick variables. Bootstrap makes use of these as well to provide easy typographic mixins.-->
+    </p>
+<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="k">@@font-family-sans-serif</span><span class="nd">:</span>  <span class="s2">"Helvetica Neue"</span><span class="o">,</span> <span class="nt">Helvetica</span><span class="o">,</span> <span class="nt">Arial</span><span class="o">,</span> <span class="nt">sans-serif</span><span class="p">;</span>
+<span class="k">@@font-family-serif</span><span class="nd">:</span>       <span class="nt">Georgia</span><span class="o">,</span> <span class="s2">"Times New Roman"</span><span class="o">,</span> <span class="nt">Times</span><span class="o">,</span> <span class="nt">serif</span><span class="p">;</span>
+<span class="k">@@font-family-monospace</span><span class="nd">:</span>   <span class="nt">Menlo</span><span class="o">,</span> <span class="nt">Monaco</span><span class="o">,</span> <span class="nt">Consolas</span><span class="o">,</span> <span class="s2">"Courier New"</span><span class="o">,</span> <span class="nt">monospace</span><span class="p">;</span>
+<span class="k">@@font-family-base</span><span class="nd">:</span>        <span class="o">@@</span><span class="nt">font-family-sans-serif</span><span class="p">;</span>
+
+<span class="k">@@font-size-base</span><span class="nd">:</span>          <span class="nt">14px</span><span class="p">;</span>
+<span class="k">@@font-size-large</span><span class="nd">:</span>         <span class="nt">ceil</span><span class="o">((@@</span><span class="nt">font-size-base</span> <span class="o">*</span> <span class="nt">1</span><span class="nc">.25</span><span class="o">))</span><span class="p">;</span> <span class="c1">// ~18px
+</span><span class="k">@@font-size-small</span><span class="nd">:</span>         <span class="nt">ceil</span><span class="o">((@@</span><span class="nt">font-size-base</span> <span class="o">*</span> <span class="nt">0</span><span class="nc">.85</span><span class="o">))</span><span class="p">;</span> <span class="c1">// ~12px
+</span>
+<span class="k">@@font-size-h1</span><span class="nd">:</span>            <span class="nt">floor</span><span class="o">((@@</span><span class="nt">font-size-base</span> <span class="o">*</span> <span class="nt">2</span><span class="nc">.6</span><span class="o">))</span><span class="p">;</span> <span class="c1">// ~36px
+</span><span class="k">@@font-size-h2</span><span class="nd">:</span>            <span class="nt">floor</span><span class="o">((@@</span><span class="nt">font-size-base</span> <span class="o">*</span> <span class="nt">2</span><span class="nc">.15</span><span class="o">))</span><span class="p">;</span> <span class="c1">// ~30px
+</span><span class="k">@@font-size-h3</span><span class="nd">:</span>            <span class="nt">ceil</span><span class="o">((@@</span><span class="nt">font-size-base</span> <span class="o">*</span> <span class="nt">1</span><span class="nc">.7</span><span class="o">))</span><span class="p">;</span> <span class="c1">// ~24px
+</span><span class="k">@@font-size-h4</span><span class="nd">:</span>            <span class="nt">ceil</span><span class="o">((@@</span><span class="nt">font-size-base</span> <span class="o">*</span> <span class="nt">1</span><span class="nc">.25</span><span class="o">))</span><span class="p">;</span> <span class="c1">// ~18px
+</span><span class="k">@@font-size-h5</span><span class="nd">:</span>            <span class="o">@@</span><span class="nt">font-size-base</span><span class="p">;</span>
+<span class="k">@@font-size-h6</span><span class="nd">:</span>            <span class="nt">ceil</span><span class="o">((@@</span><span class="nt">font-size-base</span> <span class="o">*</span> <span class="nt">0</span><span class="nc">.85</span><span class="o">))</span><span class="p">;</span> <span class="c1">// ~12px
+</span>
+<span class="k">@@line-height-base</span><span class="nd">:</span>        <span class="nt">1</span><span class="nc">.428571429</span><span class="p">;</span> <span class="c1">// 20/14
+</span><span class="k">@@line-height-computed</span><span class="nd">:</span>    <span class="nt">floor</span><span class="o">((@@</span><span class="nt">font-size-base</span> <span class="o">*</span> <span class="o">@@</span><span class="nt">line-height-base</span><span class="o">))</span><span class="p">;</span> <span class="c1">// ~20px
+</span>
+<span class="k">@@headings-font-family</span><span class="nd">:</span>    <span class="nt">inherit</span><span class="p">;</span>
+<span class="k">@@headings-font-weight</span><span class="nd">:</span>    <span class="nt">500</span><span class="p">;</span>
+<span class="k">@@headings-line-height</span><span class="nd">:</span>    <span class="nt">1</span><span class="nc">.1</span><span class="p">;</span>
+<span class="k">@@headings-color</span><span class="nd">:</span>          <span class="nt">inherit</span><span class="p">;</span></code></pre></div>
+
+  <h3 id="less-variables-icons">圖示<!--Icons--></h3>
+    <p>
+        兩個快速變數用於自定義你的圖示的位置和檔案名稱。
+        <!--Two quick variables for customizing the location and filename of your icons.-->
+    </p>
+<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="k">@@icon-font-path</span><span class="nd">:</span>          <span class="s2">"../fonts/"</span><span class="p">;</span>
+<span class="k">@@icon-font-name</span><span class="nd">:</span>          <span class="s2">"glyphicons-halflings-regular"</span><span class="p">;</span></code></pre></div>
+
+  <h3 id="less-variables-components">元件<!--Components--></h3>
+    <p>
+        在 Bootstrap 3 的整體元件中，利用一些預設變數設置一些通用的值。以下是最常使用的配置。
+        <!--Components throughout Bootstrap make use of some default variables for setting common values. Here are the most commonly used.-->
+    </p>
+<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="k">@@padding-base-vertical</span><span class="nd">:</span>          <span class="nt">6px</span><span class="p">;</span>
+<span class="k">@@padding-base-horizontal</span><span class="nd">:</span>        <span class="nt">12px</span><span class="p">;</span>
+
+<span class="k">@@padding-large-vertical</span><span class="nd">:</span>         <span class="nt">10px</span><span class="p">;</span>
+<span class="k">@@padding-large-horizontal</span><span class="nd">:</span>       <span class="nt">16px</span><span class="p">;</span>
+
+<span class="k">@@padding-small-vertical</span><span class="nd">:</span>         <span class="nt">5px</span><span class="p">;</span>
+<span class="k">@@padding-small-horizontal</span><span class="nd">:</span>       <span class="nt">10px</span><span class="p">;</span>
+
+<span class="k">@@padding-xs-vertical</span><span class="nd">:</span>            <span class="nt">1px</span><span class="p">;</span>
+<span class="k">@@padding-xs-horizontal</span><span class="nd">:</span>          <span class="nt">5px</span><span class="p">;</span>
+
+<span class="k">@@line-height-large</span><span class="nd">:</span>              <span class="nt">1</span><span class="nc">.33</span><span class="p">;</span>
+<span class="k">@@line-height-small</span><span class="nd">:</span>              <span class="nt">1</span><span class="nc">.5</span><span class="p">;</span>
+
+<span class="k">@@border-radius-base</span><span class="nd">:</span>             <span class="nt">4px</span><span class="p">;</span>
+<span class="k">@@border-radius-large</span><span class="nd">:</span>            <span class="nt">6px</span><span class="p">;</span>
+<span class="k">@@border-radius-small</span><span class="nd">:</span>            <span class="nt">3px</span><span class="p">;</span>
+
+<span class="k">@@component-active-color</span><span class="nd">:</span>         <span class="nn">#fff</span><span class="p">;</span>
+<span class="k">@@component-active-bg</span><span class="nd">:</span>            <span class="o">@@</span><span class="nt">brand-primary</span><span class="p">;</span>
+
+<span class="k">@@caret-width-base</span><span class="nd">:</span>               <span class="nt">4px</span><span class="p">;</span>
+<span class="k">@@caret-width-large</span><span class="nd">:</span>              <span class="nt">5px</span><span class="p">;</span></code></pre></div>
+
+
+  <h2 id="less-mixins-vendor">瀏覽器供應商 mixin<!--Vendor mixins--></h2>
+    <p>
+        瀏覽器供應商 mixin 是 mixin，以協助支援多個瀏覽器在編譯 CSS 時能包含相關的瀏覽器供應商前綴（vendor prefixes）。
+        <!--Vendor mixins are mixins to help support multiple browsers by including all relevant vendor prefixes in your compiled CSS.-->
+    </p>
+
+
+  <h3 id="less-mixins-box-sizing">Box 大小<!--Box-sizing--></h3>
+    <p>
+        在單獨的 mixin 中重新設置你的元件 box 模型（box model）。更多細節，請參考 <a href="https://developer.mozilla.org/en-US/docs/CSS/box-sizing" target="_blank">Mozilla 的 box-sizing 文件</a>。
+        <!--Reset your components' box model with a single mixin. For context, see this <a href="https://developer.mozilla.org/en-US/docs/CSS/box-sizing" target="_blank">helpful article from Mozilla</a>.-->
+    </p>
+    <p>
+        從 v3.2.0 版開始此 mixin <strong>不再推薦</strong>，改採用 autoprefixer。為了保持向後相容，Bootstrap 3 將會持續在 mixin 內部使用直到 Bootstrap v4。
+        <!--The mixin is <strong>deprecated</strong> as of v3.2.0, with the introduction of autoprefixer. To preserve backwards-compatibility, Bootstrap will continue to use the mixin internally until Bootstrap v4.-->
+    </p>
+<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="nc">.box-sizing</span><span class="o">(@@</span><span class="nt">box-model</span><span class="o">)</span> <span class="p">{</span>
+  <span class="na">-webkit-box-sizing</span><span class="p">:</span> <span class="o">@@</span><span class="n">box-model</span><span class="p">;</span> <span class="c1">// Safari &lt;= 5
+</span>     <span class="na">-moz-box-sizing</span><span class="p">:</span> <span class="o">@@</span><span class="n">box-model</span><span class="p">;</span> <span class="c1">// Firefox &lt;= 19
+</span>          <span class="nl">box-sizing</span><span class="p">:</span> <span class="o">@@</span><span class="n">box-model</span><span class="p">;</span>
+<span class="p">}</span></code></pre></div>
+
+  <h3 id="less-mixins-rounded-corners">圓角<!--Rounded corners--></h3>
+    <p>
+        今日，所有主流瀏覽器都支援不必加瀏覽器供應商前綴的 <code>border-radius</code> 屬性。因此，就不再提供 <code>.border-radius</code> 的 mixin，但 Bootstrap 3 含有在物件的特定面快速設置兩個角的方式。
+        <!--Today all modern browsers support the non-prefixed <code>border-radius</code> property. As such, there is no <code>.border-radius()</code> mixin, but Bootstrap does include shortcuts for quickly rounding two corners on a particular side of an object.-->
+    </p>
+<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="nc">.border-top-radius</span><span class="o">(@@</span><span class="nt">radius</span><span class="o">)</span> <span class="p">{</span>
+  <span class="nl">border-top-right-radius</span><span class="p">:</span> <span class="o">@@</span><span class="n">radius</span><span class="p">;</span>
+   <span class="nl">border-top-left-radius</span><span class="p">:</span> <span class="o">@@</span><span class="n">radius</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.border-right-radius</span><span class="o">(@@</span><span class="nt">radius</span><span class="o">)</span> <span class="p">{</span>
+  <span class="nl">border-bottom-right-radius</span><span class="p">:</span> <span class="o">@@</span><span class="n">radius</span><span class="p">;</span>
+     <span class="nl">border-top-right-radius</span><span class="p">:</span> <span class="o">@@</span><span class="n">radius</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.border-bottom-radius</span><span class="o">(@@</span><span class="nt">radius</span><span class="o">)</span> <span class="p">{</span>
+  <span class="nl">border-bottom-right-radius</span><span class="p">:</span> <span class="o">@@</span><span class="n">radius</span><span class="p">;</span>
+   <span class="nl">border-bottom-left-radius</span><span class="p">:</span> <span class="o">@@</span><span class="n">radius</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.border-left-radius</span><span class="o">(@@</span><span class="nt">radius</span><span class="o">)</span> <span class="p">{</span>
+  <span class="nl">border-bottom-left-radius</span><span class="p">:</span> <span class="o">@@</span><span class="n">radius</span><span class="p">;</span>
+     <span class="nl">border-top-left-radius</span><span class="p">:</span> <span class="o">@@</span><span class="n">radius</span><span class="p">;</span>
+<span class="p">}</span></code></pre></div>
+
+  <h3 id="less-mixins-box-shadow">Box 陰影<!--Box (Drop) shadows--></h3>
+    <p>
+        如果你的目標使用者是使用最新最好的瀏覽器和設備，請確保僅使用 <code>box-shadow</code> 屬性本身。如果你需要支援到舊 Android（v4 之前）和 iOS 設備（iOS 5 之前），從<strong>不再推薦</strong> mixin 中選取所需的 <code>-webkit</code> 首綴。
+        <!--If your target audience is using the latest and greatest browsers and devices, be sure to just use the <code>box-shadow</code> property on its own. If you need support for older Android (pre-v4) and iOS devices (pre-iOS 5), use the <strong>deprecated</strong> mixin to pick up the required <code>-webkit</code> prefix.-->
+    </p>
+    <p>
+        此 mixin 從 v3.1.0 開始<strong>不再推薦</strong>。因為，Bootstrap 3 不正式支援過時平台所不支援的標準屬性。為了保持向後相容，Bootstrap 3 將會持續在 mixin 內部使用直到 Bootstrap v4。
+        <!--The mixin is <strong>deprecated</strong> as of v3.1.0, since Bootstrap doesn't officially support the outdated platforms that don't support the standard property. To preserve backwards-compatibility, Bootstrap will continue to use the mixin internally until Bootstrap v4.-->
+    </p>
+    <p>
+        請務必在 box 陰影使用 <code>rgba()</code> 的顏色設置，這樣能盡可能無縫的融入背景之中。
+        <!--Be sure to use <code>rgba()</code> colors in your box shadows so they blend as seamlessly as possible with backgrounds.-->
+    </p>
+<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="err">.</span><span class="nl">box-shadow</span><span class="err">(@@</span><span class="na">shadow</span><span class="p">:</span> <span class="m">0</span> <span class="m">1px</span> <span class="m">3px</span> <span class="nf">rgba</span><span class="p">(</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">,</span><span class="m">0</span><span class="o">,.</span><span class="m">25</span><span class="p">))</span> <span class="p">{</span>
+  <span class="na">-webkit-box-shadow</span><span class="p">:</span> <span class="o">@@</span><span class="n">shadow</span><span class="p">;</span> <span class="c1">// iOS &lt;4.3 &amp; Android &lt;4.1
+</span>          <span class="nl">box-shadow</span><span class="p">:</span> <span class="o">@@</span><span class="n">shadow</span><span class="p">;</span>
+<span class="p">}</span></code></pre></div>
+
+  <h3 id="less-mixins-transitions">轉場效果<!--Transitions--></h3>
+    <p>
+        多個 mixin 的靈活性。在一處設置所有轉場資訊，或依據需求單獨指定延遲和持續時間。
+        <!--Multiple mixins for flexibility. Set all transition information with one, or specify a separate delay and duration as needed.-->
+    </p>
+    <p>
+        從 v3.2.0 版開始此 mixin <strong>不再推薦</strong>，改採用 autoprefixer。為了保持向後相容，Bootstrap 3 將會持續在 mixin 內部使用直到 Bootstrap v4。
+        <!--The mixins are <strong>deprecated</strong> as of v3.2.0, with the introduction of autoprefixer. To preserve backwards-compatibility, Bootstrap will continue to use the mixins internally until Bootstrap v4.-->
+    </p>
+<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="nc">.transition</span><span class="o">(@@</span><span class="nt">transition</span><span class="o">)</span> <span class="p">{</span>
+  <span class="na">-webkit-transition</span><span class="p">:</span> <span class="o">@@</span><span class="n">transition</span><span class="p">;</span>
+          <span class="nl">transition</span><span class="p">:</span> <span class="o">@@</span><span class="n">transition</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.transition-property</span><span class="o">(@@</span><span class="nt">transition-property</span><span class="o">)</span> <span class="p">{</span>
+  <span class="na">-webkit-transition-property</span><span class="p">:</span> <span class="o">@@</span><span class="n">transition-property</span><span class="p">;</span>
+          <span class="nl">transition-property</span><span class="p">:</span> <span class="o">@@</span><span class="n">transition-property</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.transition-delay</span><span class="o">(@@</span><span class="nt">transition-delay</span><span class="o">)</span> <span class="p">{</span>
+  <span class="na">-webkit-transition-delay</span><span class="p">:</span> <span class="o">@@</span><span class="n">transition-delay</span><span class="p">;</span>
+          <span class="nl">transition-delay</span><span class="p">:</span> <span class="o">@@</span><span class="n">transition-delay</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.transition-duration</span><span class="o">(@@</span><span class="nt">transition-duration</span><span class="o">)</span> <span class="p">{</span>
+  <span class="na">-webkit-transition-duration</span><span class="p">:</span> <span class="o">@@</span><span class="n">transition-duration</span><span class="p">;</span>
+          <span class="nl">transition-duration</span><span class="p">:</span> <span class="o">@@</span><span class="n">transition-duration</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.transition-timing-function</span><span class="o">(@@</span><span class="nt">timing-function</span><span class="o">)</span> <span class="p">{</span>
+  <span class="na">-webkit-transition-timing-function</span><span class="p">:</span> <span class="o">@@</span><span class="n">timing-function</span><span class="p">;</span>
+          <span class="nl">transition-timing-function</span><span class="p">:</span> <span class="o">@@</span><span class="n">timing-function</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.transition-transform</span><span class="o">(@@</span><span class="nt">transition</span><span class="o">)</span> <span class="p">{</span>
+  <span class="na">-webkit-transition</span><span class="p">:</span> <span class="o">-</span><span class="n">webkit-transform</span> <span class="o">@@</span><span class="n">transition</span><span class="p">;</span>
+     <span class="na">-moz-transition</span><span class="p">:</span> <span class="o">-</span><span class="n">moz-transform</span> <span class="o">@@</span><span class="n">transition</span><span class="p">;</span>
+       <span class="na">-o-transition</span><span class="p">:</span> <span class="o">-</span><span class="n">o-transform</span> <span class="o">@@</span><span class="n">transition</span><span class="p">;</span>
+          <span class="nl">transition</span><span class="p">:</span> <span class="n">transform</span> <span class="o">@@</span><span class="n">transition</span><span class="p">;</span>
+<span class="p">}</span></code></pre></div>
+
+  <h3 id="less-mixins-transformations">轉換效果<!--Transformations--></h3>
+    <p>
+        旋轉、縮放、平移或傾斜任何物件。
+        <!--Rotate, scale, translate (move), or skew any object.-->
+    </p>
+    <p>
+        從 v3.2.0 版開始此 mixin <strong>不再推薦</strong>，改採用 autoprefixer。為了保持向後相容，Bootstrap 3 將會持續在 mixin 內部使用直到 Bootstrap v4。
+        <!--The mixins are <strong>deprecated</strong> as of v3.2.0, with the introduction of autoprefixer. To preserve backwards-compatibility, Bootstrap will continue to use the mixins internally until Bootstrap v4.-->
+    </p>
+<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="nc">.rotate</span><span class="o">(@@</span><span class="nt">degrees</span><span class="o">)</span> <span class="p">{</span>
+  <span class="na">-webkit-transform</span><span class="p">:</span> <span class="nf">rotate</span><span class="p">(</span><span class="o">@@</span><span class="n">degrees</span><span class="p">);</span>
+      <span class="na">-ms-transform</span><span class="p">:</span> <span class="nf">rotate</span><span class="p">(</span><span class="o">@@</span><span class="n">degrees</span><span class="p">);</span> <span class="c1">// IE9 only
+</span>          <span class="nl">transform</span><span class="p">:</span> <span class="nf">rotate</span><span class="p">(</span><span class="o">@@</span><span class="n">degrees</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="nc">.scale</span><span class="o">(@@</span><span class="nt">ratio</span><span class="p">;</span> <span class="k">@@ratio-y</span><span class="nc">...</span><span class="o">)</span> <span class="p">{</span>
+  <span class="na">-webkit-transform</span><span class="p">:</span> <span class="nf">scale</span><span class="p">(</span><span class="o">@@</span><span class="n">ratio</span><span class="o">,</span> <span class="o">@@</span><span class="n">ratio-y</span><span class="p">);</span>
+      <span class="na">-ms-transform</span><span class="p">:</span> <span class="nf">scale</span><span class="p">(</span><span class="o">@@</span><span class="n">ratio</span><span class="o">,</span> <span class="o">@@</span><span class="n">ratio-y</span><span class="p">);</span> <span class="c1">// IE9 only
+</span>          <span class="nl">transform</span><span class="p">:</span> <span class="nf">scale</span><span class="p">(</span><span class="o">@@</span><span class="n">ratio</span><span class="o">,</span> <span class="o">@@</span><span class="n">ratio-y</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="nc">.translate</span><span class="o">(@@</span><span class="nt">x</span><span class="p">;</span> <span class="k">@@y</span><span class="o">)</span> <span class="p">{</span>
+  <span class="na">-webkit-transform</span><span class="p">:</span> <span class="nf">translate</span><span class="p">(</span><span class="o">@@</span><span class="n">x</span><span class="o">,</span> <span class="o">@@</span><span class="n">y</span><span class="p">);</span>
+      <span class="na">-ms-transform</span><span class="p">:</span> <span class="nf">translate</span><span class="p">(</span><span class="o">@@</span><span class="n">x</span><span class="o">,</span> <span class="o">@@</span><span class="n">y</span><span class="p">);</span> <span class="c1">// IE9 only
+</span>          <span class="nl">transform</span><span class="p">:</span> <span class="nf">translate</span><span class="p">(</span><span class="o">@@</span><span class="n">x</span><span class="o">,</span> <span class="o">@@</span><span class="n">y</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="nc">.skew</span><span class="o">(@@</span><span class="nt">x</span><span class="p">;</span> <span class="k">@@y</span><span class="o">)</span> <span class="p">{</span>
+  <span class="na">-webkit-transform</span><span class="p">:</span> <span class="nf">skew</span><span class="p">(</span><span class="o">@@</span><span class="n">x</span><span class="o">,</span> <span class="o">@@</span><span class="n">y</span><span class="p">);</span>
+      <span class="na">-ms-transform</span><span class="p">:</span> <span class="nf">skewX</span><span class="p">(</span><span class="o">@@</span><span class="n">x</span><span class="p">)</span> <span class="nf">skewY</span><span class="p">(</span><span class="o">@@</span><span class="n">y</span><span class="p">);</span> <span class="c1">// See https://github.com/twbs/bootstrap/issues/4885; IE9+
+</span>          <span class="nl">transform</span><span class="p">:</span> <span class="nf">skew</span><span class="p">(</span><span class="o">@@</span><span class="n">x</span><span class="o">,</span> <span class="o">@@</span><span class="n">y</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="nc">.translate3d</span><span class="o">(@@</span><span class="nt">x</span><span class="p">;</span> <span class="k">@@y</span><span class="p">;</span> <span class="k">@@z</span><span class="o">)</span> <span class="p">{</span>
+  <span class="na">-webkit-transform</span><span class="p">:</span> <span class="nf">translate3d</span><span class="p">(</span><span class="o">@@</span><span class="n">x</span><span class="o">,</span> <span class="o">@@</span><span class="n">y</span><span class="o">,</span> <span class="o">@@</span><span class="n">z</span><span class="p">);</span>
+          <span class="nl">transform</span><span class="p">:</span> <span class="nf">translate3d</span><span class="p">(</span><span class="o">@@</span><span class="n">x</span><span class="o">,</span> <span class="o">@@</span><span class="n">y</span><span class="o">,</span> <span class="o">@@</span><span class="n">z</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nc">.rotateX</span><span class="o">(@@</span><span class="nt">degrees</span><span class="o">)</span> <span class="p">{</span>
+  <span class="na">-webkit-transform</span><span class="p">:</span> <span class="nf">rotateX</span><span class="p">(</span><span class="o">@@</span><span class="n">degrees</span><span class="p">);</span>
+      <span class="na">-ms-transform</span><span class="p">:</span> <span class="nf">rotateX</span><span class="p">(</span><span class="o">@@</span><span class="n">degrees</span><span class="p">);</span> <span class="c1">// IE9 only
+</span>          <span class="nl">transform</span><span class="p">:</span> <span class="nf">rotateX</span><span class="p">(</span><span class="o">@@</span><span class="n">degrees</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="nc">.rotateY</span><span class="o">(@@</span><span class="nt">degrees</span><span class="o">)</span> <span class="p">{</span>
+  <span class="na">-webkit-transform</span><span class="p">:</span> <span class="nf">rotateY</span><span class="p">(</span><span class="o">@@</span><span class="n">degrees</span><span class="p">);</span>
+      <span class="na">-ms-transform</span><span class="p">:</span> <span class="nf">rotateY</span><span class="p">(</span><span class="o">@@</span><span class="n">degrees</span><span class="p">);</span> <span class="c1">// IE9 only
+</span>          <span class="nl">transform</span><span class="p">:</span> <span class="nf">rotateY</span><span class="p">(</span><span class="o">@@</span><span class="n">degrees</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="nc">.perspective</span><span class="o">(@@</span><span class="nt">perspective</span><span class="o">)</span> <span class="p">{</span>
+  <span class="na">-webkit-perspective</span><span class="p">:</span> <span class="o">@@</span><span class="n">perspective</span><span class="p">;</span>
+     <span class="na">-moz-perspective</span><span class="p">:</span> <span class="o">@@</span><span class="n">perspective</span><span class="p">;</span>
+          <span class="nl">perspective</span><span class="p">:</span> <span class="o">@@</span><span class="n">perspective</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.perspective-origin</span><span class="o">(@@</span><span class="nt">perspective</span><span class="o">)</span> <span class="p">{</span>
+  <span class="na">-webkit-perspective-origin</span><span class="p">:</span> <span class="o">@@</span><span class="n">perspective</span><span class="p">;</span>
+     <span class="na">-moz-perspective-origin</span><span class="p">:</span> <span class="o">@@</span><span class="n">perspective</span><span class="p">;</span>
+          <span class="nl">perspective-origin</span><span class="p">:</span> <span class="o">@@</span><span class="n">perspective</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.transform-origin</span><span class="o">(@@</span><span class="nt">origin</span><span class="o">)</span> <span class="p">{</span>
+  <span class="na">-webkit-transform-origin</span><span class="p">:</span> <span class="o">@@</span><span class="n">origin</span><span class="p">;</span>
+     <span class="na">-moz-transform-origin</span><span class="p">:</span> <span class="o">@@</span><span class="n">origin</span><span class="p">;</span>
+      <span class="na">-ms-transform-origin</span><span class="p">:</span> <span class="o">@@</span><span class="n">origin</span><span class="p">;</span> <span class="c1">// IE9 only
+</span>          <span class="nl">transform-origin</span><span class="p">:</span> <span class="o">@@</span><span class="n">origin</span><span class="p">;</span>
+<span class="p">}</span></code></pre></div>
+
+  <h3 id="less-mixins-animations">動畫效果<!--Animations--></h3>
+    <p>
+        在單一個 mixin 的一個宣告中使用所有 CSS3 的動畫屬性和其他 mixin 的單獨屬性。
+        <!--A single mixin for using all of CSS3's animation properties in one declaration and other mixins for individual properties.-->
+    </p>
+    <p>
+        從 v3.2.0 版開始此 mixin <strong>不再推薦</strong>，改採用 autoprefixer。為了保持向後相容，Bootstrap 3 將會持續在 mixin 內部使用直到 Bootstrap v4。
+        <!--The mixins are <strong>deprecated</strong> as of v3.2.0, with the introduction of autoprefixer. To preserve backwards-compatibility, Bootstrap will continue to use the mixins internally until Bootstrap v4.-->
+    </p>
+<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="nc">.animation</span><span class="o">(@@</span><span class="nt">animation</span><span class="o">)</span> <span class="p">{</span>
+  <span class="na">-webkit-animation</span><span class="p">:</span> <span class="o">@@</span><span class="n">animation</span><span class="p">;</span>
+          <span class="nl">animation</span><span class="p">:</span> <span class="o">@@</span><span class="n">animation</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.animation-name</span><span class="o">(@@</span><span class="nt">name</span><span class="o">)</span> <span class="p">{</span>
+  <span class="na">-webkit-animation-name</span><span class="p">:</span> <span class="o">@@</span><span class="n">name</span><span class="p">;</span>
+          <span class="nl">animation-name</span><span class="p">:</span> <span class="o">@@</span><span class="n">name</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.animation-duration</span><span class="o">(@@</span><span class="nt">duration</span><span class="o">)</span> <span class="p">{</span>
+  <span class="na">-webkit-animation-duration</span><span class="p">:</span> <span class="o">@@</span><span class="n">duration</span><span class="p">;</span>
+          <span class="nl">animation-duration</span><span class="p">:</span> <span class="o">@@</span><span class="n">duration</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.animation-timing-function</span><span class="o">(@@</span><span class="nt">timing-function</span><span class="o">)</span> <span class="p">{</span>
+  <span class="na">-webkit-animation-timing-function</span><span class="p">:</span> <span class="o">@@</span><span class="n">timing-function</span><span class="p">;</span>
+          <span class="nl">animation-timing-function</span><span class="p">:</span> <span class="o">@@</span><span class="n">timing-function</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.animation-delay</span><span class="o">(@@</span><span class="nt">delay</span><span class="o">)</span> <span class="p">{</span>
+  <span class="na">-webkit-animation-delay</span><span class="p">:</span> <span class="o">@@</span><span class="n">delay</span><span class="p">;</span>
+          <span class="nl">animation-delay</span><span class="p">:</span> <span class="o">@@</span><span class="n">delay</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.animation-iteration-count</span><span class="o">(@@</span><span class="nt">iteration-count</span><span class="o">)</span> <span class="p">{</span>
+  <span class="na">-webkit-animation-iteration-count</span><span class="p">:</span> <span class="o">@@</span><span class="n">iteration-count</span><span class="p">;</span>
+          <span class="nl">animation-iteration-count</span><span class="p">:</span> <span class="o">@@</span><span class="n">iteration-count</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.animation-direction</span><span class="o">(@@</span><span class="nt">direction</span><span class="o">)</span> <span class="p">{</span>
+  <span class="na">-webkit-animation-direction</span><span class="p">:</span> <span class="o">@@</span><span class="n">direction</span><span class="p">;</span>
+          <span class="nl">animation-direction</span><span class="p">:</span> <span class="o">@@</span><span class="n">direction</span><span class="p">;</span>
+<span class="p">}</span></code></pre></div>
+
+  <h3 id="less-mixins-opacity">透明度<!--Opacity--></h3>
+    <p>
+        為所有瀏覽器設定透明度（opacity），並提供 <code>filter</code> 退路給 IE8。
+        <!--Set the opacity for all browsers and provide a <code>filter</code> fallback for IE8.-->
+    </p>
+<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="nc">.opacity</span><span class="o">(@@</span><span class="nt">opacity</span><span class="o">)</span> <span class="p">{</span>
+  <span class="nl">opacity</span><span class="p">:</span> <span class="o">@@</span><span class="n">opacity</span><span class="p">;</span>
+  <span class="c1">// IE8 filter
+</span>  <span class="k">@@opacity-ie</span><span class="nd">:</span> <span class="o">(@@</span><span class="nt">opacity</span> <span class="o">*</span> <span class="nt">100</span><span class="o">)</span><span class="p">;</span>
+  <span class="nl">filter</span><span class="p">:</span> <span class="o">~</span><span class="s2">"alpha(opacity=@@{opacity-ie})"</span><span class="p">;</span>
+<span class="p">}</span></code></pre></div>
+
+  <h3 id="less-mixins-placeholder">Placeholder 文字<!--Placeholder text--></h3>
+    <p>
+        為 form 控制項內每個欄位提供相關設置。
+        <!--Provide context for form controls within each field.-->
+    </p>
+<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="err">.</span><span class="na">placeholder</span><span class="err">(@@</span><span class="nl">color</span><span class="p">:</span> <span class="o">@@</span><span class="n">input-color-placeholder</span><span class="p">)</span> <span class="p">{</span>
+  <span class="err">&amp;</span><span class="p">:</span><span class="o">:-</span><span class="n">moz-placeholder</span>           <span class="p">{</span> <span class="nl">color</span><span class="p">:</span> <span class="o">@@</span><span class="n">color</span><span class="p">;</span> <span class="p">}</span> <span class="c1">// Firefox
+</span>  <span class="err">&amp;</span><span class="p">:</span><span class="o">-</span><span class="n">ms-input-placeholder</span>       <span class="p">{</span> <span class="nl">color</span><span class="p">:</span> <span class="o">@@</span><span class="n">color</span><span class="p">;</span> <span class="p">}</span> <span class="c1">// Internet Explorer 10+
+</span>  <span class="err">&amp;</span><span class="p">:</span><span class="o">:-</span><span class="n">webkit-input-placeholder</span>  <span class="p">{</span> <span class="nl">color</span><span class="p">:</span> <span class="o">@@</span><span class="n">color</span><span class="p">;</span> <span class="p">}</span> <span class="c1">// Safari and Chrome
+</span><span class="p">}</span></code></pre></div>
+
+  <h3 id="less-mixins-columns">Column<!--Columns--></h3>
+    <p>
+        在單一元素內透過 CSS 產生 column。
+        <!--Generate columns via CSS within a single element.-->
+    </p>
+<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="nc">.content-columns</span><span class="o">(@@</span><span class="nt">width</span><span class="p">;</span> <span class="k">@@count</span><span class="p">;</span> <span class="k">@@gap</span><span class="o">)</span> <span class="p">{</span>
+  <span class="na">-webkit-column-width</span><span class="p">:</span> <span class="o">@@</span><span class="n">width</span><span class="p">;</span>
+     <span class="na">-moz-column-width</span><span class="p">:</span> <span class="o">@@</span><span class="n">width</span><span class="p">;</span>
+          <span class="nl">column-width</span><span class="p">:</span> <span class="o">@@</span><span class="n">width</span><span class="p">;</span>
+  <span class="na">-webkit-column-count</span><span class="p">:</span> <span class="o">@@</span><span class="n">count</span><span class="p">;</span>
+     <span class="na">-moz-column-count</span><span class="p">:</span> <span class="o">@@</span><span class="n">count</span><span class="p">;</span>
+          <span class="nl">column-count</span><span class="p">:</span> <span class="o">@@</span><span class="n">count</span><span class="p">;</span>
+  <span class="na">-webkit-column-gap</span><span class="p">:</span> <span class="o">@@</span><span class="n">gap</span><span class="p">;</span>
+     <span class="na">-moz-column-gap</span><span class="p">:</span> <span class="o">@@</span><span class="n">gap</span><span class="p">;</span>
+          <span class="nl">column-gap</span><span class="p">:</span> <span class="o">@@</span><span class="n">gap</span><span class="p">;</span>
+<span class="p">}</span></code></pre></div>
+
+  <h3 id="less-mixins-gradients">漸層<!--Gradients--></h3>
+    <p>
+        輕鬆地把任何兩種顏色做背景漸層。更進階的應用如設定方向、使用三種顏色或放射狀的漸層。在單一 mixin 你可以得到所需的所有前綴語法。
+        <!--Easily turn any two colors into a background gradient. Get more advanced and set a direction, use three colors, or use a radial gradient. With a single mixin you get all the prefixed syntaxes you'll need.-->
+    </p>
+<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="nn">#gradient</span> <span class="o">&gt;</span> <span class="nc">.vertical</span><span class="o">(</span><span class="nn">#333</span><span class="p">;</span> <span class="nn">#000</span><span class="o">)</span><span class="p">;</span>
+<span class="nn">#gradient</span> <span class="o">&gt;</span> <span class="nc">.horizontal</span><span class="o">(</span><span class="nn">#333</span><span class="p">;</span> <span class="nn">#000</span><span class="o">)</span><span class="p">;</span>
+<span class="nn">#gradient</span> <span class="o">&gt;</span> <span class="nc">.radial</span><span class="o">(</span><span class="nn">#333</span><span class="p">;</span> <span class="nn">#000</span><span class="o">)</span><span class="p">;</span></code></pre></div>
+    <p>
+        你還可以指定標準的兩種顏色做角度的線性漸層：
+        <!--You can also specify the angle of a standard two-color, linear gradient:-->
+    </p>
+<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="nn">#gradient</span> <span class="o">&gt;</span> <span class="nc">.directional</span><span class="o">(</span><span class="nn">#333</span><span class="p">;</span> <span class="nn">#000</span><span class="p">;</span> <span class="nt">45deg</span><span class="o">)</span><span class="p">;</span></code></pre></div>
+    <p>
+        如果你需要像霓虹燈般條紋樣式的漸層，那也很簡單。僅需要指定一個單一的顏色，我們會疊加一個半透明的白色條紋。
+        <!--If you need a barber-stripe style gradient, that's easy, too. Just specify a single color and we'll overlay a translucent white stripe.-->
+    </p>
+<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="nn">#gradient</span> <span class="o">&gt;</span> <span class="nc">.striped</span><span class="o">(</span><span class="nn">#333</span><span class="p">;</span> <span class="nt">45deg</span><span class="o">)</span><span class="p">;</span></code></pre></div>
+    <p>
+        加大賭注，改用三種顏色。在 mixin 設置第一個顏色，然後第二個顏色，之後設定一個百分比，比如 25%，接下來第三個顏色：
+        <!--Up the ante and use three colors instead. Set the first color, the second color, the second color's color stop (a percentage value like 25%), and the third color with these mixins:-->
+    </p>
+<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="nn">#gradient</span> <span class="o">&gt;</span> <span class="nc">.vertical-three-colors</span><span class="o">(</span><span class="nn">#777</span><span class="p">;</span> <span class="nn">#333</span><span class="p">;</span> <span class="nt">25</span><span class="nv">%</span><span class="p">;</span> <span class="nn">#000</span><span class="o">)</span><span class="p">;</span>
+<span class="nn">#gradient</span> <span class="o">&gt;</span> <span class="nc">.horizontal-three-colors</span><span class="o">(</span><span class="nn">#777</span><span class="p">;</span> <span class="nn">#333</span><span class="p">;</span> <span class="nt">25</span><span class="nv">%</span><span class="p">;</span> <span class="nn">#000</span><span class="o">)</span><span class="p">;</span></code></pre></div>
+    <p>
+        <strong>當心！</strong>如果你曾經需要刪除漸層，一定要確保刪除你可能加入的任何特定 IE 的 <code>filter</code>。你可以在 <code>background-image: none;</code> 之後使用 <code>.reset-filter()</code> mixin。
+        <!--<strong>Heads up!</strong> Should you ever need to remove a gradient, be sure to remove any IE-specific <code>filter</code> you may have added. You can do that by using the <code>.reset-filter()</code> mixin alongside <code>background-image: none;</code>.-->
+    </p>
+
+
+  <h2 id="less-mixins-utility">工具類 mixin<!--Utility mixins--></h2>
+    <p>
+        工具類 mixin 是 mixin 結合原本不同的 CSS 屬性來實現特定目標或任務。
+        <!--Utility mixins are mixins that combine otherwise unrelated CSS properties to achieve a specific goal or task.-->
+    </p>
+
+  <h3 id="less-mixins-clearfix">清除浮動<!--Clearfix--></h3>
+    <p>
+        忘記加入 <code>class="clearfix"</code> 到任何元素和改為在合適地方加入 <code>.clearfix()</code> mixin。使用 <a href="http://twitter.com/necolas" target="_blank">Nicolas Gallager</a> 的 <a href="http://nicolasgallagher.com/micro-clearfix-hack/">micro clearfix</a> 方法。
+        <!--Forget adding <code>class="clearfix"</code> to any element and instead add the <code>.clearfix()</code> mixin where appropriate. Uses the <a href="http://nicolasgallagher.com/micro-clearfix-hack/" target="_blank">micro clearfix</a> from <a href="https://twitter.com/necolas" target="_blank">Nicolas Gallager</a>.-->
+    </p>
+<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="c1">// Mixin
+</span><span class="nc">.clearfix</span><span class="o">()</span> <span class="p">{</span>
+  <span class="k">&amp;</span><span class="nd">:before</span><span class="o">,</span>
+  <span class="k">&amp;</span><span class="nd">:after</span> <span class="p">{</span>
+    <span class="nl">content</span><span class="p">:</span> <span class="s2">" "</span><span class="p">;</span>
+    <span class="nl">display</span><span class="p">:</span> <span class="n">table</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">&amp;</span><span class="nd">:after</span> <span class="p">{</span>
+    <span class="nl">clear</span><span class="p">:</span> <span class="nb">both</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Usage
+</span><span class="nc">.container</span> <span class="p">{</span>
+  <span class="nc">.clearfix</span><span class="o">()</span><span class="p">;</span>
+<span class="p">}</span></code></pre></div>
+
+  <h3 id="less-mixins-centering">水平置中<!--Horizontal centering--></h3>
+    <p>
+        任何元素都能快速的以父元素為中心點對齊。<strong>需要對 <code>width</code> 或 <code>max-width</code> 進行設置。</strong>
+        <!--Quickly center any element within its parent. <strong>Requires <code>width</code> or <code>max-width</code> to be set.</strong>-->
+    </p>
+<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="c1">// Mixin
+</span><span class="nc">.center-block</span><span class="o">()</span> <span class="p">{</span>
+  <span class="nl">display</span><span class="p">:</span> <span class="nb">block</span><span class="p">;</span>
+  <span class="nl">margin-left</span><span class="p">:</span> <span class="nb">auto</span><span class="p">;</span>
+  <span class="nl">margin-right</span><span class="p">:</span> <span class="nb">auto</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// Usage
+</span><span class="nc">.container</span> <span class="p">{</span>
+  <span class="nl">width</span><span class="p">:</span> <span class="m">940px</span><span class="p">;</span>
+  <span class="nc">.center-block</span><span class="o">()</span><span class="p">;</span>
+<span class="p">}</span></code></pre></div>
+
+  <h3 id="less-mixins-sizing">大小輔助<!--Sizing helpers--></h3>
+    <p>
+        更輕鬆地指定物件的大小。
+        <!--Specify the dimensions of an object more easily.-->
+    </p>
+<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="c1">// Mixins
+</span><span class="nc">.size</span><span class="o">(@@</span><span class="nt">width</span><span class="p">;</span> <span class="k">@@height</span><span class="o">)</span> <span class="p">{</span>
+  <span class="nl">width</span><span class="p">:</span> <span class="o">@@</span><span class="n">width</span><span class="p">;</span>
+  <span class="nl">height</span><span class="p">:</span> <span class="o">@@</span><span class="n">height</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.square</span><span class="o">(@@</span><span class="nt">size</span><span class="o">)</span> <span class="p">{</span>
+  <span class="nc">.size</span><span class="o">(@@</span><span class="nt">size</span><span class="p">;</span> <span class="k">@@size</span><span class="o">)</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// Usage
+</span><span class="nc">.image</span> <span class="p">{</span> <span class="nc">.size</span><span class="o">(</span><span class="nt">400px</span><span class="p">;</span> <span class="nt">300px</span><span class="o">)</span><span class="p">;</span> <span class="p">}</span>
+<span class="nc">.avatar</span> <span class="p">{</span> <span class="nc">.square</span><span class="o">(</span><span class="nt">48px</span><span class="o">)</span><span class="p">;</span> <span class="p">}</span></code></pre></div>
+
+  <h3 id="less-mixins-resizable">可調大小的 textarea<!--Resizable textareas--></h3>
+    <p>
+        輕鬆的為任何 textarea 或其他任何元素進行重調大小的組態。預設為正常瀏覽器的行為（<code>both</code>）。
+        <!--Easily configure the resize options for any textarea, or any other element. Defaults to normal browser behavior (<code>both</code>).-->
+    </p>
+<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="err">.</span><span class="na">resizable</span><span class="err">(@@</span><span class="nl">direction</span><span class="p">:</span> <span class="nb">both</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Options: horizontal, vertical, both
+</span>  <span class="nl">resize</span><span class="p">:</span> <span class="o">@@</span><span class="n">direction</span><span class="p">;</span>
+  <span class="c1">// Safari fix
+</span>  <span class="nl">overflow</span><span class="p">:</span> <span class="nb">auto</span><span class="p">;</span>
+<span class="p">}</span></code></pre></div>
+
+  <h3 id="less-mixins-truncating">截斷文字<!--Truncating text--></h3>
+    <p>
+        在單一 mixin，輕鬆在有省略符號（ellipsis）的地方截斷文字。<strong>元素必須是 <code>block</code> 或 <code>inline-block</code> 層級。</strong>
+        <!--Easily truncate text with an ellipsis with a single mixin. <strong>Requires element to be <code>block</code> or <code>inline-block</code> level.</strong>-->
+    </p>
+<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="c1">// Mixin
+</span><span class="nc">.text-overflow</span><span class="o">()</span> <span class="p">{</span>
+  <span class="nl">overflow</span><span class="p">:</span> <span class="nb">hidden</span><span class="p">;</span>
+  <span class="nl">text-overflow</span><span class="p">:</span> <span class="n">ellipsis</span><span class="p">;</span>
+  <span class="nl">white-space</span><span class="p">:</span> <span class="nb">nowrap</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// Usage
+</span><span class="nc">.branch-name</span> <span class="p">{</span>
+  <span class="nl">display</span><span class="p">:</span> <span class="n">inline-block</span><span class="p">;</span>
+  <span class="nl">max-width</span><span class="p">:</span> <span class="m">200px</span><span class="p">;</span>
+  <span class="nc">.text-overflow</span><span class="o">()</span><span class="p">;</span>
+<span class="p">}</span></code></pre></div>
+
+  <h3 id="less-mixins-retina-images">視網膜圖片<!--Retina images--></h3>
+    <p>
+        指定兩個圖片路徑和 @@1x 圖片尺寸，然後 Bootstrap 3 將會將提 @@2x 的媒體查詢。<strong>如果你有很多的圖片服務，可以考慮在單一個媒體查詢中手動撰寫你的視網膜圖片 CSS。</strong>
+        <!--Specify two image paths and the @@1x image dimensions, and Bootstrap will provide an @@2x media query. <strong>If you have many images to serve, consider writing your retina image CSS manually in a single media query.</strong>-->
+    </p>
+<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="nc">.img-retina</span><span class="o">(@@</span><span class="nt">file-1x</span><span class="p">;</span> <span class="k">@@file-2x</span><span class="p">;</span> <span class="k">@@width-1x</span><span class="p">;</span> <span class="k">@@height-1x</span><span class="o">)</span> <span class="p">{</span>
+  <span class="nl">background-image</span><span class="p">:</span> <span class="sx">url("@@{file-1x}")</span><span class="p">;</span>
+
+  <span class="k">@@media</span>
+  <span class="nt">only</span> <span class="nt">screen</span> <span class="nt">and</span> <span class="o">(</span><span class="nt">-webkit-min-device-pixel-ratio</span><span class="nd">:</span> <span class="nt">2</span><span class="o">),</span>
+  <span class="nt">only</span> <span class="nt">screen</span> <span class="nt">and</span> <span class="o">(</span>   <span class="nt">min--moz-device-pixel-ratio</span><span class="nd">:</span> <span class="nt">2</span><span class="o">),</span>
+  <span class="nt">only</span> <span class="nt">screen</span> <span class="nt">and</span> <span class="o">(</span>     <span class="nt">-o-min-device-pixel-ratio</span><span class="nd">:</span> <span class="nt">2</span><span class="o">/</span><span class="nt">1</span><span class="o">),</span>
+  <span class="nt">only</span> <span class="nt">screen</span> <span class="nt">and</span> <span class="o">(</span>        <span class="nt">min-device-pixel-ratio</span><span class="nd">:</span> <span class="nt">2</span><span class="o">),</span>
+  <span class="nt">only</span> <span class="nt">screen</span> <span class="nt">and</span> <span class="o">(</span>                <span class="nt">min-resolution</span><span class="nd">:</span> <span class="nt">192dpi</span><span class="o">),</span>
+  <span class="nt">only</span> <span class="nt">screen</span> <span class="nt">and</span> <span class="o">(</span>                <span class="nt">min-resolution</span><span class="nd">:</span> <span class="nt">2dppx</span><span class="o">)</span> <span class="p">{</span>
+    <span class="nl">background-image</span><span class="p">:</span> <span class="sx">url("@@{file-2x}")</span><span class="p">;</span>
+    <span class="nl">background-size</span><span class="p">:</span> <span class="o">@@</span><span class="n">width-1x</span> <span class="o">@@</span><span class="n">height-1x</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Usage
+</span><span class="nc">.jumbotron</span> <span class="p">{</span>
+  <span class="nc">.img-retina</span><span class="o">(</span><span class="s2">"/img/bg-1x.png"</span><span class="o">,</span> <span class="s2">"/img/bg-2x.png"</span><span class="o">,</span> <span class="nt">100px</span><span class="o">,</span> <span class="nt">100px</span><span class="o">)</span><span class="p">;</span>
+<span class="p">}</span></code></pre></div>
+</div>

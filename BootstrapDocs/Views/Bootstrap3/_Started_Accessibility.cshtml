@@ -1,0 +1,47 @@
+﻿<div class="bs-docs-section">
+    <h1 id="accessibility" class="page-header">無障礙<!--Accessibility--></h1>
+    <p class="lead">
+        Bootstrap 3 遵循一致的 Web 標準 &mdash; 與一些小量的修改 &mdash; 讓你建立的網站具有無障礙（accessible ），讓輔助科技（<abbr title="Assistive Technology" class="initialism">AT</abbr>）也能訪問。
+        <!--Bootstrap follows common web standards and&mdash;with minimal extra effort&mdash;can be used to create sites that are accessible to those using <abbr title="Assistive Technology" class="initialism">AT</abbr>.-->
+    </p>
+
+    <h3>略過巡覽區<!--Skip navigation--></h3>
+    <p>
+        如果你的巡覽區域包含許多的連結，並且在 DOM 結構上也是在主要內容之前，那麼，在緊接著 <code>&lt;body&gt;</code> 標籤之後加入一個 <code>跳至主要內容</code> 的連結。<a href="http://a11yproject.com/posts/skip-nav-links/">（閱讀瞭解為什麼這樣做。）</a>
+        <!--If your navigation contains many links and comes before the main content in the DOM, add a <code>Skip to main content</code> link immediately after your opening <code>&lt;body&gt;</code> tag. <a href="http://a11yproject.com/posts/skip-nav-links/">(read why)</a>-->
+    </p>
+    <div class="highlight">
+        <pre><code class="language-html" data-lang="html"><span class="nt">&lt;body&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#content"</span> <span class="na">class=</span><span class="s">"sr-only sr-only-focusable"</span><span class="nt">&gt;</span>跳至主要內容<!--Skip to main content--><span class="nt">&lt;/a&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container"</span> <span class="na">id=</span><span class="s">"content"</span><span class="nt">&gt;</span>
+    這裡是頁面主要內容。<!--The main page content.-->
+        <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/body&gt;</span></code></pre>
+    </div>
+
+    <h3>套用標題<!--Nested headings--></h3>
+    <p>
+        當套用標題（<code>&lt;h1&gt;</code> - <code>&lt;h6&gt;</code>），你的文件主標題應該是 <code>&lt;h1&gt;</code>。 隨後的標題在邏輯上應該循序的使用 <code>&lt;h2&gt;</code> - <code>&lt;h6&gt;</code>，如此之後，螢幕閱讀器就能架構出頁面的內容列表（<abbr title="Table Of Content">TOC</abbr>）。
+        <!--When nesting headings (<code>&lt;h1&gt;</code> - <code>&lt;h6&gt;</code>), your primary document header should be an <code>&lt;h1&gt;</code>. Subsequent headings should make logical use of <code>&lt;h2&gt;</code> - <code>&lt;h6&gt;</code> such that screen readers can construct a table of contents for your pages.-->
+    </p>
+    <p>
+        閱讀更多的資訊，請參考 <a href="http://squizlabs.github.io/HTML_CodeSniffer/Standards/Section508/">HTML CodeSniffer</a> 和 <a href="http://accessibility.psu.edu/headings">Penn State's AccessAbility</a>。
+        <!--Learn more at <a href="http://squizlabs.github.io/HTML_CodeSniffer/Standards/Section508/">HTML CodeSniffer</a> and <a href="http://accessibility.psu.edu/headings">Penn State's AccessAbility</a>.-->
+    </p>
+
+    <h3>Color 對比<!--Color contrast--></h3>
+    <p>
+        目前，一些在 Bootstrap 中預設可用的顏色組合（像是各種@(@Html.ActionLink("按鈕樣式", "CSS", null, null, null, "buttons", null, null))按鈕樣式、一些@(@Html.ActionLink("程式碼區塊", "CSS", null, null, null, "code-block", null, null))程式碼醒目提示、<code>.bg-primary</code> 的@(@Html.ActionLink("情境背景", "CSS", null, null, null, "helper-classes-backgrounds", null, null))輔助類別、在白色背景上使用預設的連結顏色）具有低的對比度（W3C <a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast">建議對比為 4.5:1</a>）。這可能導致使用者的低視力或誰是色盲的問題。這些預設顏色可能需要進行修改，以提高他們的對比度和清晰度。
+        <!--Currently, some of the default color combinations available in Bootstrap (such as the various <a href="../css/#buttons">styled button</a> classes, some of the code highlighting colors used for <a href="../css/#code-block">basic code blocks</a>, the <code>.bg-primary</code> <a href="..css/#helper-classes-backgrounds">contextual background</a> helper class, and the default link color when used on a white background) have a low contrast ratio (below the <a href="http://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast">recommended ratio of 4.5:1</a>). This can cause problems to users with low vision or who are color blind. These default colors may need to be modified to increase their contrast and legibility.-->
+    </p>
+
+    <h3>其他資源<!--Additional resources--></h3>
+    <ul>
+        <li><a href="https://github.com/squizlabs/HTML_CodeSniffer">"HTML Codesniffer" bookmarklet for identifying accessibility issues</a></li>
+        <li><a href="https://chrome.google.com/webstore/detail/accessibility-developer-t/fpkknkljclfencbdbgkenhalefipecmb?hl=en">Chrome's Accessibility Developer Tools extension</a></li>
+        <li><a href="http://www.paciellogroup.com/resources/contrastanalyser/">Colour Contrast Analyser</a>
+        <li><a href="http://a11yproject.com/">The A11Y Project</a></li>
+        <li><a href="https://developer.mozilla.org/en-US/docs/Accessibility">MDN accessibility documentation</a></li>
+    </ul>
+</div>
+

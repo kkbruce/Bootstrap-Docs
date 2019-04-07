@@ -1,0 +1,313 @@
+﻿<div class="bs-docs-section">
+  <h1 id="carousel" class="page-header">輪播效果<!--Carousel--> <small>carousel.js</small></h1>
+
+    <p>
+        透過元素的循環組成幻燈片的元件，類似輪播效果。<strong>巢狀輪播不支援</strong>。
+        <!--A slideshow component for cycling through elements, like a carousel. <strong>Nested carousels are not supported.</strong>-->
+    </p>
+
+  <h2 id="carousel-examples">範例<!--Examples--></h2>
+  <div class="bs-example">
+    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+          <img data-src="holder.js/900x500/auto/#777:#555/text:First slide" alt="First slide">
+        </div>
+        <div class="item">
+          <img data-src="holder.js/900x500/auto/#666:#444/text:Second slide" alt="Second slide">
+        </div>
+        <div class="item">
+          <img data-src="holder.js/900x500/auto/#555:#333/text:Third slide" alt="Third slide">
+        </div>
+      </div>
+      <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </div><!-- /example -->
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"carousel-example-generic"</span> <span class="na">class=</span><span class="s">"carousel slide"</span> <span class="na">data-ride=</span><span class="s">"carousel"</span><span class="nt">&gt;</span>
+  <span class="c">&lt;!-- Indicators --&gt;</span>
+  <span class="nt">&lt;ol</span> <span class="na">class=</span><span class="s">"carousel-indicators"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">data-target=</span><span class="s">"#carousel-example-generic"</span> <span class="na">data-slide-to=</span><span class="s">"0"</span> <span class="na">class=</span><span class="s">"active"</span><span class="nt">&gt;&lt;/li&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">data-target=</span><span class="s">"#carousel-example-generic"</span> <span class="na">data-slide-to=</span><span class="s">"1"</span><span class="nt">&gt;&lt;/li&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">data-target=</span><span class="s">"#carousel-example-generic"</span> <span class="na">data-slide-to=</span><span class="s">"2"</span><span class="nt">&gt;&lt;/li&gt;</span>
+  <span class="nt">&lt;/ol&gt;</span>
+
+  <span class="c">&lt;!-- Wrapper for slides --&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"carousel-inner"</span> <span class="na">role=</span><span class="s">"listbox"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"item active"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"..."</span> <span class="na">alt=</span><span class="s">"..."</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"carousel-caption"</span><span class="nt">&gt;</span>
+        ...
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"item"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"..."</span> <span class="na">alt=</span><span class="s">"..."</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"carousel-caption"</span><span class="nt">&gt;</span>
+        ...
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    ...
+  <span class="nt">&lt;/div&gt;</span>
+
+  <span class="c">&lt;!-- Controls --&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"left carousel-control"</span> <span class="na">href=</span><span class="s">"#carousel-example-generic"</span> <span class="na">role=</span><span class="s">"button"</span> <span class="na">data-slide=</span><span class="s">"prev"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"glyphicon glyphicon-chevron-left"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;&lt;/span&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"sr-only"</span><span class="nt">&gt;</span>Previous<span class="nt">&lt;/span&gt;</span>
+  <span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"right carousel-control"</span> <span class="na">href=</span><span class="s">"#carousel-example-generic"</span> <span class="na">role=</span><span class="s">"button"</span> <span class="na">data-slide=</span><span class="s">"next"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"glyphicon glyphicon-chevron-right"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;&lt;/span&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"sr-only"</span><span class="nt">&gt;</span>Next<span class="nt">&lt;/span&gt;</span>
+  <span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></div>
+
+  <div class="bs-callout bs-callout-danger" id="callout-carousel-accessibility">
+    <h4>無障礙問題<!--Accessibility issue--></h4>
+      <p>
+          輪播元素一般不符合無障礙標準。如果你需要相容，請考慮其他方式來展示你的內容。
+          <!--The carousel component is generally not compliant with accessibility standards. If you need to be compliant, please consider other options for presenting your content.-->
+      </p>
+  </div>
+
+  <div class="bs-callout bs-callout-warning" id="callout-carousel-transitions">
+    <h4>Internet Explorer 8 &amp; 9 不支援轉場動畫效果<!--Transition animations not supported in Internet Explorer 8 &amp; 9--></h4>
+      <p>
+          Bootstrap 的動畫完全使用 CSS3，但 Internet Explorer 8 &amp; 9 不支援所需的 CSS 屬性。因此，當使用這些版本的瀏覽器，幻燈片不會有轉場動畫效果。我們故意決定不再包含基於 jQuery 的相容性方案。
+          <!--Bootstrap exclusively uses CSS3 for its animations, but Internet Explorer 8 &amp; 9 don't support the necessary CSS properties. Thus, there are no slide transition animations when using these browsers. We have intentionally decided not to include jQuery-based fallbacks for the transitions.-->
+      </p>
+  </div>
+
+  <div class="bs-callout bs-callout-warning" id="callout-carousel-active">
+    <h4>需要初始化 <code>.active</code> 元素<!--Initial active element required--></h4>
+      <p>
+          <code>.active</code> 類別需要被加入到其中一張幻燈片中。否則，輪播將不可見。
+          <!--The <code>.active</code> class needs to be added to one of the slides. Otherwise, the carousel will not be visible.-->
+      </p>
+  </div>
+
+  <h3>可選標題<!--Optional captions--></h3>
+    <p>
+        在任何的 <code>.item</code> 內可輕鬆加入 <code>.carousel-caption</code> 元素來加入標題。加入的任何選擇性 HTML 將會自動對齊與格式化。
+        <!--Add captions to your slides easily with the <code>.carousel-caption</code> element within any <code>.item</code>. Place just about any optional HTML within there and it will be automatically aligned and formatted.-->
+    </p>
+  <div class="bs-example">
+    <div id="carousel-example-captions" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#carousel-example-captions" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-example-captions" data-slide-to="1"></li>
+        <li data-target="#carousel-example-captions" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+          <img data-src="holder.js/900x500/auto/#777:#777" alt="First slide image">
+          <div class="carousel-caption">
+            <h3>First slide label</h3>
+            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          </div>
+        </div>
+        <div class="item">
+          <img data-src="holder.js/900x500/auto/#666:#666" alt="Second slide image">
+          <div class="carousel-caption">
+            <h3>Second slide label</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+        </div>
+        <div class="item">
+          <img data-src="holder.js/900x500/auto/#555:#5555" alt="Third slide image">
+          <div class="carousel-caption">
+            <h3>Third slide label</h3>
+            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+          </div>
+        </div>
+      </div>
+      <a class="left carousel-control" href="#carousel-example-captions" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#carousel-example-captions" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </div><!-- /example -->
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"item"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"..."</span> <span class="na">alt=</span><span class="s">"..."</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"carousel-caption"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;h3&gt;</span>...<span class="nt">&lt;/h3&gt;</span>
+    <span class="nt">&lt;p&gt;</span>...<span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></div>
+
+  <h2 id="carousel-usage">Usage</h2>
+
+  <h3>多個輪播<!--Multiple carousels--></h3>
+    <p>
+        使用 <code>data-</code> 屬性很容易去控制輪播的位置。<code>data-slide</code> 接受 <code>prev</code> 或 <code>next</code> 為關鍵字，這會改變幻燈片的位置。另外，使用 <code>data-slide-to</code> 可以傳遞幻燈片索引值給輪播外掛，例如，<code>data-slide-to="2"</code> 就可以直接播放指定索引值的幻燈片。注意，索引值由 <code>0</code> 開始。
+        <!--Carousels require the use of an <code>id</code> on the outermost container (the <code>.carousel</code>) for carousel controls to function properly. When adding multiple carousels, or when changing a carousel's <code>id</code>, be sure to update the relevant controls.-->
+    </p>
+
+  <h3>經由 <code>data-</code> 屬性<!--Via data attributes--></h3>
+    <p>
+        使用 <code>data-</code> 屬性很容易去控制輪播的位置。<code>data-slide</code> 接受 <code>prev</code> 或 <code>next</code> 為關鍵字，這會改變幻燈片的位置。另外，使用 <code>data-slide-to</code> 可以傳遞幻燈片索引值給輪播外掛，例如，<code>data-slide-to="2"</code> 就可以直接播放指定索引值的幻燈片。注意，索引值由 <code>0</code> 開始。
+        <!--Use data attributes to easily control the position of the carousel. <code>data-slide</code> accepts the keywords <code>prev</code> or <code>next</code>, which alters the slide position relative to its current position. Alternatively, use <code>data-slide-to</code> to pass a raw slide index to the carousel <code>data-slide-to="2"</code>, which shifts the slide position to a particular index beginning with <code>0</code>.-->
+    </p>
+    <p>
+        <code>data-ride="carousel"</code> 屬性用來標記頁面載入後開始的輪播動畫。<strong class="text-danger">它不能與 JavaScript 的初始化一起組合使用在同一個輪播（多餘與不必要）。</strong>
+        <!--The <code>data-ride="carousel"</code> attribute is used to mark a carousel as animating starting at page load. <strong class="text-danger">It cannot be used in combination with (redundant and unnecessary) explicit JavaScript initialization of the same carousel.</strong>-->
+    </p>
+
+  <h3>經由 JavaScript<!--Via JavaScript--></h3>
+  <p>手動呼叫輪播：<!--Call carousel manually with:--></p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'.carousel'</span><span class="p">).</span><span class="nx">carousel</span><span class="p">()</span></code></pre></div>
+
+  <h3>選項<!--Options--></h3>
+    <p>
+        選項能透過 <code>data-</code> 屬性或 JavaScript 來傳遞。使用 <code>data-</code> 屬性，將選項名稱附加至 <code>data-</code> 後面，例如，<code>data-interval=""</code>。
+        <!--Options can be passed via data attributes or JavaScript. For data attributes, append the option name to <code>data-</code>, as in <code>data-interval=""</code>.-->
+    </p>
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped">
+      <thead>
+       <tr>
+         <th style="width: 100px;">名稱<!--Name--></th>
+         <th style="width: 50px;">類型<!--type--></th>
+         <th style="width: 50px;">預設<!--default--></th>
+         <th>說明<!--description--></th>
+       </tr>
+      </thead>
+      <tbody>
+       <tr>
+         <td>interval</td>
+         <td>number</td>
+         <td>5000</td>
+           <td>
+               在自動輪播的過程中，每張幻燈片所呈現的時間。如果為 false，將不會自動輪播。
+               <!--The amount of time to delay between automatically cycling an item. If false, carousel will not automatically cycle.-->
+           </td>
+       </tr>
+       <tr>
+         <td>pause</td>
+         <td>string</td>
+         <td>"hover"</td>
+           <td>
+               當滑鼠移至輪播區域時暫停輪播效果，滑鼠離開輪播區域時重新輪播效果。
+               <!--Pauses the cycling of the carousel on mouseenter and resumes the cycling of the carousel on mouseleave.-->
+           </td>
+       </tr>
+       <tr>
+         <td>wrap</td>
+         <td>boolean</td>
+         <td>true</td>
+           <td>
+               輪播是否應該不斷循環或是停止。
+               <!--Whether the carousel should cycle continuously or have hard stops.-->
+           </td>
+       </tr>
+       <tr>
+         <td>keyboard</td>
+         <td>boolean</td>
+         <td>true</td>
+           <td>
+               輪播是否要回應鍵盤事件。
+               <!--Whether the carousel should react to keyboard events.-->
+           </td>
+       </tr>
+      </tbody>
+    </table>
+  </div><!-- /.table-responsive -->
+
+  <h3>方法<!--Methods--></h3>
+
+  <h4>.carousel(options)</h4>
+    <p>
+        輪播的初始化有一個選擇性選項 <code>object</code> 和自動開始輪播項目。
+        <!--Initializes the carousel with an optional options <code>object</code> and starts cycling through items.-->
+    </p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'.carousel'</span><span class="p">).</span><span class="nx">carousel</span><span class="p">({</span>
+  <span class="na">interval</span><span class="p">:</span> <span class="mi">2000</span>
+<span class="p">})</span></code></pre></div>
+
+  <h4>.carousel('cycle')</h4>
+    <p>
+        由左向右循環播放。
+        <!--Cycles through the carousel items from left to right.-->
+    </p>
+
+  <h4>.carousel('pause')</h4>
+    <p>
+        停止循環播放。
+        <!--Stops the carousel from cycling through items.-->
+    </p>
+
+
+  <h4>.carousel(number)</h4>
+    <p>
+        循環播放到指定畫面（以 0 為基礎，類似陣列）。
+        <!--Cycles the carousel to a particular frame (0 based, similar to an array).-->
+    </p>
+
+  <h4>.carousel('prev')</h4>
+    <p>
+        回到上一個畫面。
+        <!--Cycles to the previous item.-->
+    </p>
+
+  <h4>.carousel('next')</h4>
+    <p>
+        移至下一個畫面。
+        <!--Cycles to the next item.-->
+    </p>
+
+  <h3>事件<!--Events--></h3>
+    <p>
+        Bootstrap 輪播效果類別有公開一些事件允許監聽輪播功能。
+        <!--Bootstrap's carousel class exposes two events for hooking into carousel functionality.-->
+    </p>
+    <p>
+        以下事件額外擁有兩個屬性：
+        <!--Both events have the following additional properties:-->
+    </p>
+  <ul>
+    <li><code>direction</code>: 輪播幻燈片的方向（<code>"left"</code> 或 <code>"right"</code> 其中之一）。<!--The direction in which the carousel is sliding (either <code>"left"</code> or <code>"right"</code>).--></li>
+    <li><code>relatedTarget</code>: 正在滑動的地方作為活動項目的 DOM 元素。<!--The DOM element that is being slid into place as the active item.--></li>
+  </ul>
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped">
+      <thead>
+       <tr>
+         <th style="width: 150px;">事件類別<!--Event Type--></th>
+         <th>說明<!--Description--></th>
+       </tr>
+      </thead>
+      <tbody>
+       <tr>
+         <td>slide.bs.carousel</td>
+           <td>
+               當 <code>slide</code> 執行個體方法被呼叫，此事件會立即被觸發。
+               <!--This event fires immediately when the <code>slide</code> instance method is invoked.-->
+           </td>
+       </tr>
+       <tr>
+         <td>slid.bs.carousel</td>
+           <td>
+               當輪播已經在使用者面前顯示完成，此事件會被觸發。
+               <!--This event is fired when the carousel has completed its slide transition.-->
+           </td>
+       </tr>
+      </tbody>
+    </table>
+  </div><!-- /.table-responsive -->
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'#myCarousel'</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">'slide.bs.carousel'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// do something…</span>
+<span class="p">})</span></code></pre></div>
+</div>

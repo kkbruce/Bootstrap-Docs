@@ -1,0 +1,74 @@
+﻿<div class="bs-docs-section">
+    <h1 id="whats-included" class="page-header">包含內容<!--What's included--></h1>
+
+    <p class="lead">
+        Bootstrap 提供兩種下載的形式，其中，你可以看到下面的目錄和檔案，以共同資源進行邏輯分類並且提供已編譯與最佳化兩種版本。
+        <!--Bootstrap is downloadable in two forms, within which you'll find the following directories and files, logically grouping common resources and providing both compiled and minified variations.-->
+    </p>
+
+    <div class="bs-callout bs-callout-warning" id="jquery-required">
+        <h4>相依於 jQuery<!--jQuery required--></h4>
+        <p>
+            請注意，<strong>Bootstrap 所有 JavaScript 外掛都相依於 jQuery</strong>，jQuery 必須在所有外掛之前參考，就像<a href="#template">基礎範本</a>所展示的一樣。
+            <a href="https://github.com/twbs/bootstrap/blob/v3.3.1/bower.json">查看<!--Consult our--> <code>bower.json</code></a> 以瞭解目前 jQuery 版本的支援狀態。
+            <!--Please note that <strong>all JavaScript plugins require jQuery</strong> to be included,
+            as shown in the <a href="#template">starter template</a>. <a href="https://github.com/twbs/bootstrap/blob/v3.3.1/bower.json">Consult our <code>bower.json</code></a> to see which versions of jQuery are supported.-->
+        </p>
+    </div>
+
+    <div class="bs-callout bs-callout-warning">
+        <h4>譯者註</h4>
+        <p>查看 <code>bower.json</code> 的 <strong>"dependencies"</strong> 項目。換言之，目前 Bootstrap 3 為了相容性考量，支援 jQuery 1.9.1 之後的版本，請勿使用 jQuery 2.x。</p>
+    </div>
+
+    <h2 id="whats-included-precompiled">預編譯的 Bootstrap 3<!--Precompiled Bootstrap--></h2>
+    <p>
+        下載之後，解壓縮至任意資料夾可看到以下結構（已編譯版本）的 Bootstrap 3，看起來如下：
+        <!--Once downloaded, unzip the compressed folder to see the structure of (the compiled) Bootstrap. You'll see something like this:-->
+    </p>
+    <!-- NOTE: This info is intentionally duplicated in the README.
+    Copy any changes made here over to the README too. -->
+    <div class="highlight">
+        <pre><code class="language-bash" data-lang="bash">bootstrap/
+├── css/
+│   ├── bootstrap.css
+│   ├── bootstrap.min.css
+│   ├── bootstrap-theme.css
+│   └── bootstrap-theme.min.css
+├── js/
+│   ├── bootstrap.js
+│   └── bootstrap.min.js
+└── fonts/
+    ├── glyphicons-halflings-regular.eot
+    ├── glyphicons-halflings-regular.svg
+    ├── glyphicons-halflings-regular.ttf
+    └── glyphicons-halflings-regular.woff</code></pre>
+    </div>
+
+    <p>
+        這是最基本的 Bootstrap 3 組織形態：幾乎在所有的網站專案中快速直接使用預編譯的檔案。我們同時提供編譯好的 CSS 和 JS (<code>bootstrap.*</code>)和最佳化的 CSS 和 JS (<code>bootstrap.min.*</code>)。從 Glyphicons 圖標字型都包括在內，也是選擇性 Bootstrap 佈景主題。
+        <!--This is the most basic form of Bootstrap: precompiled files for quick drop-in usage in nearly any web project. We provide compiled CSS and JS (<code>bootstrap.*</code>), as well as compiled and minified CSS and JS (<code>bootstrap.min.*</code>). Fonts from Glyphicons are included, as is the optional Bootstrap theme.-->
+    </p>
+
+    <h2 id="whats-included-source">Bootstrap 3 原始碼<!--Bootstrap source code--></h2>
+    <p>
+        下載 Bootstrap 3 原始碼會含有預編譯的 CSS、JavaScript 和圖標字型，還有 Less、JavaScript 和文件的原始碼。具體來說，它包含以下這些內容：
+        <!--The Bootstrap source code download includes the precompiled CSS, JavaScript, and font assets, along with source Less, JavaScript, and documentation. More specifically, it includes the following and more:-->
+    </p>
+    <div class="highlight">
+        <pre><code class="language-bash" data-lang="bash">bootstrap/
+├── less/
+├── js/
+├── fonts/
+├── dist/
+│   ├── css/
+│   ├── js/
+│   └── fonts/
+└── docs/
+    └── examples/</code></pre>
+    </div>
+    <p>
+        <code>less/</code>、<code>js/</code>、<code>fonts/</code> 資料夾分別含有 CSS、JS 和圖標字型的原始碼。<code>dist/</code> 資料夾內含有上面所提到所有預編譯好的檔案。<code>docs/</code> 資料夾含有此文件的原始碼檔案。<code>examples/</code> 資料夾含 Bootstrap 3 提供的大量範例介紹。除此之外，其他檔案還包含 grunt 套件、授權文件、開發的支援等。
+        <!--The <code>less/</code>, <code>js/</code>, and <code>fonts/</code> are the source code for our CSS, JS, and icon fonts (respectively). The <code>dist/</code> folder includes everything listed in the precompiled download section above. The <code>docs/</code> folder includes the source code for our documentation, and <code>examples/</code> of Bootstrap usage. Beyond that, any other included file provides support for packages, license information, and development.-->
+    </p>
+</div>

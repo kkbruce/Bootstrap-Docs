@@ -1,0 +1,136 @@
+﻿<div class="bs-docs-section">
+  <h1 id="js-overview" class="page-header">概觀<!--Overview--></h1>
+
+  <h3 id="js-individual-compiled">獨立或完整<!--Individual or compiled--></h3>
+              <p>
+                  jQuery 外掛都能各自獨立引用（使用 Bootstrap 獨立的 <code>*.js</code> 檔案），或是一次就引用全部外掛（使用 <code>bootstrap.js</code> 或已最佳化的 <code>bootstrap.min.js</code> 檔案）。
+                  <!--Plugins can be included individually (using Bootstrap's individual <code>*.js</code> files), or all at once (using <code>bootstrap.js</code> or the minified <code>bootstrap.min.js</code>).-->
+              </p>
+
+  <div class="bs-callout bs-callout-danger">
+    <h4>使用已編譯的 JavaScript<!--Using the compiled JavaScript--></h4>
+      <p>
+          <code>bootstrap.js</code> 和 <code>bootstrap.min.js</code> 都內含所有外掛，僅需要引用其中一支 <code>*.js</code> 即可。
+          <!--Both <code>bootstrap.js</code> and <code>bootstrap.min.js</code> contain all plugins in a single file. Include only one.-->
+      </p>
+  </div>
+
+  <div class="bs-callout bs-callout-danger">
+    <h4>元件的 <code>data-</code> 屬性<!--Component data attributes--></h4>
+      <p>
+          不要在同一個元素上使用多個外掛的 <code>data-</code> 屬性，例如，在 <code>button</code> 上不能同時使用工具提示和互動視窗外掛。如果要使用多個外掛功能，那麼要使用額外容器來包裝元素。
+          <!--Don't use data attributes from multiple plugins on the same element. For example, a button cannot both have a tooltip and toggle a modal. To accomplish this, use a wrapping element.-->
+      </p>
+  </div>
+
+  <div class="bs-callout bs-callout-danger">
+    <h4>外掛相依性<!--Plugin dependencies--></h4>
+      <p>
+          某些外掛和 CSS 元件相依於其他外掛。如果你獨立引用某個外掛，請檢查文件並確保它們的相依性。注意，所有外掛都依賴於 jQuery（意思是，jQuery 必須在所有外掛檔案<strong>之前</strong>被引用）。查閱我們 <a href="https://github.com/twbs/bootstrap/blob/v3.3.1/bower.json"><code>bower.json</code></a> 以瞭解那些版本的 jQuery 是被支援的。
+          <!--Some plugins and CSS components depend on other plugins. If you include plugins individually, make sure to check for these dependencies in the docs. Also note that all plugins depend on jQuery (this means jQuery must be included <strong>before</strong> the plugin files). <a href="https://github.com/twbs/bootstrap/blob/v3.3.1/bower.json">Consult our <code>bower.json</code></a> to see which versions of jQuery are supported.-->
+      </p>
+  </div>
+
+  <div class="bs-callout bs-callout-warning">
+    <h4>譯者註</h4>
+    <p>查閱 <code>bower.json</code> 中的 <code>dependencies</code> 項目。</p>
+  </div>
+
+  <h3 id="js-data-attrs"><code>data-</code> 屬性<!--Data attributes--></h3>
+              <p>
+                  你可以純粹透過標記 API（<code>data-*</code> 屬性）就能使用所有 Bootstrap 外掛功能，並且不需要撰寫任何一行 JavaScript 程式碼。這是 Bootstrap 一流的 API，也是你在使用外掛時的首選方式。
+                  <!--You can use all Bootstrap plugins purely through the markup API without writing a single line of JavaScript. This is Bootstrap's first-class API and should be your first consideration when using a plugin.-->
+              </p>
+
+              <p>
+                  盡管如此，在某些情況下可能很合理地需要關閉此功能。因此，我們也提供關閉 <code>data-</code> 屬性 API 的方法，也就是由文件命名空間 <code>data-api</code> 解除所有事件的繫結。看起來就像這樣：
+                  <!--That said, in some situations it may be desirable to turn this functionality off. Therefore, we also provide the ability to disable the data attribute API by unbinding all events on the document namespaced with <code>data-api</code>. This looks like this:-->
+              </p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">off</span><span class="p">(</span><span class="s1">'.data-api'</span><span class="p">)</span></code></pre></div>
+
+              <p>
+                  或者，針對特定的外掛，僅需要在 <code>data-api</code> 命名空間之前加入外掛的名稱作為命名空間，像這樣：
+                  <!--Alternatively, to target a specific plugin, just include the plugin's name as a namespace along with the data-api namespace like this:-->
+              </p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">off</span><span class="p">(</span><span class="s1">'.alert.data-api'</span><span class="p">)</span></code></pre></div>
+
+  <h3 id="js-programmatic-api">程式 API<!--Programmatic API--></h3>
+              <p>
+                  我們相信，你也能純粹透過 JavaScript API 使用所有的 Bootstrap 外掛。所有公開的 API 都是單獨的、可鏈結呼叫和回傳所操作的集合。
+                  <!--We also believe you should be able to use all Bootstrap plugins purely through the JavaScript API. All public APIs are single, chainable methods, and return the collection acted upon.-->
+              </p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'.btn.danger'</span><span class="p">).</span><span class="nx">button</span><span class="p">(</span><span class="s1">'toggle'</span><span class="p">).</span><span class="nx">addClass</span><span class="p">(</span><span class="s1">'fat'</span><span class="p">)</span></code></pre></div>
+
+              <p>
+                  所有方法都接受一個選擇性的 options 物件，或一個表示特定方法的字串，或者什麼都沒有（這會初始化一個含預設行為的外掛）：
+                  <!--All methods should accept an optional options object, a string which targets a particular method, or nothing (which initiates a plugin with default behavior):-->
+              </p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'#myModal'</span><span class="p">).</span><span class="nx">modal</span><span class="p">()</span>                      <span class="c1">// 採用預設值初始化<!--initialized with defaults--></span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">'#myModal'</span><span class="p">).</span><span class="nx">modal</span><span class="p">({</span> <span class="na">keyboard</span><span class="p">:</span> <span class="kc">false</span> <span class="p">})</span>   <span class="c1">// 以無鍵盤進行初始化<!--initialized with no keyboard--></span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">'#myModal'</span><span class="p">).</span><span class="nx">modal</span><span class="p">(</span><span class="s1">'show'</span><span class="p">)</span>                <span class="c1">// 初始化後立即呼叫 show<!--initializes and invokes show immediately--></span></code></pre></div>
+
+              <p>
+                  每個外掛透過 <code>Constructor</code> 屬性來揭露原始的建構函數：<code>$.fn.popover.Constructor</code>。如果你想取得某個特定外掛的執行個體（instance），可以直接從頁面元素取得：<code>$('[rel="popover"]').data('popover')</code>。
+                  <!--Each plugin also exposes its raw constructor on a <code>Constructor</code> property: <code>$.fn.popover.Constructor</code>. If you'd like to get a particular plugin instance, retrieve it directly from an element: <code>$('[rel="popover"]').data('popover')</code>.-->
+              </p>
+
+  <h4>預設設置<!--Default settings--></h4>
+              <p>
+                  你可以修改外掛的預設設置，透過修改外掛的 <code>Constructor.DEFAULTS</code> 物件：
+                  <!--You can change the default settings for a plugin by modifying the plugin's <code>Constructor.DEFAULTS</code> object:--><p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">.</span><span class="nx">fn</span><span class="p">.</span><span class="nx">modal</span><span class="p">.</span><span class="nx">Constructor</span><span class="p">.</span><span class="nx">DEFAULTS</span><span class="p">.</span><span class="nx">keyboard</span> <span class="o">=</span> <span class="kc">false</span> <span class="c1">// 修改互動視窗 'keyboard' 預設選項值為 false<!--changes default for the modal plugin's `keyboard` option to false--></span></code></pre></div>
+
+  <h3 id="js-noconflict">不衝突<!--No conflict--></h3>
+              <p>
+                  有時候，你需要同時使用 Bootstrap 外掛和其他 UI 框架。在這種情況下，可能偶爾會發生命名空間衝突。如果發生了這種情況，你可以呼叫外掛程式的 <code>.noConflict</code> 來返回原值。
+                  <!--Sometimes it is necessary to use Bootstrap plugins with other UI frameworks. In these circumstances, namespace collisions can occasionally occur. If this happens, you may call <code>.noConflict</code> on the plugin you wish to revert the value of.-->
+              </p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">bootstrapButton</span> <span class="o">=</span> <span class="nx">$</span><span class="p">.</span><span class="nx">fn</span><span class="p">.</span><span class="nx">button</span><span class="p">.</span><span class="nx">noConflict</span><span class="p">()</span> <span class="c1">// 回傳 $.fn.button 的原值<!--return $.fn.button to previously assigned value--></span>
+<span class="nx">$</span><span class="p">.</span><span class="nx">fn</span><span class="p">.</span><span class="nx">bootstrapBtn</span> <span class="o">=</span> <span class="nx">bootstrapButton</span>            <span class="c1">// 取得 $().bootstrapBtn 的 Bootstrap 功能<!--give $().bootstrapBtn the Bootstrap functionality--></span></code></pre></div>
+
+  <div class="bs-callout bs-callout-warning">
+    <h4>譯者註</h4>
+    <p>這裡的"返回原值"指的是返回一個完整功能的原始外掛物件，讓我們避開命名空間的衝突。</p>
+  </div>
+
+  <h3 id="js-events">Events事件<!--Events--></h3>
+              <p>
+                  Bootstrap 為大多數外掛的特定動作提供自訂事件。一般而言，這些事件都是以英文動詞的原型和過去分詞形式來命名呈現。動詞原型呈現在事件執行之前觸發，例如，<code>show</code>。過去分詞形式呈現在動作執行完畢之後觸發，例如，<code>shown</code>。
+                  <!--Bootstrap provides custom events for most plugins' unique actions. Generally, these come in an infinitive and past participle form - where the infinitive (ex. <code>show</code>) is triggered at the start of an event, and its past participle form (ex. <code>shown</code>) is triggered on the completion of an action.-->
+              </p>
+              <p>
+                  從 3.0.0 開始，所有 Bootstrap 事件都改為命名空間。
+                  <!--As of 3.0.0, all Bootstrap events are namespaced.-->
+              </p>
+              <p>
+                  所有動詞原型的事件都提供 <code>preventDefault</code> 函數。這能在動作被執行之前停止執行。
+                  <!--All infinitive events provide <code>preventDefault</code> functionality. This provides the ability to stop the execution of an action before it starts.-->
+              </p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'#myModal'</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">'show.bs.modal'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">data</span><span class="p">)</span> <span class="k">return</span> <span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">()</span> <span class="c1">// 停止互動視窗的呈現<!--stops modal from being shown--></span>
+<span class="p">})</span></code></pre></div>
+
+  <h3 id="js-disabled">當 JavaScript 被禁用時無特別補救方式<!--No special fallbacks when JavaScript is disabled--></h3>
+              <p>
+                  Bootstrap 的外掛在 JavaScript 被禁用情況下並無特別的補救方式。在此情況下，如果你還是很在乎使用者體驗，那麼加入 <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/noscript"><code>&lt;noscript&gt;</code></a> 向你的使用者說明情況（並且教導他們如果啟用 JavaScript），或者加入你自訂的補救方式說明。
+                  <!--Bootstrap's plugins don't fall back particularly gracefully when JavaScript is disabled. If you care about the user experience in this case, use <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/noscript"><code>&lt;noscript&gt;</code></a> to explain the situation (and how to re-enable JavaScript) to your users, and/or add your own custom fallbacks.-->
+              </p>
+
+  <div class="bs-callout bs-callout-warning">
+    <h4>譯者註</h4>
+    <p>啟用 JavaScript 步驟（以當下主流瀏覽器版本為主）：</p>
+    <ul>
+      <li>IE：網際網路選項 &rarr; 安全性 &rarr; 網際網路 &rarr; 自訂等級 &rarr; 指令碼處理 &rarr; 啟用。</li>
+      <li>Firefox：工具 &rarr; 網頁開發者 &rarr; 網頁工具箱 &rarr; 選項 &rarr; 取消勾選「停用 JavaScript」。</li>
+      <li>Chrome：設定 &rarr; 顯示進階設定 &rarr; 隱私權 &rarr; 內容設定… &rarr; JavaScript &rarr; 選擇「允許所有網站執行 JavaScript」。</li>
+    </ul>
+  </div>              
+
+  <div class="bs-callout bs-callout-warning" id="callout-third-party-libs">
+    <h4>第三方函式庫<!--Third-party libraries--></h4>
+      <p>
+          <strong>Bootstrap 並不提供對第三方函式庫的官方支援</strong>，例如，Prototype 或 jQuery UI 等。儘管有 <code>.noConflict</code> 和命名空間事件的處理，但還是有可能需要你自己處理相容性問題。
+          <!--<strong>Bootstrap does not officially support third-party JavaScript libraries</strong> like Prototype or jQuery UI. Despite <code>.noConflict</code> and namespaced events, there may be compatibility problems that you need to fix on your own.-->
+      </p>
+  </div>
+</div>

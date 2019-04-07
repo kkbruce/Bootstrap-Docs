@@ -1,0 +1,66 @@
+﻿<div class="bs-docs-section">
+  <h1 id="code" class="page-header">程式碼<!--Code--></h1>
+
+  <h2 id="code-inline">行內程式碼<!--Inline--></h2>
+    <p>
+        使用 <code>&lt;code&gt;</code> 來包裝一小段行內程式碼。
+        <!--Wrap inline snippets of code with <code>&lt;code&gt;</code>.-->
+    </p>
+<div class="bs-example">
+  For example, <code>&lt;section&gt;</code> should be wrapped as inline.
+</div>
+<div class="highlight"><pre><code class="language-html" data-lang="html">For example, <span class="nt">&lt;code&gt;</span><span class="ni">&amp;lt;</span>section<span class="ni">&amp;gt;</span><span class="nt">&lt;/code&gt;</span> should be wrapped as inline.</code></pre></div>
+
+  <div class="bs-callout bs-callout-warning">
+    <h4>譯者註</h4>
+    <p>&lt;pre&gt; 標籤裡 Tab 會被完整呈現，請先預覽確定程式碼排版如你所願。</p>
+  </div>
+
+  <h2 id="code-user-input">使用者輸入<!--User input--></h2>
+    <p>
+        使用 <code>&lt;kbd&gt;</code> 標籤來指出這是要經由鍵盤來輸入的內容。
+        <!--Use the <code>&lt;kbd&gt;</code> to indicate input that is typically entered via keyboard.-->
+    </p>
+<div class="bs-example">
+  To switch directories, type <kbd>cd</kbd> followed by the name of the directory.<br>
+  To edit settings, press <kbd><kbd>ctrl</kbd> + <kbd>,</kbd></kbd>
+</div>
+<div class="highlight"><pre><code class="language-html" data-lang="html">To switch directories, type <span class="nt">&lt;kbd&gt;</span>cd<span class="nt">&lt;/kbd&gt;</span> followed by the name of the directory.<span class="nt">&lt;br&gt;</span>
+To edit settings, press <span class="nt">&lt;kbd&gt;&lt;kbd&gt;</span>ctrl<span class="nt">&lt;/kbd&gt;</span> + <span class="nt">&lt;kbd&gt;</span>,<span class="nt">&lt;/kbd&gt;&lt;/kbd&gt;</span></code></pre></div>
+
+  <h2 id="code-block">程式碼區塊<!--Basic block--></h2>
+    <p>
+        使用 <code>&lt;pre&gt;</code> 來呈現多行程式碼。為了能正確呈現，請務必將程式碼中的所有角括號進行轉義。
+        <!--Use <code>&lt;pre&gt;</code> for multiple lines of code. Be sure to escape any angle brackets in the code for proper rendering.-->
+    </p>
+<div class="bs-example">
+  <pre>&lt;p&gt;Sample text here...&lt;/p&gt;</pre>
+</div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;pre&gt;</span><span class="ni">&amp;lt;</span>p<span class="ni">&amp;gt;</span>Sample text here...<span class="ni">&amp;lt;</span>/p<span class="ni">&amp;gt;</span><span class="nt">&lt;/pre&gt;</span></code></pre></div>
+
+    <p>
+        你也選擇加入 <code>.pre-scrollable</code> 類別，它會把該區塊最大高度設置為 350px 且帶有一個滑動的 Y 軸。
+        <!--You may optionally add the <code>.pre-scrollable</code> class, which will set a max-height of 350px and provide a y-axis scrollbar.-->
+    </p>
+  <h2 id="code-variables">變數<!--Variables--></h2>
+    <p>
+        使用 <code>&lt;var&gt;</code> 標籤來指出這是一個變數。
+        <!--For indicating variables use the <code>&lt;var&gt;</code> tag.-->
+    </p>
+  <div class="bs-example">
+    <p><var>y</var> = <var>m</var><var>x</var> + <var>b</var></p>
+
+  </div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;var&gt;</span>y<span class="nt">&lt;/var&gt;</span> = <span class="nt">&lt;var&gt;</span>m<span class="nt">&lt;/var&gt;&lt;var&gt;</span>x<span class="nt">&lt;/var&gt;</span> + <span class="nt">&lt;var&gt;</span>b<span class="nt">&lt;/var&gt;</span></code></pre></div>
+
+  <h2 id="code-sample-output">範例輸出<!--Sample output--></h2>
+    <p>
+        使用 <code>&lt;samp&gt;</code> 來指出這個區塊是由程式所輸出的內容。
+        <!--For indicating blocks sample output from a program use the <code>&lt;samp&gt;</code> tag.-->
+    </p>
+  <div class="bs-example">
+    <p><samp>此行文字是要被視為由電腦程式所輸出的文字。<!--This text is meant to be treated as sample output from a computer program.--></samp></p>
+  </div>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;samp&gt;</span>此行文字是要被視為由電腦程式所輸出的文字。<!--This text is meant to be treated as sample output from a computer program.--><span class="nt">&lt;/samp&gt;</span></code></pre></div>
+</div>
+

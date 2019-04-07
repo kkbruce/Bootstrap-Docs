@@ -1,0 +1,58 @@
+﻿@{
+    ViewBag.Title = "元件 &middot; Bootstrap 3中文手冊";
+    ViewBag.DescriptionCSS = "Bootstrap 3簡潔，直覺，強大的行動設備優先前端框架，讓網頁開發更快速更簡單。";
+    ViewBag.Keywords = "HTML, CSS, JS, JavaScript, 框架, bootstrap 3, 前端, frontend, 網站開發";
+    Layout = "~/Views/Shared/_Bootstrap3.cshtml";
+
+    ViewBag.Domain = Request.Url.Scheme + System.Uri.SchemeDelimiter + Request.Url.Host + (Request.Url.IsDefaultPort ? "" : ":" + Request.Url.Port);
+    ViewBag.OgUrl = ViewBag.Domain + Url.Action("Components");
+}
+
+@section navbar
+{
+    @Html.Partial("_NavBarPartial")
+}
+
+@section footer
+{
+    @Html.Partial("_FooterPartial")
+}
+
+<div class="bs-docs-header" id="content">
+    <div class="container">
+        <h1>元件<!--Components--></h1>
+        <p>
+            超過數十個可重覆使用的元件建置，提供符號圖示（iconography）、下拉選單、input 群組、巡覽、警告視窗等許多功能。
+            <!--Over a dozen reusable components built to provide iconography, dropdowns, input groups, navigation, alerts, and much more.-->
+        </p>
+        @Html.Partial("_SkillTreeADPartial")
+    </div>
+</div>
+
+<div class="container bs-docs-container">
+    <div class="row">
+        <div class="col-md-9" role="main">
+            @Html.Partial("_Components_Glyphicons")
+            @Html.Partial("_Components_Dropdowns")
+            @Html.Partial("_Components_BtnGroups")
+            @Html.Partial("_Components_BtnDropdowns")
+            @Html.Partial("_Components_InputGroups")
+            @Html.Partial("_Components_Nav")
+            @Html.Partial("_Components_Navbar")
+            @Html.Partial("_Components_Breadcrumbs")
+            @Html.Partial("_Components_Pagination")
+            @Html.Partial("_Components_Labels")
+            @Html.Partial("_Components_Badges")
+            @Html.Partial("_Components_PageHeader")
+            @Html.Partial("_Components_Thumbnails")
+            @Html.Partial("_Components_Alerts")
+            @Html.Partial("_Components_Progress")
+            @Html.Partial("_Components_Media")
+            @Html.Partial("_Components_ListGroup")
+            @Html.Partial("_Components_Panels")
+            @Html.Partial("_Components_ResponsiveEmbed")
+            @Html.Partial("_Components_Wells")
+        </div>
+        @Html.Partial("_Components_SideNav")
+    </div>
+</div>

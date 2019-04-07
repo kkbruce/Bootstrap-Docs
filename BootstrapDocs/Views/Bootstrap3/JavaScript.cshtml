@@ -1,0 +1,51 @@
+﻿@{
+    ViewBag.Title = "JavaScript &middot; Bootstrap 3中文手冊";
+    ViewBag.Description = "Bootstrap 3簡潔，直覺，強大的行動設備優先前端框架，讓網頁開發更快速更簡單。";
+    ViewBag.Keywords = "HTML, CSS, JS, JavaScript, 框架, bootstrap 3, 前端, frontend, 網站開發";
+    Layout = "~/Views/Shared/_Bootstrap3.cshtml";
+
+    ViewBag.Domain = Request.Url.Scheme + System.Uri.SchemeDelimiter + Request.Url.Host + (Request.Url.IsDefaultPort ? "" : ":" + Request.Url.Port);
+    ViewBag.OgUrl = ViewBag.Domain + Url.Action("JavaScript");
+}
+
+@section navbar
+{
+    @Html.Partial("_NavBarPartial")
+}
+
+@section footer
+{
+    @Html.Partial("_FooterPartial")
+}
+
+<div class="bs-docs-header" id="content">
+    <div class="container">
+        <h1>JavaScript</h1>
+        <p>
+            內含 13 個 jQuery 外掛，它們賦予 Bootstrap 的元件生命。非常簡單地參考全部或各別使用。
+            <!--Bring Bootstrap's components to life with over a dozen custom jQuery plugins. Easily include them all, or one by one.-->
+        </p>
+        @Html.Partial("_SkillTreeADPartial")
+    </div>
+</div>
+
+<div class="container bs-docs-container">
+    <div class="row">
+        <div class="col-md-9" role="main">
+            @Html.Partial("_Javascript_Overview")
+            @Html.Partial("_Javascript_Transitions")
+            @Html.Partial("_Javascript_Modals")
+            @Html.Partial("_Javascript_Dropdowns")
+            @Html.Partial("_Javascript_Scrollspy")
+            @Html.Partial("_Javascript_Tabs")
+            @Html.Partial("_Javascript_Tooltips")
+            @Html.Partial("_Javascript_Popovers")
+            @Html.Partial("_Javascript_Alerts")
+            @Html.Partial("_Javascript_Buttons")
+            @Html.Partial("_Javascript_Collapse")
+            @Html.Partial("_Javascript_Carousel")
+            @Html.Partial("_Javascript_Affix")
+        </div>
+        @Html.Partial("_Javascript_SideNav")
+    </div>
+</div>

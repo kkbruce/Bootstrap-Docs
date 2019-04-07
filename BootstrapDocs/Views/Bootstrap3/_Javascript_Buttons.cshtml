@@ -1,0 +1,169 @@
+﻿<div class="bs-docs-section">
+  <h1 id="buttons" class="page-header">按鈕<!--Buttons--> <small>button.js</small></h1>
+
+    <p class="lead">
+        讓按鈕可以做更多事。控制按鈕的狀態或建立複合元件（像是工具列）的按鈕群組。
+        <!--Do more with buttons. Control button states or create groups of buttons for more components like toolbars.-->
+    </p>
+
+  <div class="bs-callout bs-callout-danger">
+    <h4>跨瀏覽器相容性<!--Cross-browser compatibility--></h4>
+      <p>
+          <a href="https://github.com/twbs/bootstrap/issues/793">Firefox 跨頁載入時保持禁用的狀態</a>。變通方案是在按鈕上使用 <code>autocomplete="off"</code>。細節可查看 <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=654072">Mozilla bug #654072</a>。
+          <!--<a href="https://github.com/twbs/bootstrap/issues/793">Firefox persists form control states (disabledness and checkedness) across page loads</a>. A workaround for this is to use <code>autocomplete="off"</code>. See <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=654072">Mozilla bug #654072</a>.-->
+      </p>
+  </div>
+
+  <h2 id="buttons-stateful">狀態<!--Stateful--></h2>
+    <p>
+        加入 <code>data-loading-text="Loading..."</code> 使按鈕呈現載入中的狀態。
+        <!--Add <code>data-loading-text="Loading..."</code> to use a loading state on a button.-->
+    </p>
+  <div class="bs-callout bs-callout-info">
+    <h4>無論你喜歡那種狀態！<!--Use whichever state you like!--></h4>
+      <p>
+          以下這個展示範例，我們使用 <code>data-loading-text</code> 和 <code>$().button('loading')</code>，但那不是你能使用狀態的唯一方式。<a href="#buttons-methods">閱讀後面關於 <code>$().button(string)</code> 文件以瞭解更多。</a>
+          <!--For the sake of this demonstration, we are using <code>data-loading-text</code> and <code>$().button('loading')</code>, but that's not the only state you can use. <a href="#buttons-methods">See more on this below in the <code>$().button(string)</code> documentation</a>.-->
+      </p>
+  </div>
+  <div class="bs-example">
+    <button type="button" id="loading-example-btn" data-loading-text="Loading..." class="btn btn-primary" autocomplete="off">
+      Loading state
+    </button>
+  </div><!-- /example -->
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">id=</span><span class="s">"myButton"</span> <span class="na">data-loading-text=</span><span class="s">"Loading..."</span> <span class="na">class=</span><span class="s">"btn btn-primary"</span> <span class="na">autocomplete=</span><span class="s">"off"</span><span class="nt">&gt;</span>
+  Loading state
+<span class="nt">&lt;/button&gt;</span>
+
+<span class="nt">&lt;script&gt;</span>
+  <span class="nx">$</span><span class="p">(</span><span class="s1">'#myButton'</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">$btn</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">button</span><span class="p">(</span><span class="s1">'loading'</span><span class="p">)</span>
+    <span class="c1">// business logic...</span>
+    <span class="nx">$btn</span><span class="p">.</span><span class="nx">button</span><span class="p">(</span><span class="s1">'reset'</span><span class="p">)</span>
+  <span class="p">})</span>
+<span class="nt">&lt;/script&gt;</span></code></pre></div>
+
+  <h2 id="buttons-single-toggle">單一切換<!--Single toggle--></h2>
+    <p>
+        加入 <code>data-toggle="button"</code> 啟用單一按鈕的切換。
+        <!--Add <code>data-toggle="button"</code> to activate toggling on a single button.-->
+    </p>
+  <div class="bs-callout bs-callout-warning">
+    <h4>預切換按鈕需要 <code>.active</code> 和 <code>aria-pressed="true"</code><!--Pre-toggled buttons need <code>.active</code> and <code>aria-pressed="true"</code>--></h4>
+      <p>
+          預切換的按鈕，你必須自己加入 <code>.active</code> 類別和 <code>aria-pressed="true"</code> 屬性到 <code>button</code> 裡。
+          <!--For pre-toggled buttons, you must add the <code>.active</code> class and the <code>aria-pressed="true"</code> attribute to the <code>button</code> yourself.-->
+      </p>
+  </div>
+  <div class="bs-example">
+    <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
+      Single toggle
+    </button>
+  </div><!-- /example -->
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-primary"</span> <span class="na">data-toggle=</span><span class="s">"button"</span> <span class="na">aria-pressed=</span><span class="s">"false"</span> <span class="na">autocomplete=</span><span class="s">"off"</span><span class="nt">&gt;</span>
+  Single toggle
+<span class="nt">&lt;/button&gt;</span></code></pre></div>
+
+  <div class="bs-callout bs-callout-warning">
+    <h4>譯者註</h4>
+    <p>想成一個開關，按第一下開、按第二下關。</p>
+  </div>    
+
+  <h2 id="buttons-checkbox-radio">Checkbox 與 Radio</h2>
+    <p>
+        將 <code>data-toggle="buttons"</code> 加入到包含 checkbox 或 radio 的 <code>.btn-group</code> 裡，它們會切換各自的樣式。
+        <!--Add <code>data-toggle="buttons"</code> to a <code>.btn-group</code> containing checkbox or radio inputs to enable toggling in their respective styles.-->
+    </p>
+  <div class="bs-callout bs-callout-warning">
+    <h4>預勾選選項需要 <code>.active</code><!--Preselected options need <code>.active</code>--></h4>
+      <p>
+          對於預先勾選選項，你必須自己加入 <code>.active</code> 類別到 <code>label</code> 元素中。
+          <!--For preselected options, you must add the <code>.active</code> class to the input's <code>label</code> yourself.-->
+      </p>
+  </div>
+  <div class="bs-callout bs-callout-warning">
+    <h4>視覺上的選取狀態，僅有在點擊時會更新<!--Visual checked state only updated on click--></h4>
+      <p>
+          如果一個 checkbox 按鈕的選取狀態在按鈕上沒有觸發 <code>click</code> 事件（例如，經由 <code>&lt;input type="reset"&gt;</code>或經由設定 input 元素的 checkbox 屬性），你必須手動在 <code>input</code> 元素 <code>label</code> 切換 <code>.active</code> 類別。
+          <!--If the checked state of a checkbox button is updated without firing a <code>click</code> event on the button (e.g. via <code>&lt;input type="reset"&gt;</code> or via setting the <code>checked</code> property of the input), you will need to toggle the <code>.active</code> class on the input's <code>label</code> yourself.-->
+      </p>
+  </div>
+  <div class="bs-example">
+    <div class="btn-group" data-toggle="buttons">
+      <label class="btn btn-primary active">
+        <input type="checkbox" checked autocomplete="off"> Checkbox 1 (pre-checked)
+      </label>
+      <label class="btn btn-primary">
+        <input type="checkbox" autocomplete="off"> Checkbox 2
+      </label>
+      <label class="btn btn-primary">
+        <input type="checkbox" autocomplete="off"> Checkbox 3
+      </label>
+    </div>
+  </div><!-- /example -->
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"btn-group"</span> <span class="na">data-toggle=</span><span class="s">"buttons"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"btn btn-primary active"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">autocomplete=</span><span class="s">"off"</span> <span class="na">checked</span><span class="nt">&gt;</span> Checkbox 1 (pre-checked)
+  <span class="nt">&lt;/label&gt;</span>
+  <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"btn btn-primary"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">autocomplete=</span><span class="s">"off"</span><span class="nt">&gt;</span> Checkbox 2
+  <span class="nt">&lt;/label&gt;</span>
+  <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"btn btn-primary"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">autocomplete=</span><span class="s">"off"</span><span class="nt">&gt;</span> Checkbox 3
+  <span class="nt">&lt;/label&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></div>
+
+  <div class="bs-example">
+    <div class="btn-group" data-toggle="buttons">
+      <label class="btn btn-primary active">
+        <input type="radio" name="options" id="option1" autocomplete="off" checked> Radio 1 (preselected)
+      </label>
+      <label class="btn btn-primary">
+        <input type="radio" name="options" id="option2" autocomplete="off"> Radio 2
+      </label>
+      <label class="btn btn-primary">
+        <input type="radio" name="options" id="option3" autocomplete="off"> Radio 3
+      </label>
+    </div>
+  </div><!-- /example -->
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"btn-group"</span> <span class="na">data-toggle=</span><span class="s">"buttons"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"btn btn-primary active"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"radio"</span> <span class="na">name=</span><span class="s">"options"</span> <span class="na">id=</span><span class="s">"option1"</span> <span class="na">autocomplete=</span><span class="s">"off"</span> <span class="na">checked</span><span class="nt">&gt;</span> Radio 1 (preselected)
+  <span class="nt">&lt;/label&gt;</span>
+  <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"btn btn-primary"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"radio"</span> <span class="na">name=</span><span class="s">"options"</span> <span class="na">id=</span><span class="s">"option2"</span> <span class="na">autocomplete=</span><span class="s">"off"</span><span class="nt">&gt;</span> Radio 2
+  <span class="nt">&lt;/label&gt;</span>
+  <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"btn btn-primary"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"radio"</span> <span class="na">name=</span><span class="s">"options"</span> <span class="na">id=</span><span class="s">"option3"</span> <span class="na">autocomplete=</span><span class="s">"off"</span><span class="nt">&gt;</span> Radio 3
+  <span class="nt">&lt;/label&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></div>
+
+  <h2 id="buttons-methods">方法<!--Methods--></h2>
+
+  <h4>$().button('toggle')</h4>
+    <p>
+        切換按下的狀態。賦予按鈕被啟用時應有的外觀樣式。
+        <!--Toggles push state. Gives the button the appearance that it has been activated.-->
+    </p>
+
+  <h4>$().button('reset')</h4>
+    <p>
+        重新設置按鈕狀態 - 這會還原按鈕文字。
+        <!--Resets button state - swaps text to original text.-->
+    </p>
+
+  <h4>$().button(string)</h4>
+    <p>
+        這會將按鈕文字更改為 <code>data-</code> 定義的文字。
+        <!--Swaps text to any data defined text state.-->
+    </p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">id=</span><span class="s">"myStateButton"</span> <span class="na">data-complete-text=</span><span class="s">"finished!"</span> <span class="na">class=</span><span class="s">"btn btn-primary"</span> <span class="na">autocomplete=</span><span class="s">"off"</span><span class="nt">&gt;</span>
+  ...
+<span class="nt">&lt;/button&gt;</span>
+
+<span class="nt">&lt;script&gt;</span>
+  <span class="nx">$</span><span class="p">(</span><span class="s1">'#myStateButton'</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">button</span><span class="p">(</span><span class="s1">'complete'</span><span class="p">)</span> <span class="c1">// button text will be "finished!"</span>
+  <span class="p">})</span>
+<span class="nt">&lt;/script&gt;</span></code></pre></div>
+</div>

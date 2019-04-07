@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+
+<html lang="zh-Hant">
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="@ViewBag.Description">
+    <meta name="keywords" content="@ViewBag.Keywords">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="author" content="陳傳興, Bruce">
+    <meta name="generator" content="Visual Studio" />
+
+    <title>@ViewBag.Title - Bootstrap 2中文教學 - KKBruce</title>
+
+    @* http://ogp.me/ *@
+    <meta property="og:title" content="@ViewBag.Title - BootStrap 2正體中文" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="@ViewBag.OgUrl" />
+    <meta property="og:image" content="http://kkbruce.tw/Images/Books/ISBN-9789862766569-480x650.jpg" />
+    <meta property="og:description" content="@ViewBag.Description" />
+
+    @RenderSection("OtherMeta", required: false)
+
+    <!-- Bootstrap Style -->
+    @*@Styles.Render("~/Content/BS2/css")*@
+    <link href="~/Content/BS2/BS2CSS.min.css?kkbruce=20151290847" rel="stylesheet" />
+
+    <!-- Use HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="~/Scripts/BS2/html5shiv.js"></script>
+    <![endif]-->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="~/Images/BS2/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="~/Images/BS2/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="~/Images/BS2/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="~/Images/BS2/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="~/Images/BS2/ico/favicon.png">
+</head>
+<body>
+    @* 巡覽列 *@
+    @RenderSection("navbar", required: false)
+
+    @RenderBody()
+
+    @*Footer*@
+    <footer class="footer">
+        <div class="container">
+            <p>
+                因為有世界大愛由 <a href="http://twitter.com/mdo" target="_blank">@@mdo</a> 和 <a href="http://twitter.com/fat" target="_blank">@@fat</a> 設計與建置，並由 <a href="https://blog.kkbruce.net" rel="author" target="_blank">陳傳興</a> 翻譯。
+            </p>
+            <p>
+                程式碼依 <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache License v2.0</a> 授權，英文文件依 <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a> 授權發佈。
+            </p>
+            <p>
+                <a href="http://glyphicons.com">Glyphicons Free</a> 依 <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a> 授權使用。
+            </p>
+            <ul class="footer-links">
+                <li class="muted">&middot;</li>
+                <li><a href="http://blog.getbootstrap.com">Blog</a></li>
+                <li class="muted">&middot;</li>
+                <li><a href="https://github.com/twitter/bootstrap/issues?state=open">Issues</a></li>
+                <li class="muted">&middot;</li>
+                <li><a href="https://github.com/twitter/bootstrap/blob/master/CHANGELOG.md">Changelog</a></li>
+                <li class="muted">&middot;</li>
+                <li>@Html.ActionLink("v3.3.1", "index", "Bootstrap3")</li>
+            </ul>
+
+            <script src="//platform.twitter.com/widgets.js" async defer></script>
+
+            @* 載入 jQuery & Bootstrap 2 Core JavaScript *@
+            <script src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+            <script src="~/Scripts/BS2/BS2JS.min.js?kkbruce=201501131039"></script>
+            
+            @RenderSection("scripts", required: false)
+
+            <script>
+                // Google Analytics
+            </script>
+        </div>
+    </footer>
+</body>
+</html>
